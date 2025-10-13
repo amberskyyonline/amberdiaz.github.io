@@ -15,17 +15,17 @@ body {
   overflow: hidden;
 }
 
-/* --- Container to center the image --- */
+/* --- Center the image --- */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* --- Pulse animation --- */
+/* --- Softer pulse animation --- */
 .pulsing-image {
-  width: 400px; /* adjust this as needed */
-  animation: pulse 6s ease-in-out infinite;
+  width: 200px; /* smaller size */
+  animation: pulse 8s ease-in-out infinite;
   transform-origin: center;
 }
 
@@ -35,7 +35,7 @@ body {
     filter: brightness(1);
   }
   50% {
-    transform: scale(1.05);
-    filter: brightness(1.15);
+    transform: scale(1.02);
+    filter: brightness(1.1);
   }
 }
