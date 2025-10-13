@@ -1,40 +1,41 @@
-/* --- Reset --- */
+/* --- Reset & layout --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- Fullscreen black background --- */
 body {
   height: 100vh;
   width: 100%;
-  background-color: #000000;
+  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* --- Center container --- */
+/* --- Container to center the image --- */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* --- Floating image animation --- */
-.floating-image {
-  width: 400px; /* adjust to your image size */
-  animation: float 6s ease-in-out infinite;
+/* --- Pulse animation --- */
+.pulsing-image {
+  width: 400px; /* adjust this as needed */
+  animation: pulse 6s ease-in-out infinite;
+  transform-origin: center;
 }
 
-@keyframes float {
+@keyframes pulse {
   0%, 100% {
-    transform: translateY(0px);
+    transform: scale(1);
+    filter: brightness(1);
   }
   50% {
-    transform: translateY(-25px);
+    transform: scale(1.05);
+    filter: brightness(1.15);
   }
 }
-
