@@ -1,41 +1,93 @@
-/* --- Reset & layout --- */
+/* --- Reset --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* --- Global --- */
 body {
-  height: 100vh;
-  width: 100%;
   background-color: #000;
+  color: #fff;
+  font-family: 'Andale Mono', monospace;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* --- Center the image --- */
+/* --- Navigation --- */
+nav {
+  width: 100%;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* --- Center image --- */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 80vh;
 }
 
-/* --- Softer pulse animation --- */
 .pulsing-image {
-  width: 200px; /* smaller size */
+  width: 200px;
   animation: pulse 8s ease-in-out infinite;
   transform-origin: center;
 }
 
 @keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    filter: brightness(1);
-  }
-  50% {
-    transform: scale(1.02);
-    filter: brightness(1.1);
-  }
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.02); filter: brightness(1.1); }
+}
+
+/* --- About section --- */
+#about {
+  max-width: 600px;
+  text-align: center;
+  padding: 60px 20px 100px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+#about h2 {
+  margin-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* --- Footer --- */
+footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
 }
