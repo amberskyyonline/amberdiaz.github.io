@@ -43,20 +43,6 @@ body {
   50% { transform: scale(1.02); filter: brightness(1.1); }
 }
 
-/* --- Nav (under image) --- */
-nav a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 13px;
-  text-transform: lowercase;
-  letter-spacing: 1px;
-  transition: opacity 0.3s ease;
-  opacity: 0.8;
-}
-
-nav a:hover {
-  opacity: 1;
-}
 
 /* --- About Section --- */
 #about {
