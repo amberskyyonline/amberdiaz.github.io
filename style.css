@@ -33,7 +33,7 @@ body {
 
 /* --- Image --- */
 .pulsing-image {
-  width: 180px;
+  width: 500px;
   animation: pulse 8s ease-in-out infinite;
   transform-origin: center;
 }
