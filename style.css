@@ -28,7 +28,7 @@ body{
     background:
     radial-gradient(circle at center,
     rgba(255,255,255,.4),
-    transparent 70%);
+    transparent 0%);
 }
 
 /* Logo */
