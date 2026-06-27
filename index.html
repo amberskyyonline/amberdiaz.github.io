@@ -1,76 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Amber Diaz</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:#F0EAD6;
+
+    font-family:Helvetica,Arial,sans-serif;
+
+    overflow:hidden;
+
+}
+
+#container{
+
+    text-align:center;
+
+}
+
+#logo{
+
+    width:min(500px,90vw);
+
+    image-rendering:pixelated;
+
+    margin-bottom:40px;
+
+}
+
+h1{
+
+    font-size:1.3rem;
+
+    font-weight:400;
+
+    margin-bottom:15px;
+
+    letter-spacing:.05em;
+
+}
+
+p{
+
+    font-size:.95rem;
+
+    color:#555;
+
+    margin-bottom:35px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+button{
+
+    padding:15px 45px;
+
+    border:3px solid #111;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-family:Courier New, monospace;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:black;
+
+    color:white;
+
+}
+
+#message{
+
+    margin-top:35px;
+
+    font-size:.9rem;
+
+    color:#666;
+
+    min-height:25px;
+
+    letter-spacing:.05em;
+
+}
+
+#loading{
+
+    display:none;
+
+    margin-top:40px;
+
+}
+
+.bar{
+
+    width:320px;
+
+    height:18px;
+
+    border:2px solid black;
+
+    margin:auto;
+
+}
+
+.fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:black;
+
+}
+
+.loading-text{
+
+    margin-top:12px;
+
+    font-family:Courier New, monospace;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<!-- Background -->
+<div id="container">
 
-<div id="background"></div>
+<img src="copyright1.gif" id="logo">
 
-<!-- Logo -->
+<h1>Do you promise not to copy?</h1>
 
-<div id="logo">
+<p>
+This portfolio contains years of work, ideas, and experiments.
+</p>
 
-    <img src="copyright1.gif" alt="Amber Diaz">
+<div class="buttons">
 
-</div>
+<button id="yes">
+YES I PROMISE
+</button>
 
-<!-- Floating Objects -->
-
-<div id="screensaver">
-
-    <a href="Mo0veez.html" class="floating" id="Mo0veez">
-        <img src="camcorder.png" alt="Mo0veez">
-    </a>
-
-    <a href="websites.html" class="floating" id="computer">
-        <img src="images/computer.png" alt="Websites">
-    </a>
-
-    <a href="photography.html" class="floating" id="35mm">
-        <img src="35mm.png" alt="Photography">
-    </a>
-
-    <a href="writing.html" class="floating" id="notebook">
-        <img src="images/notebook.png" alt="Writing">
-    </a>
-
-    <a href="branding.html" class="floating" id="shirt">
-        <img src="images/shirt.png" alt="Creative Direction">
-    </a>
-
-    <a href="archive.html" class="floating" id="floppy">
-        <img src="images/floppy.png" alt="Archive">
-    </a>
+<button id="no">
+...No
+</button>
 
 </div>
 
-<!-- Corner Info -->
+<div id="message"></div>
 
-<div id="info">
+<div id="loading">
 
-    <p>Creative Director</p>
-    <p>New York</p>
-    <p>2026</p>
+<div class="bar">
+
+<div class="fill"></div>
 
 </div>
 
-<!-- Hidden loading sound later if you want -->
+<div class="loading-text">
 
-<audio id="boot">
-    <source src="audio/macintosh.mp3" type="audio/mpeg">
-</audio>
+Verifying...
 
-<script src="script.js"></script>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const no=document.getElementById("no");
+
+const yes=document.getElementById("yes");
+
+const message=document.getElementById("message");
+
+const loading=document.getElementById("loading");
+
+const fill=document.querySelector(".fill");
+
+const loadingText=document.querySelector(".loading-text");
+
+const responses=[
+
+"be serious 😭",
+
+"nah",
+
+"u lyin",
+
+"wrong answer",
+
+"don't do me like that",
+
+"try again",
+
+"😭"
+
+];
+
+let count=0;
+
+no.addEventListener("mouseover",()=>{
+
+    no.style.position="absolute";
+
+    no.style.left=Math.random()*(window.innerWidth-160)+"px";
+
+    no.style.top=Math.random()*(window.innerHeight-70)+"px";
+
+    message.textContent=responses[count%responses.length];
+
+    count++;
+
+});
+
+yes.addEventListener("click",()=>{
+
+document.querySelector(".buttons").style.display="none";
+
+message.style.display="none";
+
+loading.style.display="block";
+
+let percent=0;
+
+const interval=setInterval(()=>{
+
+percent+=2;
+
+fill.style.width=percent+"%";
+
+if(percent<30){
+
+loadingText.textContent="Checking plagiarism history...";
+
+}
+
+else if(percent<60){
+
+loadingText.textContent="Scanning internet archives...";
+
+}
+
+else if(percent<90){
+
+loadingText.textContent="Looking for suspicious behavior...";
+
+}
+
+else{
+
+loadingText.textContent="You're probably cool.";
+
+}
+
+if(percent>=100){
+
+clearInterval(interval);
+
+loadingText.textContent="Entering Portfolio...";
+
+setTimeout(()=>{
+
+window.location.href="profile.html";
+
+},1200);
+
+}
+
+},40);
+
+});
+
+</script>
 
 </body>
+
 </html>
