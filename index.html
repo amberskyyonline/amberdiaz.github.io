@@ -4,164 +4,351 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Welcome</title>
+<title>Amber Diaz</title>
+
+<link rel="icon" href="tabicon.png">
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* =========================
+   PAGE
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
-body{
-    width:100%;
-    height:100%;
+body {
+    width: 100%;
+    height: 100%;
 }
 
-body{
+body {
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+    background: #6f7045;
 
-    background:#F0EAD6;
+    font-family: Arial, Helvetica, sans-serif;
 
-    font-family:Helvetica,Arial,sans-serif;
-
-    overflow:hidden;
+    overflow: hidden;
 
 }
 
-#container{
 
-    text-align:center;
+/* =========================
+   BACKGROUND
+   ========================= */
 
-}
+#background {
 
-#logo{
+    position: fixed;
 
-    width:min(500px,90vw);
+    inset: 0;
 
-    image-rendering:pixelated;
-
-    margin-bottom:40px;
-
-}
-
-h1{
-
-    font-size:1.3rem;
-
-    font-weight:400;
-
-    margin-bottom:15px;
-
-    letter-spacing:.05em;
+    z-index: 0;
 
 }
 
-p{
 
-    font-size:.95rem;
+/* =========================
+   LOW POLY AMBER
+   ========================= */
 
-    color:#555;
+.amber-character {
 
-    margin-bottom:35px;
+    position: absolute;
 
-}
+    left: 50%;
 
-.buttons{
+    bottom: 30px;
 
-    display:flex;
+    transform: translateX(-50%);
 
-    justify-content:center;
+    width: 260px;
 
-    gap:20px;
+    cursor: pointer;
 
-    flex-wrap:wrap;
+    z-index: 50;
 
-}
+    user-select: none;
 
-button{
-
-    padding:15px 45px;
-
-    border:3px solid #111;
-
-    background:white;
-
-    cursor:pointer;
-
-    font-size:1rem;
-
-    font-family:Courier New, monospace;
-
-    transition:.25s;
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
 
 }
 
-button:hover{
 
-    background:black;
+.amber-character img {
 
-    color:white;
+    display: block;
 
-}
+    width: 100%;
 
-#message{
+    height: auto;
 
-    margin-top:35px;
-
-    font-size:.9rem;
-
-    color:#666;
-
-    min-height:25px;
-
-    letter-spacing:.05em;
+    pointer-events: none;
 
 }
 
-#loading{
 
-    display:none;
+/* Hover */
 
-    margin-top:40px;
+.amber-character:hover {
 
-}
-
-.bar{
-
-    width:320px;
-
-    height:18px;
-
-    border:2px solid black;
-
-    margin:auto;
+    transform:
+        translateX(-50%)
+        scale(1.04);
 
 }
 
-.fill{
 
-    width:0%;
+/* =========================
+   CLICK / TAZE ANIMATION
+   ========================= */
 
-    height:100%;
+.amber-character.tazed {
 
-    background:black;
+    animation:
+        amberShake
+        0.45s
+        steps(2, end);
 
 }
 
-.loading-text{
 
-    margin-top:12px;
+.amber-character.tazed img {
 
-    font-family:Courier New, monospace;
+    animation:
+        amberGlitch
+        0.45s
+        steps(2, end);
+
+}
+
+
+/* Shake */
+
+@keyframes amberShake {
+
+    0% {
+
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+
+    }
+
+    15% {
+
+        transform:
+            translateX(calc(-50% - 7px))
+            rotate(-2deg);
+
+    }
+
+    30% {
+
+        transform:
+            translateX(calc(-50% + 8px))
+            rotate(2deg);
+
+    }
+
+    45% {
+
+        transform:
+            translateX(calc(-50% - 6px))
+            rotate(-2deg);
+
+    }
+
+    60% {
+
+        transform:
+            translateX(calc(-50% + 6px))
+            rotate(2deg);
+
+    }
+
+    75% {
+
+        transform:
+            translateX(calc(-50% - 3px))
+            rotate(-1deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* Glitch */
+
+@keyframes amberGlitch {
+
+    0% {
+
+        filter: none;
+
+    }
+
+    20% {
+
+        filter:
+            contrast(1.4)
+            saturate(1.5);
+
+    }
+
+    40% {
+
+        filter:
+            hue-rotate(25deg)
+            contrast(1.3);
+
+    }
+
+    60% {
+
+        filter:
+            brightness(1.3)
+            contrast(1.5);
+
+    }
+
+    80% {
+
+        filter:
+            hue-rotate(-20deg);
+
+    }
+
+    100% {
+
+        filter: none;
+
+    }
+
+}
+
+
+/* =========================
+   SPEECH BUBBLE
+   ========================= */
+
+.speech-bubble {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -45px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    background: white;
+
+    color: black;
+
+    border: 2px solid black;
+
+    padding: 7px 12px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    z-index: 10;
+
+    opacity: 0;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+
+}
+
+
+/* Speech bubble tail */
+
+.speech-bubble::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -8px;
+
+    width: 12px;
+
+    height: 12px;
+
+    background: white;
+
+    border-right: 2px solid black;
+
+    border-bottom: 2px solid black;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+}
+
+
+/* Show bubble */
+
+.amber-character.talking .speech-bubble {
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+    opacity: 1;
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media screen and (max-width: 700px) {
+
+    .amber-character {
+
+        width: 190px;
+
+        bottom: 20px;
+
+    }
+
+    .speech-bubble {
+
+        font-size: 11px;
+
+    }
 
 }
 
@@ -169,157 +356,183 @@ button:hover{
 
 </head>
 
+
 <body>
 
-<div id="container">
 
-<img src="copyright1.gif" id="logo">
+<!-- =========================
+     BACKGROUND
+     ========================= -->
 
-<h1>Do you promise not to copy?</h1>
+<div id="background"></div>
 
-<p>
-This portfolio contains years of work, ideas, and experiments.
-</p>
 
-<div class="buttons">
+<!-- =========================
+     LOW POLY AMBER
+     ========================= -->
 
-<button id="yes">
-YES I PROMISE
-</button>
+<div
+    class="amber-character"
+    id="amberCharacter"
+>
 
-<button id="no">
-...No
-</button>
+    <div
+        class="speech-bubble"
+        id="speechBubble"
+    ></div>
 
-</div>
-
-<div id="message"></div>
-
-<div id="loading">
-
-<div class="bar">
-
-<div class="fill"></div>
+    <img
+        src="amber-lowpoly.png"
+        alt="Amber"
+    >
 
 </div>
 
-<div class="loading-text">
 
-Verifying...
+<!-- =========================
+     DON'T TAZE ME BRO SOUND
+     ========================= -->
 
-</div>
+<audio
+    id="tazeSound"
+    preload="auto"
+>
 
-</div>
+    <source
+        src="dont-taze-me-bro.mp3"
+        type="audio/mpeg"
+    >
 
-</div>
+</audio>
+
 
 <script>
 
-const no=document.getElementById("no");
+/* =========================
+   AMBER
+   ========================= */
 
-const yes=document.getElementById("yes");
+const amber =
+    document.getElementById("amberCharacter");
 
-const message=document.getElementById("message");
+const sound =
+    document.getElementById("tazeSound");
 
-const loading=document.getElementById("loading");
+const speech =
+    document.getElementById("speechBubble");
 
-const fill=document.querySelector(".fill");
 
-const loadingText=document.querySelector(".loading-text");
+/* =========================
+   RANDOM THINGS AMBER CAN SAY
+   ========================= */
 
-const responses=[
+const messages = [
 
-"You Dead ass?",
+    "yo",
 
-"Nah",
+    "why u clicking me",
 
-"Aigh stop playing",
+    "HELLO????",
 
-"Wrong answer",
+    "don't touch me",
 
-"Don't do me like that",
+    "wassup",
 
-"Try again",
+    "u found me",
 
-"😭"
+    "girl...",
+
+    "STOP 😭",
+
+    "what do u want",
+
+    "not again",
+
+    "leave me alone",
+
+    "lmao",
+
+    "ayo",
+
+    "who told u to click me"
 
 ];
 
-let count=0;
 
-no.addEventListener("mouseover",()=>{
+/* =========================
+   CLICK AMBER
+   ========================= */
 
-    no.style.position="absolute";
+amber.addEventListener("click", function () {
 
-    no.style.left=Math.random()*(window.innerWidth-160)+"px";
 
-    no.style.top=Math.random()*(window.innerHeight-70)+"px";
+    /* Pick random message */
 
-    message.textContent=responses[count%responses.length];
+    const randomMessage =
+        messages[
+            Math.floor(
+                Math.random() * messages.length
+            )
+        ];
 
-    count++;
 
-});
+    speech.textContent =
+        randomMessage;
 
-yes.addEventListener("click",()=>{
 
-document.querySelector(".buttons").style.display="none";
+    /* Reset animation */
 
-message.style.display="none";
+    amber.classList.remove("tazed");
 
-loading.style.display="block";
+    amber.classList.remove("talking");
 
-let percent=0;
 
-const interval=setInterval(()=>{
+    /*
+       Forces the browser to
+       restart the animation.
+    */
 
-percent+=2;
+    void amber.offsetWidth;
 
-fill.style.width=percent+"%";
 
-if(percent<30){
+    /* Start animation */
 
-loadingText.textContent="Checking plagiarism history...";
+    amber.classList.add("tazed");
 
-}
+    amber.classList.add("talking");
 
-else if(percent<60){
 
-loadingText.textContent="Scanning internet archives...";
+    /* =========================
+       PLAY SOUND
+       ========================= */
 
-}
+    sound.currentTime = 0;
 
-else if(percent<90){
+    sound.play().catch(function(error) {
 
-loadingText.textContent="Looking for suspicious behavior...";
+        console.log(
+            "Audio could not play:",
+            error
+        );
 
-}
+    });
 
-else{
 
-loadingText.textContent="You're probably cool.";
+    /* =========================
+       HIDE SPEECH BUBBLE
+       ========================= */
 
-}
+    setTimeout(function() {
 
-if(percent>=100){
+        amber.classList.remove("talking");
 
-clearInterval(interval);
+    }, 1800);
 
-loadingText.textContent="Entering Portfolio...";
-
-setTimeout(()=>{
-
-window.location.href="Profile.html";
-
-},1200);
-
-}
-
-},40);
 
 });
 
 </script>
+
 
 </body>
 
