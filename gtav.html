@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTAONLINE SITUATIONS</title>
+    <link rel="icon" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: #6c6b3f;
+            font-family: Verdana, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 10px 0;
+        }
+
+        .logo-container {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+            z-index: 10;
+        }
+
+        .main-logo {
+            max-width: 140px;
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.15));
+        }
+
+        .wrapper {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            width: 380px;
+            height: 260px;
+            background: white;
+            border: 2px solid black;
+            padding: 10px;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 1px solid black;
+        }
+
+        .slide-counter {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 0.15em;
+            color: black;
+        }
+
+        /* Navigation Buttons */
+        .slide-nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .retro-btn {
+            background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #b5b5b5 100%);
+            border: 2px solid #ffffff;
+            border-right-color: #777777;
+            border-bottom-color: #777777;
+            padding: 6px 16px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: monospace;
+            cursor: pointer;
+            box-shadow: inset 1px 1px 1px #fff;
+            user-select: none;
+        }
+
+        .retro-btn:active {
+            border: 2px solid #777777;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        .back-link {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+            background: #ffffff;
+            border: 2px solid black;
+            padding: 6px 14px;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+            transition: .18s;
+        }
+
+        .back-link:hover {
+            background: black;
+            color: white;
+        }
+
+        .footer {
+            margin-top: 10px;
+            font-size: .75rem;
+            letter-spacing: .2em;
+            color: #000000;
+            font-weight: bold;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Logo Container -->
+    <div class="logo-container">
+        <a href="index.html">
+            <img src="22.png" alt="Skyytopia Logo" class="main-logo">
+        </a>
+    </div>
+
+    <div class="wrapper">
+        <!-- Slideshow Box -->
+        <div class="slideshow-container">
+            <img id="slideImage" class="slide-img" src="" alt="Slideshow Image">
+            <div class="slide-counter" id="slideCounter">1 / 115</div>
+        </div>
+
+        <!-- Controls -->
+        <div class="slide-nav">
+            <div class="retro-btn" onclick="prevSlide()">« PREV</div>
+            <div class="retro-btn" onclick="nextSlide()">NEXT »</div>
+        </div>
+
+        <a class="back-link" href="index.html">« BACK HOME</a>
+
+        <div class="footer">
+            © 2026 • SKYYUTOPIA GALLERY
+        </div>
+    </div>
+
+    <script>
+        // Exact array populated with all 115 image file names provided
+        const images = [
+            "2011.jpg", "5.jpg", "Samaustindrive.jpg", "Strawberry.jpg", "ammo.jpg", "arcade.jpg", 
+            "bankroll.jpg", "batmobile.jpg", "beachlady.jpg", "bed.jpg", "bennyss.jpg", "biggiebobble.jpg", 
+            "biig.jpg", "blonded.jpg", "bloodmoney.jpg", "bullet2dadome.jpg", "bumfights.jpg", "bumfights2.jpg", 
+            "bytch.jpg", "cashmoney.jpg", "casino.jpg", "chauffered.jpg", "cherry.jpg", "chop.jpg", 
+            "clubbathroom.jpg", "clubbathroom2.jpg", "collectorsitems.jpg", "comeandtakeit.jpg", "copshot.jpg", 
+            "crashout.jpg", "dad.jpg", "dad2.jpg", "dahills.jpg", "damnnn.jpg", "dinohotsog.jpg", 
+            "dontworryitsfake.jpg", "dragqweenz.jpg", "facial.jpg", "fishy.jpg", "flag.jpg", 
+            "freshbraids.jpg", "fuku2.jpg", "gassed.jpg", "getabrian.jpg", "h0t.jpg", "hardlyworking.jpg", 
+            "hell.jpg", "hornygirls.jpg", "hornygirlsisland.jpg", "huh.jpg", "inanet.jpg", "indaclub.jpg", 
+            "indaclubtrippin.jpg", "interior.jpg", "interior2.jpg", "interior3.jpg", "job.jpg", "karin.jpg", 
+            "killshot.jpg", "kindafood.jpg", "limo.jpg", "livinlife.jpg", "lost.jpg", "lux.jpg", 
+            "monkey.jpg", "monstertruck.jpg", "moon.jpg", "morning.jpg", "mywhitehomie.jpg", "ok.jpg", 
+            "omg.jpg", "p0rncrakkkers.jpg", "palmlove.jpg", "paradise.jpg", "paradise2.jpg", "paradise3.jpg", 
+            "paradise4.jpg", "passdat.jpg", "poppinbigbottles.jpg", "pour1out.jpg", "priorities.jpg", 
+            "propaganda.jpg", "pumpkins.jpg", "reallynigga.jpg", "rip.jpg", "salty.jpg", "scary.jpg", 
+            "selfy.jpg", "shoot4dastarz.jpg", "skyline.jpg", "smilenigga.jpg", "store.jpg", "stripclub.jpg", 
+            "sunset.jpg", "sunset2.jpg", "sunset3.jpg", "sure.jpg", "tat2.jpg", "throwup.jpg", 
+            "throwup2.jpg", "tunnel.jpg", "unit.jpg", "unkdown.jpg", "unkshot.jpg", "vanillalatte.jpg", 
+            "vespucci.jpg", "views.jpg", "viewz.jpg", "waschillin.jpg", "watchinu.jpg", "watchme.jpg", 
+            "whip.jpg", "word.jpg", "workinhard.jpg", "yeahbuddy.jpg"
+        ];
+
+        const totalImages = images.length;
+        let currentSlide = 0;
+
+        const slideImage = document.getElementById('slideImage');
+        const slideCounter = document.getElementById('slideCounter');
+
+        function updateSlide() {
+            slideImage.src = images[currentSlide];
+            slideCounter.textContent = `${currentSlide + 1} / ${totalImages}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalImages;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalImages) % totalImages;
+            updateSlide();
+        }
+
+        // Initialize first slide
+        updateSlide();
+    </script>
+</body>
+</html>
