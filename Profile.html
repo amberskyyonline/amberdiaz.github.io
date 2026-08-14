@@ -4,323 +4,216 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Skyytopia</title>
+<title>Amber Diaz // Profile</title>
 
-<link rel="icon" href="favicon.png">
+<link rel="icon" href="tabicon.png">
 
 <style>
 
-/* =========================================================
-   OLD INTERNET PROFILE
-   ========================================================= */
+/* =========================================
+   OLD PERSONAL WEBSITE
+   ========================================= */
 
 * {
     box-sizing: border-box;
 }
 
-html,
 body {
     margin: 0;
     padding: 0;
-    min-height: 100%;
-}
 
-body {
-
-    background: #d8d6c4;
+    background:
+        #d8d3bd;
 
     color: #222;
 
     font-family:
-        "Times New Roman",
-        Times,
-        serif;
+        Arial,
+        Helvetica,
+        sans-serif;
 
     font-size: 13px;
-
 }
 
 
-/* =========================================================
-   TOP BAR
-   ========================================================= */
+/* =========================================
+   MAIN SITE
+   ========================================= */
 
-.topbar {
+#site {
+    width: 760px;
 
-    width: 100%;
+    margin: 20px auto;
+
+    background: #eeeeee;
+
+    border: 2px solid #333;
+
+    box-shadow:
+        4px 4px 0 #888;
+}
+
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+#header {
 
     background: #111;
 
     color: white;
 
-    border-bottom: 3px solid #777;
+    padding: 10px;
 
-    padding: 5px 8px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
+    border-bottom: 3px solid #666;
 }
 
-.topbar a {
-
-    color: white;
-
-    text-decoration: none;
-
-    margin-right: 15px;
-
-}
-
-.topbar a:hover {
-
-    text-decoration: underline;
-
-}
-
-
-/* =========================================================
-   MAIN PAGE
-   ========================================================= */
-
-#page {
-
-    width: 900px;
-
-    max-width: 95%;
-
-    margin: 15px auto 50px auto;
-
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header {
-
-    background: #eeeeee;
-
-    border: 1px solid #555;
-
-    padding: 8px 10px;
-
-    margin-bottom: 8px;
-
-}
-
-.header h1 {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 25px;
-
-    font-weight: normal;
+#header h1 {
 
     margin: 0;
 
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    letter-spacing: -1px;
 }
 
-.header p {
+#header small {
 
-    margin: 3px 0 0 0;
+    color: #aaa;
 
-    font-size: 12px;
-
-}
-
-
-/* =========================================================
-   TWO COLUMN LAYOUT
-   ========================================================= */
-
-.layout {
-
-    display: grid;
-
-    grid-template-columns:
-        260px
-        1fr;
-
-    gap: 8px;
-
+    font-size: 11px;
 }
 
 
-/* =========================================================
+/* =========================================
+   NAV
+   ========================================= */
+
+#nav {
+
+    background: #cccccc;
+
+    border-bottom: 2px solid #555;
+
+    padding: 5px;
+
+    text-align: center;
+}
+
+#nav a {
+
+    color: #0000cc;
+
+    font-weight: bold;
+
+    text-decoration: underline;
+
+    margin: 0 10px;
+}
+
+#nav a:hover {
+
+    color: #ff0000;
+
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+#content {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 10px;
+}
+
+
+/* =========================================
+   LEFT COLUMN
+   ========================================= */
+
+#left {
+
+    width: 200px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   RIGHT COLUMN
+   ========================================= */
+
+#right {
+
+    flex: 1;
+
+}
+
+
+/* =========================================
    BOXES
-   ========================================================= */
+   ========================================= */
 
 .box {
 
-    background: #eeeeee;
+    background: #ffffff;
 
-    border: 1px solid #555;
+    border: 1px solid #777;
 
-    margin-bottom: 8px;
-
+    margin-bottom: 10px;
 }
 
 .box-title {
 
-    background: #333;
+    background: #333399;
 
     color: white;
 
-    padding: 4px 6px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 11px;
-
     font-weight: bold;
 
-    text-transform: uppercase;
+    padding: 4px 6px;
 
+    border-bottom: 1px solid #000;
 }
 
 .box-content {
 
     padding: 8px;
-
 }
 
 
-/* =========================================================
-   PROFILE PHOTO
-   ========================================================= */
+/* =========================================
+   PROFILE IMAGE
+   ========================================= */
 
-.profile-photo {
+.profile-image {
 
     width: 100%;
 
     display: block;
 
-    border: 1px solid #777;
-
-    margin-bottom: 7px;
-
-}
-
-
-/* =========================================================
-   PROFILE DETAILS
-   ========================================================= */
-
-.profile-details {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-}
-
-.profile-details b {
-
-    color: #555;
-
-}
-
-
-/* =========================================================
-   BLINKING / OLD INTERNET TEXT
-   ========================================================= */
-
-.status {
-
-    color: #cc0000;
-
-    font-weight: bold;
-
-}
-
-.small {
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   ABOUT ME
-   ========================================================= */
-
-.about {
-
-    font-size: 14px;
-
-    line-height: 1.45;
-
-}
-
-.about p {
-
-    margin-top: 0;
-
-}
-
-
-/* =========================================================
-   LISTS
-   ========================================================= */
-
-ul {
-
-    margin-top: 5px;
-
-    padding-left: 20px;
-
-}
-
-li {
-
-    margin-bottom: 3px;
-
-}
-
-
-/* =========================================================
-   MARQUEE
-   ========================================================= */
-
-.marquee {
-
-    background: black;
-
-    color: white;
-
-    border: 1px solid #555;
-
-    padding: 3px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
+    border: 1px solid #444;
 
     margin-bottom: 8px;
-
 }
 
 
-/* =========================================================
+/* =========================================
    LINKS
-   ========================================================= */
+   ========================================= */
 
 a {
 
@@ -328,154 +221,229 @@ a {
 
 }
 
-a:visited {
-
-    color: #551a8b;
-
-}
-
 a:hover {
 
-    color: red;
+    color: #ff0000;
 
 }
 
 
-/* =========================================================
-   GUESTBOOK
-   ========================================================= */
+/* =========================================
+   MUSIC PLAYER
+   ========================================= */
 
-.comment {
+.music-player {
 
-    border-top: 1px dotted #777;
+    background: #222;
 
-    padding: 8px 0;
+    color: white;
+
+    border: 2px outset #999;
+
+    padding: 8px;
+
+    font-family: "Courier New", monospace;
 
 }
 
-.comment:first-child {
+.music-player-title {
 
-    border-top: none;
+    color: #00ff00;
+
+    margin-bottom: 5px;
 
 }
 
-.comment-name {
+.music-player button {
+
+    background: #cccccc;
+
+    border: 2px outset #ffffff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    padding: 3px 8px;
+
+    cursor: pointer;
+
+}
+
+.music-player button:active {
+
+    border-style: inset;
+
+}
+
+#songName {
+
+    margin-top: 6px;
+
+    color: #ffff00;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+   MARQUEE
+   ========================================= */
+
+.marquee {
+
+    background: #ffff00;
+
+    color: #000;
+
+    border: 1px solid #000;
+
+    padding: 3px;
 
     font-weight: bold;
 
-    color: #0000cc;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   GUESTBOOK
+   ========================================= */
+
+.guestbook-form input,
+.guestbook-form textarea {
+
+    width: 100%;
+
+    border: 1px solid #777;
+
+    padding: 5px;
+
+    margin-bottom: 6px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
 
 }
 
-.comment-date {
+.guestbook-form textarea {
+
+    height: 70px;
+
+    resize: vertical;
+
+}
+
+.guestbook-form button {
+
+    background: #cccccc;
+
+    border: 2px outset #ffffff;
+
+    padding: 4px 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   GUESTBOOK ENTRIES
+   ========================================= */
+
+.guestbook-entry {
+
+    background: #f5f5f5;
+
+    border: 1px solid #aaa;
+
+    padding: 7px;
+
+    margin-top: 7px;
+}
+
+.guestbook-name {
+
+    font-weight: bold;
+
+    color: #000099;
+}
+
+.guestbook-date {
 
     color: #777;
 
     font-size: 10px;
+}
+
+.guestbook-message {
+
+    margin-top: 5px;
+
+    white-space: pre-wrap;
 
 }
 
 
-/* =========================================================
-   FRIENDS
-   ========================================================= */
+/* =========================================
+   STATUS
+   ========================================= */
 
-.friends {
+#guestbookStatus {
 
-    display: grid;
+    margin-top: 6px;
 
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 5px;
-
-}
-
-.friend {
-
-    text-align: center;
-
-    font-size: 10px;
-
-}
-
-.friend img {
-
-    width: 100%;
-
-    height: 70px;
-
-    object-fit: cover;
-
-    border: 1px solid #555;
-
-    display: block;
-
-    margin-bottom: 2px;
-
+    font-weight: bold;
 }
 
 
-/* =========================================================
-   GIF / RANDOM MEDIA
-   ========================================================= */
-
-.random-gif {
-
-    max-width: 100%;
-
-    display: block;
-
-    margin: 5px auto;
-
-}
-
-
-/* =========================================================
+/* =========================================
    FOOTER
-   ========================================================= */
+   ========================================= */
 
-.footer {
+#footer {
 
-    border-top: 1px solid #555;
+    background: #333;
 
-    margin-top: 15px;
-
-    padding-top: 5px;
+    color: white;
 
     text-align: center;
 
-    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
 
     font-size: 10px;
 
-    color: #555;
-
+    border-top: 2px solid #111;
 }
 
 
-/* =========================================================
+/* =========================================
    MOBILE
-   ========================================================= */
+   ========================================= */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 780px) {
 
-    #page {
+    #site {
 
-        width: 95%;
+        width: 96%;
 
-    }
-
-    .layout {
-
-        grid-template-columns: 1fr;
+        margin: 10px auto;
 
     }
 
-    .friends {
+    #content {
 
-        grid-template-columns:
-            repeat(3, 1fr);
+        flex-direction: column;
+
+    }
+
+    #left {
+
+        width: 100%;
 
     }
 
@@ -489,110 +457,162 @@ a:hover {
 <body>
 
 
-<!-- =====================================================
-     TOP BAR
-     ===================================================== -->
+<div id="site">
 
-<div class="topbar">
+
+<!-- =====================================
+     HEADER
+     ===================================== -->
+
+<div id="header">
+
+    <h1>AMBER DIAZ</h1>
+
+    <small>
+        personal homepage // new york // established 1997
+    </small>
+
+</div>
+
+
+<!-- =====================================
+     NAV
+     ===================================== -->
+
+<div id="nav">
 
     <a href="index.html">HOME</a>
 
+    |
+
     <a href="profile.html">PROFILE</a>
+
+    |
 
     <a href="Mo0veez.html">MOVIES</a>
 
+    |
+
     <a href="websites.html">WEBSITES</a>
 
-    <a href="photography.html">PHOTOS</a>
+    |
 
     <a href="writing.html">WRITING</a>
 
-    <a href="archive.html">ARCHIVE</a>
+    |
+
+    <a href="contact.html">CONTACT</a>
 
 </div>
 
 
-<!-- =====================================================
-     PAGE
-     ===================================================== -->
+<!-- =====================================
+     MARQUEE
+     ===================================== -->
 
-<div id="page">
+<div style="padding:10px 10px 0 10px;">
 
+    <div class="marquee">
 
-<!-- HEADER -->
+        <marquee scrollamount="4">
 
-<div class="header">
+            ★ welcome to amber's internet ★ please sign the guestbook ★
 
-    <h1>Amber Diaz</h1>
+            ★ you're on the internet now ★
 
-    <p>
-        creative director / filmmaker / writer / internet person
-    </p>
+        </marquee>
 
-</div>
-
-
-<!-- OLD INTERNET MARQUEE -->
-
-<div class="marquee">
-
-    <marquee scrollamount="4">
-
-        ★ welcome to my little corner of the internet ★
-        please do not steal my shit ★
-        established 2026 ★
-
-    </marquee>
+    </div>
 
 </div>
 
 
-<!-- =====================================================
-     TWO COLUMNS
-     ===================================================== -->
+<!-- =====================================
+     MAIN CONTENT
+     ===================================== -->
 
-<div class="layout">
+<div id="content">
 
 
-<!-- =====================================================
+<!-- =====================================
      LEFT COLUMN
-     ===================================================== -->
+     ===================================== -->
 
-<div>
+<div id="left">
 
-
-<!-- PHOTO -->
 
 <div class="box">
 
     <div class="box-title">
-        Profile
+        AMBER.JPG
     </div>
 
     <div class="box-content">
 
         <img
             src="lowpolymeee.png"
-            class="profile-photo"
+            class="profile-image"
             alt="Amber"
         >
 
-        <div class="profile-details">
+        <b>Amber Diaz</b>
 
-            <b>Name:</b> Amber Diaz<br>
+        <br><br>
 
-            <b>Location:</b> New York<br>
+        Creative Director
 
-            <b>Occupation:</b> Creative Director<br>
+        <br>
 
-            <b>Status:</b>
-            <span class="status">
-                ONLINE
-            </span>
+        Filmmaker
 
-            <br>
+        <br>
 
-            <b>Joined:</b> 2026
+        Writer
+
+        <br>
+
+        Web tinkerer
+
+        <br><br>
+
+        New York
+
+    </div>
+
+</div>
+
+
+<!-- MUSIC PLAYER -->
+
+<div class="box">
+
+    <div class="box-title">
+        NOW PLAYING
+    </div>
+
+    <div class="box-content">
+
+        <div class="music-player">
+
+            <div class="music-player-title">
+                [ AMBER'S JUKEBOX ]
+            </div>
+
+            <button onclick="previousSong()">
+                &lt;&lt;
+            </button>
+
+            <button onclick="toggleMusic()">
+                PLAY / PAUSE
+            </button>
+
+            <button onclick="nextSong()">
+                &gt;&gt;
+            </button>
+
+            <div id="songName">
+                nothing playing
+            </div>
 
         </div>
 
@@ -601,74 +621,31 @@ a:hover {
 </div>
 
 
-<!-- CONTACT -->
+<!-- RANDOM STUFF -->
 
 <div class="box">
 
     <div class="box-title">
-        Contact
+        RANDOM
     </div>
 
     <div class="box-content">
 
-        <a href="mailto:youremail@example.com">
-            E-mail Me
+        <a href="random.html">
+            enter the weird zone
+        </a>
+
+        <br><br>
+
+        <a href="guestbook.html">
+            sign my guestbook
         </a>
 
         <br><br>
 
         <a href="#">
-            Instagram
+            webrings
         </a>
-
-        <br>
-
-        <a href="#">
-            Tumblr
-        </a>
-
-        <br>
-
-        <a href="#">
-            GitHub
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- RANDOM -->
-
-<div class="box">
-
-    <div class="box-title">
-        Random
-    </div>
-
-    <div class="box-content">
-
-        currently listening to:
-
-        <br><br>
-
-        <b>???</b>
-
-        <br><br>
-
-        currently watching:
-
-        <br><br>
-
-        <b>???</b>
-
-        <br><br>
-
-        mood:
-
-        <br><br>
-
-        <b>¯\_(ツ)_/¯</b>
 
     </div>
 
@@ -678,54 +655,39 @@ a:hover {
 </div>
 
 
-<!-- =====================================================
+<!-- =====================================
      RIGHT COLUMN
-     ===================================================== -->
+     ===================================== -->
 
-<div>
+<div id="right">
 
-
-<!-- ABOUT -->
 
 <div class="box">
 
     <div class="box-title">
-        About Me
+        ABOUT ME
     </div>
 
-    <div class="box-content about">
+    <div class="box-content">
 
         <p>
-
-            Hi. I'm Amber.
-
+            Hi, I'm Amber.
         </p>
 
         <p>
-
-            I make things for the internet, movies,
-            photographs, websites, weird little projects,
-            and whatever else I happen to become obsessed with.
-
+            This is my little corner of the internet.
+            I'm a creative director, filmmaker, writer,
+            designer and professional website tinkerer.
         </p>
 
         <p>
-
-            This website is intentionally not very normal.
-
+            I like making things that feel weird,
+            personal, handmade and slightly unnecessary.
         </p>
 
         <p>
-
-            If you're looking for the polished portfolio,
-            you're probably in the wrong place.
-
-        </p>
-
-        <p>
-
-            Anyway, welcome.
-
+            This website is intentionally not a normal
+            portfolio.
         </p>
 
     </div>
@@ -733,170 +695,88 @@ a:hover {
 </div>
 
 
-<!-- CURRENTLY -->
-
 <div class="box">
 
     <div class="box-title">
-        Currently
+        CURRENTLY
     </div>
 
     <div class="box-content">
 
-        <ul>
+        <b>listening:</b>
+        Nelly Furtado
 
-            <li>
-                Making: <b>stuff</b>
-            </li>
+        <br><br>
 
-            <li>
-                Watching: <b>old movies</b>
-            </li>
+        <b>watching:</b>
+        old movies / weird internet videos
 
-            <li>
-                Listening to: <b>music</b>
-            </li>
+        <br><br>
 
-            <li>
-                Learning: <b>JavaScript</b>
-            </li>
+        <b>making:</b>
+        films + websites
 
-            <li>
-                Building: <b>this website</b>
-            </li>
+        <br><br>
 
-        </ul>
+        <b>learning:</b>
+        JavaScript
 
     </div>
 
 </div>
 
 
-<!-- MY WORK -->
+<!-- =====================================
+     GUESTBOOK
+     ===================================== -->
 
 <div class="box">
 
     <div class="box-title">
-        My Work
+        SIGN MY GUESTBOOK!!!
     </div>
 
     <div class="box-content">
 
-        <a href="Mo0veez.html">
-            Movies / Video
-        </a>
+        <p>
+            Leave a message for me below.
+        </p>
 
         <br>
 
-        <a href="websites.html">
-            Websites
-        </a>
+        <form
+            id="guestbookForm"
+            class="guestbook-form"
+        >
 
-        <br>
+            <input
+                type="text"
+                id="guestName"
+                placeholder="your name"
+                maxlength="40"
+                required
+            >
 
-        <a href="photography.html">
-            Photography
-        </a>
+            <textarea
+                id="guestMessage"
+                placeholder="say something..."
+                maxlength="500"
+                required
+            ></textarea>
 
-        <br>
+            <button type="submit">
+                SIGN GUESTBOOK
+            </button>
 
-        <a href="writing.html">
-            Writing
-        </a>
+        </form>
 
-        <br>
+        <div id="guestbookStatus"></div>
 
-        <a href="branding.html">
-            Creative Direction
-        </a>
+        <hr style="margin:12px 0;">
 
-        <br>
+        <div id="guestbookEntries">
 
-        <a href="archive.html">
-            Archive
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- FRIENDS -->
-
-<div class="box">
-
-    <div class="box-title">
-        Friends / Links
-    </div>
-
-    <div class="box-content">
-
-        <div class="friends">
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend1.gif"
-                        alt=""
-                    >
-
-                    friend 01
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend2.gif"
-                        alt=""
-                    >
-
-                    friend 02
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend3.gif"
-                        alt=""
-                    >
-
-                    friend 03
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend4.gif"
-                        alt=""
-                    >
-
-                    friend 04
-
-                </a>
-
-            </div>
-
+            Loading guestbook...
 
         </div>
 
@@ -905,51 +785,32 @@ a:hover {
 </div>
 
 
-<!-- GUESTBOOK -->
+<!-- =====================================
+     LINKS
+     ===================================== -->
 
 <div class="box">
 
     <div class="box-title">
-        Guestbook
+        COOL LINKS
     </div>
 
     <div class="box-content">
 
-
-        <div class="comment">
-
-            <div class="comment-name">
-                random internet person
-            </div>
-
-            <div class="comment-date">
-                08/13/2026
-            </div>
-
-            this website is crazy lol
-
-        </div>
-
-
-        <div class="comment">
-
-            <div class="comment-name">
-                another person
-            </div>
-
-            <div class="comment-date">
-                08/13/2026
-            </div>
-
-            i like your site
-
-        </div>
-
+        <a href="#">
+            ★ My Favorite Website
+        </a>
 
         <br>
 
         <a href="#">
-            Sign my guestbook
+            ★ Webring
+        </a>
+
+        <br>
+
+        <a href="#">
+            ★ Internet Friends
         </a>
 
     </div>
@@ -959,31 +820,373 @@ a:hover {
 
 </div>
 
+
 </div>
 
 
-<!-- =====================================================
+<!-- =====================================
      FOOTER
-     ===================================================== -->
+     ===================================== -->
 
-<div class="footer">
+<div id="footer">
 
     © 2026 Amber Diaz
 
-    &nbsp; | &nbsp;
+    <br>
 
-    Best viewed with a computer
-
-    &nbsp; | &nbsp;
-
-    <a href="index.html">
-        back to entrance
-    </a>
+    best viewed with absolutely anything
 
 </div>
 
 
 </div>
+
+
+
+<!-- =====================================
+     MUSIC
+     ===================================== -->
+
+<audio id="musicPlayer"></audio>
+
+
+
+<!-- =====================================
+     SUPABASE
+     ===================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =================================================
+   MUSIC PLAYER
+   ================================================= */
+
+const songs = [
+
+    {
+        name: "Nelly Furtado - Do It",
+        file: "audio/doit.mp3"
+    },
+
+    {
+        name: "Song Two",
+        file: "audio/song2.mp3"
+    },
+
+    {
+        name: "Song Three",
+        file: "audio/song3.mp3"
+    }
+
+];
+
+
+let currentSong = 0;
+
+const music =
+    document.getElementById("musicPlayer");
+
+const songName =
+    document.getElementById("songName");
+
+
+function loadSong(index) {
+
+    music.src = songs[index].file;
+
+    songName.textContent =
+        songs[index].name;
+
+}
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+    } else {
+
+        music.pause();
+
+    }
+
+}
+
+
+function nextSong() {
+
+    currentSong++;
+
+    if (currentSong >= songs.length) {
+
+        currentSong = 0;
+
+    }
+
+    loadSong(currentSong);
+
+    music.play();
+
+}
+
+
+function previousSong() {
+
+    currentSong--;
+
+    if (currentSong < 0) {
+
+        currentSong = songs.length - 1;
+
+    }
+
+    loadSong(currentSong);
+
+    music.play();
+
+}
+
+
+music.addEventListener(
+    "ended",
+    nextSong
+);
+
+
+loadSong(currentSong);
+
+
+
+/* =================================================
+   SUPABASE
+   ================================================= */
+
+/*
+
+   REPLACE THESE TWO VALUES WITH YOUR
+   SUPABASE PROJECT VALUES.
+
+*/
+
+const SUPABASE_URL =
+    "https://lpibdemgdbverjphhluf.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_O2adTDfGA2EtrJLvanZBOQ_OGfQ8537";
+
+
+const supabaseClient =
+    supabase.createClient(
+        https://lpibdemgdbverjphhluf.supabase.co,
+        sb_publishable_O2adTDfGA2EtrJLvanZBOQ_OGfQ8537
+    );
+
+
+
+/* =================================================
+   GUESTBOOK
+   ================================================= */
+
+const guestbookForm =
+    document.getElementById(
+        "guestbookForm"
+    );
+
+const guestbookEntries =
+    document.getElementById(
+        "guestbookEntries"
+    );
+
+const guestbookStatus =
+    document.getElementById(
+        "guestbookStatus"
+    );
+
+
+
+/* LOAD ENTRIES */
+
+async function loadGuestbook() {
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+
+        .from("guestbook")
+
+        .select("*")
+
+        .order(
+            "created_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        console.error(error);
+
+        guestbookEntries.innerHTML =
+            "Guestbook unavailable.";
+
+        return;
+
+    }
+
+
+    if (!data.length) {
+
+        guestbookEntries.innerHTML =
+            "Nobody has signed it yet. Be the first!!!";
+
+        return;
+
+    }
+
+
+    guestbookEntries.innerHTML = "";
+
+
+    data.forEach(entry => {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "guestbook-entry";
+
+
+        const name =
+            document.createElement("div");
+
+        name.className =
+            "guestbook-name";
+
+        name.textContent =
+            entry.name;
+
+
+        const date =
+            document.createElement("div");
+
+        date.className =
+            "guestbook-date";
+
+        date.textContent =
+            new Date(
+                entry.created_at
+            ).toLocaleString();
+
+
+        const message =
+            document.createElement("div");
+
+        message.className =
+            "guestbook-message";
+
+        message.textContent =
+            entry.message;
+
+
+        div.appendChild(name);
+
+        div.appendChild(date);
+
+        div.appendChild(message);
+
+
+        guestbookEntries.appendChild(div);
+
+    });
+
+}
+
+
+
+/* SUBMIT */
+
+guestbookForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById(
+                "guestName"
+            ).value.trim();
+
+
+        const message =
+            document.getElementById(
+                "guestMessage"
+            ).value.trim();
+
+
+        if (!name || !message) {
+
+            return;
+
+        }
+
+
+        guestbookStatus.textContent =
+            "posting...";
+
+
+        const {
+            error
+        } = await supabaseClient
+
+            .from("guestbook")
+
+            .insert({
+
+                name: name,
+
+                message: message
+
+            });
+
+
+        if (error) {
+
+            console.error(error);
+
+            guestbookStatus.textContent =
+                "Something went wrong :(";
+
+            return;
+
+        }
+
+
+        guestbookStatus.textContent =
+            "posted!!!";
+
+
+        guestbookForm.reset();
+
+
+        loadGuestbook();
+
+    }
+);
+
+
+
+loadGuestbook();
+
+</script>
 
 
 </body>
