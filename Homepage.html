@@ -23,28 +23,27 @@
         overflow: hidden;
     }
 
-   /* --- RETRO TOWER VERTICAL PLAYER SKIN --- */
+  /* --- RETRO MYSPACE METALLIC PLAYER SKIN --- */
 .sidebar-player {
     position: fixed;
-    left: 25px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    width: 76px; /* Skinny tower width */
-    height: 340px; /* Stretched tower height */
-    background: linear-gradient(to right, #f2f2f2 0%, #cccccc 50%, #aaaaaa 100%);
+    width: 320px;
+    background: linear-gradient(to bottom, #f2f2f2 0%, #cccccc 50%, #aaaaaa 100%);
     border: 2px solid #555555;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    padding: 8px;
+    padding: 8px 16px; /* Added extra padding on sides to look better rounded */
+    border-radius: 30px; /* Made the overall player frame rounded */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column; /* Stack components vertically */
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     z-index: 100;
 }
 
-/* Beveled Play/Pause Frame Button sitting on top */
+/* Beveled Play/Pause Frame Button */
 .retro-play-container {
     width: 48px;
     height: 48px;
@@ -52,7 +51,7 @@
     border: 2px solid #ffffff;
     border-right-color: #777777;
     border-bottom-color: #777777;
-    border-radius: 6px;
+    border-radius: 50%; /* Made button circular to match the rounded shell */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,6 +66,7 @@
     border-bottom-color: #ffffff;
 }
 
+/* Vertical Twin Pause Bar Component */
 .pause-icon {
     display: flex;
     gap: 5px;
@@ -79,6 +79,7 @@
     border-radius: 1px;
 }
 
+/* Styled Play Triangle Toggle */
 .play-icon {
     width: 0;
     height: 0;
@@ -89,74 +90,72 @@
     display: none;
 }
 
-/* Tall Black Digital Tower Screen Display Matrix */
+/* Black Digital Track Display Matrix */
 .retro-display {
-    width: 100%;
     flex-grow: 1;
+    height: 48px;
     background: #111111;
     border: 2px solid #777777;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    border-radius: 4px;
-    padding: 10px 0; /* Cleared horizontal padding so marquee clips at absolute edge */
+    border-radius: 20px; /* Rounded the display box corners to flow with the layout */
+    padding: 4px 14px; /* Added internal horizontal cushion space */
     display: flex;
-    flex-direction: column; 
     justify-content: space-between;
-    align-items: center;
     color: #ffffff;
     font-family: Arial, sans-serif;
     position: relative;
-    overflow: hidden; /* Hides text while it scrolls off screen */
+    overflow: hidden;
 }
 
 /* Marquee wrapper tracks for horizontal scrolling text streams */
 .track-metadata {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    justify-content: center;
+    width: 60%;
     overflow: hidden;
     white-space: nowrap;
 }
 
-/* Infinite Marquee Scroll Animation Rules */
+/* Infinite Horizontal Marquee Scroll Animation Rules */
 .track-name {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     font-weight: bold;
     color: #ffffff;
     letter-spacing: 0.5px;
     display: inline-block;
-    padding-left: 100%; /* Starts track off screen right */
-    animation: towerMarquee 8s linear infinite;
+    padding-left: 100%; /* Starts text completely out of bounds on right */
+    animation: sideMarquee 10s linear infinite;
 }
 
 .artist-name {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     color: #cccccc;
     text-transform: uppercase;
-    margin-top: 4px;
+    margin-top: 1px;
     display: inline-block;
     padding-left: 100%;
-    animation: towerMarquee 8s linear infinite;
-    animation-delay: 1.5s; /* Delays artist name scroll slightly behind track name */
+    animation: sideMarquee 10s linear infinite;
+    animation-delay: 1.5s; /* Staggers artist flow slightly behind track name */
 }
 
-@keyframes towerMarquee {
+@keyframes sideMarquee {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
 }
 
-/* Actions stacked horizontally at the middle-bottom */
+/* Right Panel UI Hooks (+delete+ / +view+) */
 .retro-actions-panel {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 6px;
-    font-size: 0.55rem;
+    align-items: flex-end;
+    font-size: 0.65rem;
     font-weight: bold;
     color: #ffffff;
     font-family: monospace;
-    margin-bottom: 30px; 
+    z-index: 2; /* Keeps text layers hovering cleanly above the visualizer bars */
 }
 
 .action-tag {
@@ -168,64 +167,24 @@
     color: #d14702;
 }
 
-/* Audio Frequency Equalizer pinned to the absolute bottom of the tower screen */
+/* Audio Frequency Equalizer Bar Simulation */
 .equalizer-box {
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-    gap: 3px;
+    gap: 2px;
     position: absolute;
-    bottom: 6px;
-    left: 0;
-    right: 0;
-    height: 26px; 
-    width: 100%;
+    bottom: 4px;
+    right: 58px;
+    height: 16px;
 }
 
 .eq-bar {
-    width: 5px;
+    width: 4px;
     height: 2px;
     background-color: #33cc33;
     transition: height 0.15s ease;
 }
 
-/* Responsive Mobile Rules: Switches back to flat row placement when screen is narrow */
-@media(max-width: 768px) {
-    .sidebar-player {
-        position: static;
-        transform: none;
-        margin-bottom: 25px;
-        flex-direction: row; 
-        width: 320px;
-        height: 64px;
-    }
-    .retro-display {
-        flex-direction: row;
-        height: 48px;
-        padding: 4px 6px;
-    }
-    .track-metadata {
-        align-items: flex-start;
-        width: 60%;
-    }
-    .track-name, .artist-name {
-        animation: towerMarquee 12s linear infinite;
-        padding-left: 50%;
-    }
-    .retro-actions-panel {
-        flex-direction: column;
-        width: auto;
-        margin-bottom: 0;
-        align-items: flex-end;
-    }
-    .equalizer-box {
-        right: 58px;
-        left: auto;
-        bottom: 4px;
-        width: auto;
-        height: 16px;
-    }
-}
 
 
 
