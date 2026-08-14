@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyytopia</title>
-
     <link rel="icon" href="favicon.png">
-
     <style>
         * {
             margin: 0;
@@ -25,73 +23,158 @@
             overflow: hidden;
         }
 
-        /* --- SIDEBAR PLAYER STYLES --- */
+        /* --- RETRO MYSPACE METALLIC PLAYER SKIN --- */
         .sidebar-player {
             position: fixed;
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            width: 200px;
-            background: #d14702;
-            border: 2px solid black;
-            padding: 15px;
-            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            width: 320px;
+            background: linear-gradient(to bottom, #f2f2f2 0%, #cccccc 50%, #aaaaaa 100%);
+            border: 2px solid #555555;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            padding: 8px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
             z-index: 100;
         }
 
-        /* Marquee wrapper container */
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid black;
-            background: #f0f0f0;
-            padding: 6px 0;
-            margin-bottom: 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        /* CSS Scrolling Marquee Animation */
-        .marquee-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: marquee 10s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
-        /* Player Control Buttons */
-        .player-controls {
+        /* Beveled Play/Pause Frame Button */
+        .retro-play-container {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #b5b5b5 100%);
+            border: 2px solid #ffffff;
+            border-right-color: #777777;
+            border-bottom-color: #777777;
+            border-radius: 6px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: inset 1px 1px 1px #fff;
+        }
+
+        .retro-play-container:active {
+            border: 2px solid #777777;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        /* Vertical Twin Pause Bar Component */
+        .pause-icon {
+            display: flex;
             gap: 5px;
         }
 
-        .player-btn {
-            background: white;
-            border: 1px solid black;
-            padding: 6px 10px;
-            font-size: 0.7rem;
+        .pause-bar {
+            width: 5px;
+            height: 18px;
+            background: #555555;
+            border-radius: 1px;
+        }
+
+        /* Styled Play Triangle Toggle */
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-top: 9px solid transparent;
+            border-bottom: 9px solid transparent;
+            border-left: 14px solid #555555;
+            margin-left: 3px;
+            display: none;
+        }
+
+        /* Black Digital Track Display Matrix */
+        .retro-display {
+            flex-grow: 1;
+            height: 48px;
+            background: #111111;
+            border: 2px solid #777777;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            border-radius: 4px;
+            padding: 4px 6px;
+            display: flex;
+            justify-content: space-between;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .track-metadata {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 62%;
+        }
+
+        .track-name {
+            font-size: 0.75rem;
             font-weight: bold;
-            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .artist-name {
+            font-size: 0.65rem;
+            color: #cccccc;
             text-transform: uppercase;
-            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 1px;
         }
 
-        .player-btn:hover {
-            background: black;
-            color: white;
+        /* Right Panel UI Hooks (+delete+ / +view+) */
+        .retro-actions-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: monospace;
         }
 
-        /* --- MAIN LAYOUT STYLES --- */
+        .action-tag {
+            cursor: pointer;
+            user-select: none;
+        }
+        .action-tag:hover {
+            color: #d14702;
+        }
+
+        /* Audio Frequency Equalizer Bar Simulation */
+        .equalizer-box {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            position: absolute;
+            bottom: 4px;
+            right: 58px;
+            height: 16px;
+        }
+
+        .eq-bar {
+            width: 4px;
+            height: 2px;
+            background-color: #33cc33;
+            transition: height 0.15s ease;
+        }
+
+        /* --- MAIN SYSTEM LAYOUT STYLES --- */
         .wrapper {
             text-align: center;
-            margin-left: 120px; 
+            margin-left: 140px;
         }
 
         .grid {
@@ -142,7 +225,7 @@
             user-select: none;
         }
 
-        @media(max-width: 700px) {
+        @media(max-width: 768px) {
             body {
                 flex-direction: column;
                 overflow-y: auto;
@@ -151,18 +234,11 @@
             .sidebar-player {
                 position: static;
                 transform: none;
-                width: 320px;
                 margin-bottom: 25px;
+                width: 320px;
             }
             .wrapper {
                 margin-left: 0;
-            }
-            .grid {
-                grid-template-columns: repeat(2, 150px);
-                gap: 18px;
-            }
-            .card img {
-                height: 100px;
             }
         }
     </style>
@@ -170,15 +246,36 @@
 
 <body>
 
-    <!-- Sidebar Music Player Container -->
+    <!-- Retro Player Structural Shell Container -->
     <div class="sidebar-player">
-        <div class="marquee-container">
-            <span class="marquee-text" id="trackTitle">Play my tunes</span>
+        <!-- Interactive Trigger Button -->
+        <div class="retro-play-container" onclick="toggleAudio()">
+            <div class="pause-icon" id="pauseBtnVisual">
+                <div class="pause-bar"></div>
+                <div class="pause-bar"></div>
+            </div>
+            <div class="play-icon" id="playBtnVisual"></div>
         </div>
-        <div class="player-controls">
-            <button class="player-btn" onclick="prevSong()">Prev</button>
-            <button class="player-btn" id="playBtn" onclick="toggleAudio()">Play</button>
-            <button class="player-btn" onclick="nextSong()">Next</button>
+
+        <!-- LCD Interface Matrix Display panel -->
+        <div class="retro-display">
+            <div class="track-metadata">
+                <span class="track-name" id="trackNameDisplay">TRACK LOADING</span>
+                <span class="artist-name" id="artistNameDisplay">ARTIST</span>
+            </div>
+
+            <!-- Equalizer node simulation overlay wrapper -->
+            <div class="equalizer-box">
+                <div class="eq-bar" id="eq1"></div>
+                <div class="eq-bar" id="eq2"></div>
+                <div class="eq-bar" id="eq3"></div>
+                <div class="eq-bar" id="eq4"></div>
+            </div>
+
+            <div class="retro-actions-panel">
+                <span class="action-tag" onclick="prevSong()">+prev+</span>
+                <span class="action-tag" onclick="nextSong()">+next+</span>
+            </div>
         </div>
     </div>
 
@@ -191,7 +288,7 @@
             </a>
 
             <!-- Box 2: Photos -->
-            <a class="card" href="https://www.flickr.com/photos/202761580@N08/albums/">
+            <a class="card" href="https://flickr.com">
                 <img src="SMILE, YOU'RE ON (2).png">
                 <span>PICS</span>
             </a>
@@ -209,10 +306,10 @@
             </a>
         </div>
 
-        <!-- Hidden Audio Player Core -->
+        <!-- Hidden Audio Engine Core -->
         <audio id="audioPlayer"></audio>
 
-        <!-- Footer also triggers the play/pause -->
+        <!-- Footer play hook tracker -->
         <div class="footer" onclick="toggleAudio()">
             © 2026 • DON'T COPY AIGHT!!!!
         </div>
@@ -220,83 +317,109 @@
 
     <script>
         const audioPlayer = document.getElementById('audioPlayer');
-        const trackTitle = document.getElementById('trackTitle');
-        const playBtn = document.getElementById('playBtn');
-        
+        const trackNameDisplay = document.getElementById('trackNameDisplay');
+        const artistNameDisplay = document.getElementById('artistNameDisplay');
+        const playVisual = document.getElementById('playBtnVisual');
+        const pauseVisual = document.getElementById('pauseBtnVisual');
 
+        // Formatted Array split precisely into distinct metadata fields 
         const playlist = [
-            { title: "Why Should I Be Sad", url: "https://od.lk/s/OTBfNDMzODczOThf/Why%20Should%20I%20Be%20Sad.mp3" },
-            { title: "Nelly Furtado - Do It", url: "https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3" },
-            { title: "Daniel Bedingfield - Gotta Get Thru This", url: "https://od.lk/s/OTBfNTM0MTkyMzdfbkpyWWk/Daniel%20Bedingfield%20-%20Gotta%20Get%20Thru%20This%20%28Original%20Version%29%28TO%29.mp3" },
-            { title: "Mariah Carey - Get Your Number", url: "https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3" },
-            { title: "JMSN - Soft Spot", url: "https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3" },
-            { title: "Fergie - Glamorous", url: "https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3" },
-            { title: "Do You Mind (Crazy Cousinz Remix)", url: "https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3" },
-            { title: "Ayesha x Righteous", url: "https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3" },
-            { title: "Ayesha Erotica - 9 AM in Calabasas (Remix)", url: "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3" },
-            { title: "Someone To Call My Lover (So So Def Remix)", url: "https://od.lk/s/OTBfNDMzODc0MDBf/Someone%20To%20Call%20My%20Lover%20%28So%20So%20Def%20Remix%29.mp3" },
-            { title: "Clothes Off!!", url: "https://od.lk/s/OTBfNTUzNzE2ODlfS29mNGE/Clothes%20Off%21%21.mp3" },
-            { title: "Cassie - Me and You (MySpace Version)", url: "https://od.lk/s/OTBfNTM0MTkyMDNfbW1kSDI/Cassie-%20Me%20and%20You%20%28Rare%20Original%20MySpace%20Music%20Video%29.mp3" },
-            { title: "Nelly Furtado ft. Timbaland - Promiscuous", url: "https://od.lk/s/OTBfNDQ2MzI4NDZfRHNseno/Nelly%20Furtado%20-%20Promiscuous%20%28Official%20Music%20Video%29%20ft.%20Timbaland.mp3" },
-            { title: "Slow Down (Radio Edit)", url: "https://od.lk/s/OTBfNDQ2MzI4ODBfYnB0UXc/Slow%20Down%20%28Radio%20Edit%29.mp3" },
-            { title: "Justin Timberlake - My Love", url: "https://od.lk/s/OTBfNDQ2ODU2NTVfOUxieWI/My%20Love.mp3" }
-        ];
-
-               let currentTrackIndex = 0;
-        let isInitialized = false;
-
-        // ONLY update the text on initial load, do not lock the source yet
-        function updatePlayerUI() {
-            trackTitle.textContent = playlist[currentTrackIndex].title;
-        }
-
-        updatePlayerUI();
-
-        function toggleAudio() {
-            // First time click initialization fixes browser autoplay blocks
-            if (!isInitialized) {
-                audioPlayer.src = playlist[currentTrackIndex].url;
-                audioPlayer.load();
-                isInitialized = true;
-            }
-
-            if (audioPlayer.paused) {
-                audioPlayer.play().then(() => {
-                    playBtn.textContent = "Pause";
-                }).catch(error => {
-                    console.log("Playback failed. Check if URL is live:", error);
-                });
-            } else {
-                audioPlayer.pause();
-                playBtn.textContent = "Play";
-            }
-        }
-
-        function nextSong() {
-            currentTrackIndex++;
-            if (currentTrackIndex >= playlist.length) {
-                currentTrackIndex = 0;
-            }
-            // Update URL right before we force the play
-            audioPlayer.src = playlist[currentTrackIndex].url;
-            updatePlayerUI();
-            audioPlayer.load();
-            audioPlayer.play().catch(error => console.log(error));
-            playBtn.textContent = "Pause";
-            isInitialized = true;
-        }
-
-        function prevSong() {
-            currentTrackIndex--;
-            if (currentTrackIndex < 0) {
-                currentTrackIndex = playlist.length - 1;
-            }
-            audioPlayer.src = playlist[currentTrackIndex].url;
-            updatePlayerUI();
-            audioPlayer.load();
-            audioPlayer.play().catch(error => console.log(error));
-            playBtn.textContent = "Pause";
-            isInitialized = true;
-        }
-
-        audioPlayer.addEventListener('ended', nextSong);
+            { title: "Why Should I Be Sad", artist: "Christina Aguilera", url: "https://od.lk" },
+            { title: "Do It", artist: "Nelly Furtado", url: "https://od.lk" },
+            { title: "Gotta Get Thru This", artist: "Daniel Bedingfield", url: "https://od.lk" },
+{ title: "Get Your Number", artist: "Mariah Carey", url: "od.lk" },
+{ title: "Soft Spot", artist: "JMSN", url: "od.lk" },
+{ title: "Glamorous", artist: "Fergie", url: "od.lk" },
+{ title: "Do You Mind", artist: "Crazy Cousinz Remix", url: "od.lk" },
+{ title: "Ayesha x Righteous", artist: "Unreleased", url: "od.lk" },
+{ title: "9 AM in Calabasas", artist: "Ayesha Erotica", url: "od.lk" },
+{ title: "Someone To Call My Lover", artist: "Janet Jackson", url: "od.lk" },
+{ title: "Clothes Off!!", artist: "Gym Class Heroes", url: "od.lk" },
+{ title: "Me and You", artist: "Cassie", url: "od.lk" },
+{ title: "Promiscuous", artist: "Nelly Furtado ft. Timbaland", url: "od.lk" },
+{ title: "Slow Down", artist: "Radio Edit", url: "od.lk" },
+{ title: "My Love", artist: "Justin Timberlake", url: "od.lk" }
+];
+let currentTrackIndex = 0;
+let isInitialized = false;
+let eqInterval = null;
+function updatePlayerUI() {
+trackNameDisplay.textContent = playlist[currentTrackIndex].title;
+artistNameDisplay.textContent = playlist[currentTrackIndex].artist;
+}
+// Initialize display text window
+updatePlayerUI();
+function toggleAudio() {
+if (!isInitialized) {
+audioPlayer.src = playlist[currentTrackIndex].url;
+audioPlayer.load();
+isInitialized = true;
+}
+if (audioPlayer.paused) {
+audioPlayer.play().then(() => {
+pauseVisual.style.display = 'flex';
+playVisual.style.display = 'none';
+startEqualizerSim();
+}).catch(error => {
+console.log("Stream initialize blockage caught:", error);
+});
+} else {
+audioPlayer.pause();
+pauseVisual.style.display = 'none';
+playVisual.style.display = 'block';
+stopEqualizerSim();
+}
+}
+function nextSong() {
+currentTrackIndex++;
+if (currentTrackIndex >= playlist.length) {
+currentTrackIndex = 0;
+}
+forceTrackPlayback();
+}
+function prevSong() {
+currentTrackIndex--;
+if (currentTrackIndex < 0) {
+currentTrackIndex = playlist.length - 1;
+}
+forceTrackPlayback();
+}
+function forceTrackPlayback() {
+audioPlayer.src = playlist[currentTrackIndex].url;
+updatePlayerUI();
+audioPlayer.load();
+audioPlayer.play().then(() => {
+pauseVisual.style.display = 'flex';
+playVisual.style.display = 'none';
+startEqualizerSim();
+}).catch(error => console.log(error));
+isInitialized = true;
+}
+// Generates active audio frequency calculations on rendering loop
+function startEqualizerSim() {
+if(eqInterval) clearInterval(eqInterval);
+eqInterval = setInterval(() => {
+for (let i = 1; i <= 4; i++) {
+const bar = document.getElementById(eq${i});
+const randomHeight = Math.floor(Math.random() * 18) + 2;
+bar.style.height = ${randomHeight}px;
+// Switches matrix display color vectors cleanly dynamically
+if (randomHeight > 14) {
+bar.style.backgroundColor = '#ffcc00'; // Peak warning color switch
+} else {
+bar.style.backgroundColor = '#33cc33'; // Standard green spectrum vector
+}
+}
+}, 120);
+}
+function stopEqualizerSim() {
+clearInterval(eqInterval);
+for (let i = 1; i <= 4; i++) {
+document.getElementById(eq${i}).style.height = '2px';
+document.getElementById(eq${i}).style.backgroundColor = '#33cc33';
+}
+}
+audioPlayer.addEventListener('ended', nextSong);
+// Match player controls display accurately upon direct load sequence properties
+pauseVisual.style.display = 'none';
+playVisual.style.display = 'block';
