@@ -305,121 +305,134 @@
                 <span>ME</span>
             </a>
         </div>
+    <!-- Hidden Audio Engine Core -->
+    <audio id="audioPlayer"></audio>
 
-        <!-- Hidden Audio Engine Core -->
-        <audio id="audioPlayer"></audio>
-
-        <!-- Footer play hook tracker -->
-        <div class="footer" onclick="toggleAudio()">
-            © 2026 • DON'T COPY AIGHT!!!!
-        </div>
+    <!-- Footer play hook tracker -->
+    <div class="footer" onclick="toggleAudio()">
+        © 2026 • DON'T COPY AIGHT!!!!
     </div>
+</div>
 
-    <script>
-        const audioPlayer = document.getElementById('audioPlayer');
-        const trackNameDisplay = document.getElementById('trackNameDisplay');
-        const artistNameDisplay = document.getElementById('artistNameDisplay');
-        const playVisual = document.getElementById('playBtnVisual');
-        const pauseVisual = document.getElementById('pauseBtnVisual');
+<script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const trackNameDisplay = document.getElementById('trackNameDisplay');
+    const artistNameDisplay = document.getElementById('artistNameDisplay');
+    const playVisual = document.getElementById('playBtnVisual');
+    const pauseVisual = document.getElementById('pauseBtnVisual');
 
-        // Formatted Array split precisely into distinct metadata fields 
-        const playlist = [
-            { title: "Why Should I Be Sad", artist: "Christina Aguilera", url: "https://od.lk" },
-            { title: "Do It", artist: "Nelly Furtado", url: "https://od.lk" },
-            { title: "Gotta Get Thru This", artist: "Daniel Bedingfield", url: "https://od.lk" },
-{ title: "Get Your Number", artist: "Mariah Carey", url: "od.lk" },
-{ title: "Soft Spot", artist: "JMSN", url: "od.lk" },
-{ title: "Glamorous", artist: "Fergie", url: "od.lk" },
-{ title: "Do You Mind", artist: "Crazy Cousinz Remix", url: "od.lk" },
-{ title: "Ayesha x Righteous", artist: "Unreleased", url: "od.lk" },
-{ title: "9 AM in Calabasas", artist: "Ayesha Erotica", url: "od.lk" },
-{ title: "Someone To Call My Lover", artist: "Janet Jackson", url: "od.lk" },
-{ title: "Clothes Off!!", artist: "Gym Class Heroes", url: "od.lk" },
-{ title: "Me and You", artist: "Cassie", url: "od.lk" },
-{ title: "Promiscuous", artist: "Nelly Furtado ft. Timbaland", url: "od.lk" },
-{ title: "Slow Down", artist: "Radio Edit", url: "od.lk" },
-{ title: "My Love", artist: "Justin Timberlake", url: "od.lk" }
-];
-let currentTrackIndex = 0;
-let isInitialized = false;
-let eqInterval = null;
-function updatePlayerUI() {
-trackNameDisplay.textContent = playlist[currentTrackIndex].title;
-artistNameDisplay.textContent = playlist[currentTrackIndex].artist;
-}
-// Initialize display text window
-updatePlayerUI();
-function toggleAudio() {
-if (!isInitialized) {
-audioPlayer.src = playlist[currentTrackIndex].url;
-audioPlayer.load();
-isInitialized = true;
-}
-if (audioPlayer.paused) {
-audioPlayer.play().then(() => {
-pauseVisual.style.display = 'flex';
-playVisual.style.display = 'none';
-startEqualizerSim();
-}).catch(error => {
-console.log("Stream initialize blockage caught:", error);
-});
-} else {
-audioPlayer.pause();
-pauseVisual.style.display = 'none';
-playVisual.style.display = 'block';
-stopEqualizerSim();
-}
-}
-function nextSong() {
-currentTrackIndex++;
-if (currentTrackIndex >= playlist.length) {
-currentTrackIndex = 0;
-}
-forceTrackPlayback();
-}
-function prevSong() {
-currentTrackIndex--;
-if (currentTrackIndex < 0) {
-currentTrackIndex = playlist.length - 1;
-}
-forceTrackPlayback();
-}
-function forceTrackPlayback() {
-audioPlayer.src = playlist[currentTrackIndex].url;
-updatePlayerUI();
-audioPlayer.load();
-audioPlayer.play().then(() => {
-pauseVisual.style.display = 'flex';
-playVisual.style.display = 'none';
-startEqualizerSim();
-}).catch(error => console.log(error));
-isInitialized = true;
-}
-// Generates active audio frequency calculations on rendering loop
-function startEqualizerSim() {
-if(eqInterval) clearInterval(eqInterval);
-eqInterval = setInterval(() => {
-for (let i = 1; i <= 4; i++) {
-const bar = document.getElementById(eq${i});
-const randomHeight = Math.floor(Math.random() * 18) + 2;
-bar.style.height = ${randomHeight}px;
-// Switches matrix display color vectors cleanly dynamically
-if (randomHeight > 14) {
-bar.style.backgroundColor = '#ffcc00'; // Peak warning color switch
-} else {
-bar.style.backgroundColor = '#33cc33'; // Standard green spectrum vector
-}
-}
-}, 120);
-}
-function stopEqualizerSim() {
-clearInterval(eqInterval);
-for (let i = 1; i <= 4; i++) {
-document.getElementById(eq${i}).style.height = '2px';
-document.getElementById(eq${i}).style.backgroundColor = '#33cc33';
-}
-}
-audioPlayer.addEventListener('ended', nextSong);
-// Match player controls display accurately upon direct load sequence properties
-pauseVisual.style.display = 'none';
-playVisual.style.display = 'block';
+    // Formatted Array split precisely into distinct metadata fields
+    const playlist = [
+        { title: "Why Should I Be Sad", artist: "Christina Aguilera", url: "https://od.lk" },
+        { title: "Do It", artist: "Nelly Furtado", url: "https://od.lk" },
+        { title: "Gotta Get Thru This", artist: "Daniel Bedingfield", url: "https://od.lk" },
+        { title: "Get Your Number", artist: "Mariah Carey", url: "od.lk" },
+        { title: "Soft Spot", artist: "JMSN", url: "od.lk" },
+        { title: "Glamorous", artist: "Fergie", url: "od.lk" },
+        { title: "Do You Mind", artist: "Crazy Cousinz Remix", url: "od.lk" },
+        { title: "Ayesha x Righteous", artist: "Unreleased", url: "od.lk" },
+        { title: "9 AM in Calabasas", artist: "Ayesha Erotica", url: "od.lk" },
+        { title: "Someone To Call My Lover", artist: "Janet Jackson", url: "od.lk" },
+        { title: "Clothes Off!!", artist: "Gym Class Heroes", url: "od.lk" },
+        { title: "Me and You", artist: "Cassie", url: "od.lk" },
+        { title: "Promiscuous", artist: "Nelly Furtado ft. Timbaland", url: "od.lk" },
+        { title: "Slow Down", artist: "Radio Edit", url: "od.lk" },
+        { title: "My Love", artist: "Justin Timberlake", url: "od.lk" }
+    ];
+
+    let currentTrackIndex = 0;
+    let isInitialized = false;
+    let eqInterval = null;
+
+    function updatePlayerUI() {
+        trackNameDisplay.textContent = playlist[currentTrackIndex].title;
+        artistNameDisplay.textContent = playlist[currentTrackIndex].artist;
+    }
+
+    // Initialize display text window
+    updatePlayerUI();
+
+    function toggleAudio() {
+        if (!isInitialized) {
+            audioPlayer.src = playlist[currentTrackIndex].url;
+            audioPlayer.load();
+            isInitialized = true;
+        }
+
+        if (audioPlayer.paused) {
+            audioPlayer.play().then(() => {
+                pauseVisual.style.display = 'flex';
+                playVisual.style.display = 'none';
+                startEqualizerSim();
+            }).catch(error => {
+                console.log("Stream initialize blockage caught:", error);
+            });
+        } else {
+            audioPlayer.pause();
+            pauseVisual.style.display = 'none';
+            playVisual.style.display = 'block';
+            stopEqualizerSim();
+        }
+    }
+
+    function nextSong() {
+        currentTrackIndex++;
+        if (currentTrackIndex >= playlist.length) {
+            currentTrackIndex = 0;
+        }
+        forceTrackPlayback();
+    }
+
+    function prevSong() {
+        currentTrackIndex--;
+        if (currentTrackIndex < 0) {
+            currentTrackIndex = playlist.length - 1;
+        }
+        forceTrackPlayback();
+    }
+
+    function forceTrackPlayback() {
+        audioPlayer.src = playlist[currentTrackIndex].url;
+        updatePlayerUI();
+        audioPlayer.load();
+        audioPlayer.play().then(() => {
+            pauseVisual.style.display = 'flex';
+            playVisual.style.display = 'none';
+            startEqualizerSim();
+        }).catch(error => console.log(error));
+        isInitialized = true;
+    }
+
+    // Generates active audio frequency calculations on rendering loop
+    function startEqualizerSim() {
+        if(eqInterval) clearInterval(eqInterval);
+        eqInterval = setInterval(() => {
+            for (let i = 1; i <= 4; i++) {
+                const bar = document.getElementById('eq' + i);
+                const randomHeight = Math.floor(Math.random() * 18) + 2;
+                bar.style.height = randomHeight + 'px';
+                
+                // Switches matrix display color vectors cleanly dynamically
+                if (randomHeight > 14) {
+                    bar.style.backgroundColor = '#ffcc00'; // Peak warning color switch
+                } else {
+                    bar.style.backgroundColor = '#33cc33'; // Standard green spectrum vector
+                }
+            }
+        }, 120);
+    }
+
+    function stopEqualizerSim() {
+        clearInterval(eqInterval);
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById('eq' + i).style.height = '2px';
+            document.getElementById('eq' + i).style.backgroundColor = '#33cc33';
+        }
+    }
+
+    audioPlayer.addEventListener('ended', nextSong);
+
+    // Match player controls display accurately upon direct load sequence properties
+    pauseVisual.style.display = 'none';
+    playVisual.style.display = 'block';
+</script>
