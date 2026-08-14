@@ -13,7 +13,7 @@
         }
 
         body {
-            background: #6A6E4F;
+            background: #6c6b3f; /* Kept your updated background color */
             font-family: Verdana, Arial, sans-serif;
             min-height: 100vh;
             display: flex;
@@ -22,11 +22,75 @@
             overflow: hidden;
         }
 
-        .wrapper {
+        /* --- SIDEBAR PLAYER STYLES --- */
+        .sidebar-player {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            background: #d14702; /* Your custom orange shade */
+            border: 2px solid black;
+            padding: 15px;
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
             text-align: center;
+            z-index: 100;
         }
 
-        /* Changed to 2x2 grid for exactly 4 items */
+        /* Marquee wrapper container */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid black;
+            background: #f0f0f0;
+            padding: 6px 0;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* CSS Scrolling Marquee Animation */
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* Player Control Buttons */
+        .player-controls {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+
+        .player-btn {
+            background: white;
+            border: 1px solid black;
+            padding: 6px 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .player-btn:hover {
+            background: black;
+            color: white;
+        }
+
+        /* --- MAIN LAYOUT STYLES --- */
+        .wrapper {
+            text-align: center;
+            margin-left: 120px; /* Shifts main grid slightly right to balance sidebar layout */
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 180px);
@@ -71,16 +135,29 @@
             font-size: .75rem;
             letter-spacing: .2em;
             color: #666;
-            cursor: pointer; /* Makes it clear it's clickable for the easter egg */
+            cursor: pointer;
             user-select: none;
         }
 
         @media(max-width: 700px) {
+            body {
+                flex-direction: column;
+                overflow-y: auto;
+                padding: 20px 0;
+            }
+            .sidebar-player {
+                position: static;
+                transform: none;
+                width: 320px;
+                margin-bottom: 25px;
+            }
+            .wrapper {
+                margin-left: 0;
+            }
             .grid {
                 grid-template-columns: repeat(2, 150px);
                 gap: 18px;
             }
-
             .card img {
                 height: 100px;
             }
@@ -89,6 +166,18 @@
 </head>
 
 <body>
+
+    <!-- Sidebar Music Player Container -->
+    <div class="sidebar-player">
+        <div class="marquee-container">
+            <span class="marquee-text" id="trackTitle">TRACK TITLE HERE...</span>
+        </div>
+        <div class="player-controls">
+            <button class="player-btn" onclick="prevSong()">Prev</button>
+            <button class="player-btn" id="playBtn" onclick="toggleAudio()">Play</button>
+            <button class="player-btn" onclick="nextSong()">Next</button>
+        </div>
+    </div>
 
     <div class="wrapper">
         <div class="grid">
@@ -101,10 +190,10 @@
             <!-- Box 2: Photos -->
             <a class="card" href="https://www.flickr.com/photos/202761580@N08/albums/">
                 <img src="images/ph0t0z.gif">
-                <span>PIS</span>
+                <span>PICS</span>
             </a>
 
-            <!-- Box 3: GTAV (Updated Link and Text) -->
+            <!-- Box 3: GTAV -->
             <a class="card" href="gtav.html">
                 <img src="images/muzik.gif">
                 <span>GTAV</span>
@@ -117,32 +206,84 @@
             </a>
         </div>
 
-        <!-- Hidden Audio Element -->
-        <audio id="hidden-player" loop>
-            <source src="your-audio-file.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <!-- Hidden Audio Player Core -->
+        <audio id="audioPlayer"></audio>
 
-        <!-- Footer triggers the play/pause -->
+        <!-- Footer also triggers the play/pause -->
         <div class="footer" onclick="toggleAudio()">
             © 2026 • DON'T COPY AIGHT!!!!
         </div>
     </div>
 
     <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const trackTitle = document.getElementById('trackTitle');
+        const playBtn = document.getElementById('playBtn');
+        
+        // Playlist Array updated to support readable titles matching your URLs
+        const playlist = [
+            { title: "Why Should I Be Sad", url: "https://od.lk/s/OTBfNDMzODczOThf/Why%20Should%20I%20Be%20Sad.mp3" },
+            { title: "Nelly Furtado - Do It", url: "https://od.lk/s/OTBfNDMzODczODhf/Nelly%20Furtado%20-%20Do%20It%20%28Official%20Music%20Video%29.mp3" },
+            { title: "Daniel Bedingfield - Gotta Get Thru This", url: "https://od.lk/s/OTBfNTM0MTkyMzdfbkpyWWk/Daniel%20Bedingfield%20-%20Gotta%20Get%20Thru%20This%20%28Original%20Version%29%28TO%29.mp3" },
+            { title: "Mariah Carey - Get Your Number", url: "https://od.lk/s/OTBfNDMzODczOTJf/Mariah%20Carey%20-%20Get%20Your%20Number.mp3" },
+            { title: "JMSN - Soft Spot", url: "https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3" },
+            { title: "Fergie - Glamorous", url: "https://od.lk/s/OTBfNDMzODczOTVf/Glamorous.mp3" },
+            { title: "Do You Mind (Crazy Cousinz Remix)", url: "https://od.lk/s/OTBfNDMzODczOTNf/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3" },
+            { title: "Ayesha x Righteous", url: "https://od.lk/s/OTBfNDMzODczOTZf/ayesha%20x%20righteous.mp3" },
+            { title: "Ayesha Erotica - 9 AM in Calabasas (Remix)", url: "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3" },
+            { title: "Someone To Call My Lover (So So Def Remix)", url: "https://od.lk/s/OTBfNDMzODc0MDBf/Someone%20To%20Call%20My%20Lover%20%28So%20So%20Def%20Remix%29.mp3" },
+            { title: "Clothes Off!!", url: "https://od.lk/s/OTBfNTUzNzE2ODlfS29mNGE/Clothes%20Off%21%21.mp3" },
+            { title: "Cassie - Me and You (Rare Original MySpace)", url: "https://od.lk/s/OTBfNTM0MTkyMDNfbW1kSDI/Cassie-%20Me%20and%20You%20%28Rare%20Original%20MySpace%20Music%20Video%29.mp3" },
+            { title: "Nelly Furtado ft. Timbaland - Promiscuous", url: "https://od.lk/s/OTBfNDQ2MzI4NDZfRHNseno/Nelly%20Furtado%20-%20Promiscuous%20%28Official%20Music%20Video%29%20ft.%20Timbaland.mp3" },
+            { title: "Slow Down (Radio Edit)", url: "https://od.lk/s/OTBfNDQ2MzI4ODBfYnB0UXc/Slow%20Down%20%28Radio%20Edit%29.mp3" },
+            { title: "Justin Timberlake - My Love", url: "https://od.lk/s/OTBfNDQ2ODU2NTVfOUxieWI/My%20Love.mp3" }
+        ];
+
+        let currentTrackIndex = 0;
+        let isInitialized = false;
+
+        function updatePlayerUI() {
+            audioPlayer.src = playlist[currentTrackIndex].url;
+            trackTitle.textContent = playlist[currentTrackIndex].title;
+        }
+
+        updatePlayerUI();
+
         function toggleAudio() {
-            var player = document.getElementById('hidden-player');
-            if (player.paused) {
-                player.play().catch(function(error) {
-                    console.log("Audio playback failed or needs user interaction first:", error);
+            if (!isInitialized) {
+                audioPlayer.load();
+                isInitialized = true;
+            }
+
+            if (audioPlayer.paused) {
+                audioPlayer.play().then(() => {
+                    playBtn.textContent = "Pause";
+                }).catch(error => {
+                    console.log("Playback failed:", error);
                 });
             } else {
-                player.pause();
+                audioPlayer.pause();
+                playBtn.textContent = "Play";
             }
         }
-    </script>
 
-</body>
-</html>
+        function nextSong() {
+            currentTrackIndex++;
+            if (currentTrackIndex >= playlist.length) {
+                currentTrackIndex = 0;
+            }
+            updatePlayerUI();
+            audioPlayer.load();
+            if (isInitialized) {
+                audioPlayer.play().catch(error => console.log(error));
+                playBtn.textContent = "Pause";
+            }
+        }
 
-</html>
+        function prevSong() {
+            currentTrackIndex--;
+            if (currentTrackIndex < 0) {
+                currentTrackIndex = playlist.length - 1;
+            }
+            updatePlayerUI();
+            audioPlayer.load();
