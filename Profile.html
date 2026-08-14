@@ -4,147 +4,480 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Welcome</title>
+<title>Amber Diaz — Profile</title>
+
+<link rel="icon" href="tabicon.png">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* =========================================================
+   OLD INTERNET PROFILE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-
-background:#B1C809;
-
-font-family:Verdana,Arial,sans-serif;
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-overflow:hidden;
-
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
 }
 
-.wrapper{
+body {
 
-text-align:center;
+    background: #d8d6c4;
 
-}
+    color: #222;
 
-.logo{
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
 
-width:min(520px,90vw);
-
-margin-bottom:45px;
-
-image-rendering:pixelated;
+    font-size: 13px;
 
 }
 
-.grid{
 
-display:grid;
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
-grid-template-columns:repeat(3,180px);
+.topbar {
 
-gap:22px;
+    width: 100%;
 
-justify-content:center;
+    background: #111;
 
-}
+    color: white;
 
-.card{
+    border-bottom: 3px solid #777;
 
-display:block;
+    padding: 5px 8px;
 
-background:white;
+    font-family: Arial, Helvetica, sans-serif;
 
-border:2px solid black;
-
-padding:14px;
-
-text-decoration:none;
-
-color:black;
-
-transition:.18s;
+    font-size: 11px;
 
 }
 
-.card:hover{
+.topbar a {
 
-transform:translateY(-4px) scale(1.04);
+    color: white;
 
-background:black;
+    text-decoration: none;
 
-color:white;
-
-box-shadow:8px 8px 0px rgba(0,0,0,.25);
+    margin-right: 15px;
 
 }
 
-.card img{
+.topbar a:hover {
 
-width:100%;
-
-height:120px;
-
-object-fit:cover;
-
-border:1px solid black;
-
-margin-bottom:12px;
+    text-decoration: underline;
 
 }
 
-.card span{
 
-display:block;
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
 
-font-size:.85rem;
+#page {
 
-letter-spacing:.25em;
+    width: 900px;
 
-font-weight:bold;
+    max-width: 95%;
 
-}
-
-.footer{
-
-margin-top:35px;
-
-font-size:.75rem;
-
-letter-spacing:.2em;
-
-color:#666;
+    margin: 15px auto 50px auto;
 
 }
 
-@media(max-width:700px){
 
-.grid{
+/* =========================================================
+   HEADER
+   ========================================================= */
 
-grid-template-columns:repeat(2,150px);
+.header {
 
-gap:18px;
+    background: #eeeeee;
+
+    border: 1px solid #555;
+
+    padding: 8px 10px;
+
+    margin-bottom: 8px;
 
 }
 
-.card img{
+.header h1 {
 
-height:100px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    margin: 0;
 
 }
+
+.header p {
+
+    margin: 3px 0 0 0;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   TWO COLUMN LAYOUT
+   ========================================================= */
+
+.layout {
+
+    display: grid;
+
+    grid-template-columns:
+        260px
+        1fr;
+
+    gap: 8px;
+
+}
+
+
+/* =========================================================
+   BOXES
+   ========================================================= */
+
+.box {
+
+    background: #eeeeee;
+
+    border: 1px solid #555;
+
+    margin-bottom: 8px;
+
+}
+
+.box-title {
+
+    background: #333;
+
+    color: white;
+
+    padding: 4px 6px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+}
+
+.box-content {
+
+    padding: 8px;
+
+}
+
+
+/* =========================================================
+   PROFILE PHOTO
+   ========================================================= */
+
+.profile-photo {
+
+    width: 100%;
+
+    display: block;
+
+    border: 1px solid #777;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================================
+   PROFILE DETAILS
+   ========================================================= */
+
+.profile-details {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+.profile-details b {
+
+    color: #555;
+
+}
+
+
+/* =========================================================
+   BLINKING / OLD INTERNET TEXT
+   ========================================================= */
+
+.status {
+
+    color: #cc0000;
+
+    font-weight: bold;
+
+}
+
+.small {
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   ABOUT ME
+   ========================================================= */
+
+.about {
+
+    font-size: 14px;
+
+    line-height: 1.45;
+
+}
+
+.about p {
+
+    margin-top: 0;
+
+}
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+ul {
+
+    margin-top: 5px;
+
+    padding-left: 20px;
+
+}
+
+li {
+
+    margin-bottom: 3px;
+
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee {
+
+    background: black;
+
+    color: white;
+
+    border: 1px solid #555;
+
+    padding: 3px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    color: #0000cc;
+
+}
+
+a:visited {
+
+    color: #551a8b;
+
+}
+
+a:hover {
+
+    color: red;
+
+}
+
+
+/* =========================================================
+   GUESTBOOK
+   ========================================================= */
+
+.comment {
+
+    border-top: 1px dotted #777;
+
+    padding: 8px 0;
+
+}
+
+.comment:first-child {
+
+    border-top: none;
+
+}
+
+.comment-name {
+
+    font-weight: bold;
+
+    color: #0000cc;
+
+}
+
+.comment-date {
+
+    color: #777;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   FRIENDS
+   ========================================================= */
+
+.friends {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 5px;
+
+}
+
+.friend {
+
+    text-align: center;
+
+    font-size: 10px;
+
+}
+
+.friend img {
+
+    width: 100%;
+
+    height: 70px;
+
+    object-fit: cover;
+
+    border: 1px solid #555;
+
+    display: block;
+
+    margin-bottom: 2px;
+
+}
+
+
+/* =========================================================
+   GIF / RANDOM MEDIA
+   ========================================================= */
+
+.random-gif {
+
+    max-width: 100%;
+
+    display: block;
+
+    margin: 5px auto;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    border-top: 1px solid #555;
+
+    margin-top: 15px;
+
+    padding-top: 5px;
+
+    text-align: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+    color: #555;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 700px) {
+
+    #page {
+
+        width: 95%;
+
+    }
+
+    .layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .friends {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
 
 }
 
@@ -152,71 +485,506 @@ height:100px;
 
 </head>
 
+
 <body>
 
-<div class="wrapper">
 
-<img src="copyright1.gif" class="logo" alt="">
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
 
-<div class="grid">
+<div class="topbar">
 
-<a class="card" href="Mo0veez.html">
+    <a href="index.html">HOME</a>
 
-<img src="images/mo0veez.gif">
+    <a href="profile.html">PROFILE</a>
 
-<span>MO0VEEZ</span>
+    <a href="Mo0veez.html">MOVIES</a>
 
-</a>
+    <a href="websites.html">WEBSITES</a>
 
-<a class="card" href="ph0t0z.html">
+    <a href="photography.html">PHOTOS</a>
 
-<img src="images/ph0t0z.gif">
+    <a href="writing.html">WRITING</a>
 
-<span>PH0T0Z</span>
-
-</a>
-
-<a class="card" href="webz.html">
-
-<img src="images/webz.gif">
-
-<span>WEBZ</span>
-
-</a>
-
-<a class="card" href="muzik.html">
-
-<img src="images/muzik.gif">
-
-<span>MUZIK</span>
-
-</a>
-
-<a class="card" href="profile.html">
-
-<img src="imageedit_1_8962486919.gif">
-
-<span>WHO IZ SHE?</span>
-
-</a>
-
-<a class="card" href="profile.html">
-
-<img src="images/enter.gif">
-
-<span>ENTER</span>
-
-</a>
+    <a href="archive.html">ARCHIVE</a>
 
 </div>
+
+
+<!-- =====================================================
+     PAGE
+     ===================================================== -->
+
+<div id="page">
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>Amber Diaz</h1>
+
+    <p>
+        creative director / filmmaker / writer / internet person
+    </p>
+
+</div>
+
+
+<!-- OLD INTERNET MARQUEE -->
+
+<div class="marquee">
+
+    <marquee scrollamount="4">
+
+        ★ welcome to my little corner of the internet ★
+        please do not steal my shit ★
+        established 2026 ★
+
+    </marquee>
+
+</div>
+
+
+<!-- =====================================================
+     TWO COLUMNS
+     ===================================================== -->
+
+<div class="layout">
+
+
+<!-- =====================================================
+     LEFT COLUMN
+     ===================================================== -->
+
+<div>
+
+
+<!-- PHOTO -->
+
+<div class="box">
+
+    <div class="box-title">
+        Profile
+    </div>
+
+    <div class="box-content">
+
+        <img
+            src="lowpolymeee.png"
+            class="profile-photo"
+            alt="Amber"
+        >
+
+        <div class="profile-details">
+
+            <b>Name:</b> Amber Diaz<br>
+
+            <b>Location:</b> New York<br>
+
+            <b>Occupation:</b> Creative Director<br>
+
+            <b>Status:</b>
+            <span class="status">
+                ONLINE
+            </span>
+
+            <br>
+
+            <b>Joined:</b> 2026
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<div class="box">
+
+    <div class="box-title">
+        Contact
+    </div>
+
+    <div class="box-content">
+
+        <a href="mailto:youremail@example.com">
+            E-mail Me
+        </a>
+
+        <br><br>
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <br>
+
+        <a href="#">
+            Tumblr
+        </a>
+
+        <br>
+
+        <a href="#">
+            GitHub
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- RANDOM -->
+
+<div class="box">
+
+    <div class="box-title">
+        Random
+    </div>
+
+    <div class="box-content">
+
+        currently listening to:
+
+        <br><br>
+
+        <b>https://music.apple.com/us/playlist/28/pl.u-06oxvbgCYVzlzYq</b>
+
+        <br><br>
+
+        currently watching:
+
+        <br><br>
+
+        <b>???</b>
+
+        <br><br>
+
+        mood:
+
+        <br><br>
+
+        <b>¯\_(ツ)_/¯</b>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     RIGHT COLUMN
+     ===================================================== -->
+
+<div>
+
+
+<!-- ABOUT -->
+
+<div class="box">
+
+    <div class="box-title">
+        About Me
+    </div>
+
+    <div class="box-content about">
+
+        <p>
+
+            Hi. I'm Amber Skyy.
+
+        </p>
+
+        <p>
+
+            I make things for the internet, movies,
+            photographs, websites, weird little projects,
+            and whatever else I happen to become obsessed with.
+
+        </p>
+
+        <p>
+
+            This website is intentionally not very normal.
+
+        </p>
+
+        <p>
+
+            If you're looking for the polished portfolio,
+            you're probably in the wrong place.
+
+        </p>
+
+        <p>
+
+            Anyway, welcome.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- CURRENTLY -->
+
+<div class="box">
+
+    <div class="box-title">
+        Currently
+    </div>
+
+    <div class="box-content">
+
+        <ul>
+
+            <li>
+                Making: <b>stuff</b>
+            </li>
+
+            <li>
+                Watching: <b>old movies</b>
+            </li>
+
+            <li>
+                Listening to: <b>music</b>
+            </li>
+
+            <li>
+                Learning: <b>JavaScript</b>
+            </li>
+
+            <li>
+                Building: <b>this website</b>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- MY WORK -->
+
+<div class="box">
+
+    <div class="box-title">
+        My Work
+    </div>
+
+    <div class="box-content">
+
+        <a href="Mo0veez.html">
+            Movies / Video
+        </a>
+
+        <br>
+
+        <a href="websites.html">
+            Websites
+        </a>
+
+        <br>
+
+        <a href="photography.html">
+            Photography
+        </a>
+
+        <br>
+
+        <a href="writing.html">
+            Writing
+        </a>
+
+        <br>
+
+        <a href="branding.html">
+            Creative Direction
+        </a>
+
+        <br>
+
+        <a href="archive.html">
+            Archive
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- FRIENDS -->
+
+<div class="box">
+
+    <div class="box-title">
+        Friends / Links
+    </div>
+
+    <div class="box-content">
+
+        <div class="friends">
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend1.gif"
+                        alt=""
+                    >
+
+                    friend 01
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend2.gif"
+                        alt=""
+                    >
+
+                    friend 02
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend3.gif"
+                        alt=""
+                    >
+
+                    friend 03
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend4.gif"
+                        alt=""
+                    >
+
+                    friend 04
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- GUESTBOOK -->
+
+<div class="box">
+
+    <div class="box-title">
+        Guestbook
+    </div>
+
+    <div class="box-content">
+
+
+        <div class="comment">
+
+            <div class="comment-name">
+                random internet person
+            </div>
+
+            <div class="comment-date">
+                08/13/2026
+            </div>
+
+            this website is crazy lol
+
+        </div>
+
+
+        <div class="comment">
+
+            <div class="comment-name">
+                another person
+            </div>
+
+            <div class="comment-date">
+                08/13/2026
+            </div>
+
+            i like your site
+
+        </div>
+
+
+        <br>
+
+        <a href="#">
+            Sign my guestbook
+        </a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <div class="footer">
 
-© 2026 • DON'T COPY AIGHT!!!!
+    © 2026 Amber Diaz
+
+    &nbsp; | &nbsp;
+
+    Best viewed with a computer
+
+    &nbsp; | &nbsp;
+
+    <a href="index.html">
+        back to entrance
+    </a>
 
 </div>
 
+
 </div>
+
 
 </body>
 
