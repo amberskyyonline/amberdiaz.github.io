@@ -233,24 +233,26 @@
             { title: "Ayesha Erotica - 9 AM in Calabasas (Remix)", url: "https://od.lk/s/OTBfNDMzODczOTdf/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3" },
             { title: "Someone To Call My Lover (So So Def Remix)", url: "https://od.lk/s/OTBfNDMzODc0MDBf/Someone%20To%20Call%20My%20Lover%20%28So%20So%20Def%20Remix%29.mp3" },
             { title: "Clothes Off!!", url: "https://od.lk/s/OTBfNTUzNzE2ODlfS29mNGE/Clothes%20Off%21%21.mp3" },
-            { title: "Cassie - Me and You (Rare Original MySpace)", url: "https://od.lk/s/OTBfNTM0MTkyMDNfbW1kSDI/Cassie-%20Me%20and%20You%20%28Rare%20Original%20MySpace%20Music%20Video%29.mp3" },
+            { title: "Cassie - Me and You (MySpace Version)", url: "https://od.lk/s/OTBfNTM0MTkyMDNfbW1kSDI/Cassie-%20Me%20and%20You%20%28Rare%20Original%20MySpace%20Music%20Video%29.mp3" },
             { title: "Nelly Furtado ft. Timbaland - Promiscuous", url: "https://od.lk/s/OTBfNDQ2MzI4NDZfRHNseno/Nelly%20Furtado%20-%20Promiscuous%20%28Official%20Music%20Video%29%20ft.%20Timbaland.mp3" },
             { title: "Slow Down (Radio Edit)", url: "https://od.lk/s/OTBfNDQ2MzI4ODBfYnB0UXc/Slow%20Down%20%28Radio%20Edit%29.mp3" },
             { title: "Justin Timberlake - My Love", url: "https://od.lk/s/OTBfNDQ2ODU2NTVfOUxieWI/My%20Love.mp3" }
         ];
 
-        let currentTrackIndex = 0;
+               let currentTrackIndex = 0;
         let isInitialized = false;
 
+        // ONLY update the text on initial load, do not lock the source yet
         function updatePlayerUI() {
-            audioPlayer.src = playlist[currentTrackIndex].url;
             trackTitle.textContent = playlist[currentTrackIndex].title;
         }
 
         updatePlayerUI();
 
         function toggleAudio() {
+            // First time click initialization fixes browser autoplay blocks
             if (!isInitialized) {
+                audioPlayer.src = playlist[currentTrackIndex].url;
                 audioPlayer.load();
                 isInitialized = true;
             }
@@ -259,7 +261,7 @@
                 audioPlayer.play().then(() => {
                     playBtn.textContent = "Pause";
                 }).catch(error => {
-                    console.log("Playback failed:", error);
+                    console.log("Playback failed. Check if URL is live:", error);
                 });
             } else {
                 audioPlayer.pause();
@@ -272,12 +274,13 @@
             if (currentTrackIndex >= playlist.length) {
                 currentTrackIndex = 0;
             }
+            // Update URL right before we force the play
+            audioPlayer.src = playlist[currentTrackIndex].url;
             updatePlayerUI();
             audioPlayer.load();
-            if (isInitialized) {
-                audioPlayer.play().catch(error => console.log(error));
-                playBtn.textContent = "Pause";
-            }
+            audioPlayer.play().catch(error => console.log(error));
+            playBtn.textContent = "Pause";
+            isInitialized = true;
         }
 
         function prevSong() {
@@ -285,5 +288,12 @@
             if (currentTrackIndex < 0) {
                 currentTrackIndex = playlist.length - 1;
             }
+            audioPlayer.src = playlist[currentTrackIndex].url;
             updatePlayerUI();
             audioPlayer.load();
+            audioPlayer.play().catch(error => console.log(error));
+            playBtn.textContent = "Pause";
+            isInitialized = true;
+        }
+
+        audioPlayer.addEventListener('ended', nextSong);
