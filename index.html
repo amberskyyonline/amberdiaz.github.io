@@ -65,7 +65,7 @@ body {
 
     left: 50%;
 
-    bottom: 30px;
+    bottom: 85px;
 
     transform: translateX(-50%);
 
@@ -331,6 +331,82 @@ body {
 
 
 /* =========================
+   ENTER BUTTON
+   ========================= */
+
+.enter-button {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    display: inline-block;
+
+    padding: 6px 18px;
+
+    background: white;
+
+    color: black;
+
+    border: 2px solid black;
+
+    text-decoration: none;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 3px 3px 0px black;
+
+    transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background 0.1s ease;
+
+}
+
+
+/* Hover */
+
+.enter-button:hover {
+
+    background: black;
+
+    color: white;
+
+    transform:
+        translateX(-50%)
+        translateY(-2px);
+
+    box-shadow: 3px 5px 0px black;
+
+}
+
+
+/* Click */
+
+.enter-button:active {
+
+    transform:
+        translateX(-50%)
+        translateY(2px);
+
+    box-shadow: 1px 1px 0px black;
+
+}
+
+
+/* =========================
    MOBILE
    ========================= */
 
@@ -340,13 +416,23 @@ body {
 
         width: 190px;
 
-        bottom: 20px;
+        bottom: 75px;
 
     }
 
     .speech-bubble {
 
         font-size: 11px;
+
+    }
+
+    .enter-button {
+
+        bottom: 20px;
+
+        font-size: 12px;
+
+        padding: 5px 15px;
 
     }
 
@@ -387,6 +473,18 @@ body {
     >
 
 </div>
+
+
+<!-- =========================
+     ENTER PROFILE BUTTON
+     ========================= -->
+
+<a
+    href="profile.html"
+    class="enter-button"
+>
+    ENTER
+</a>
 
 
 <!-- =========================
