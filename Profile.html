@@ -7,32 +7,32 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Amber Diaz — Profile</title>
+<title>Amber Diaz / profile</title>
 
 <link rel="icon" href="tabicon.png">
 
 <style>
 
 /* =========================================================
-   OLD INTERNET PROFILE
+   GLOBAL
    ========================================================= */
-
-* {
-    box-sizing: border-box;
-}
 
 html,
 body {
+
     margin: 0;
     padding: 0;
+
+    width: 100%;
     min-height: 100%;
+
 }
 
 body {
 
-    background: #d8d6c4;
+    background: #e7e5d8;
 
-    color: #222;
+    color: #111;
 
     font-family:
         "Times New Roman",
@@ -45,286 +45,14 @@ body {
 
 
 /* =========================================================
-   TOP BAR
-   ========================================================= */
-
-.topbar {
-
-    width: 100%;
-
-    background: #111;
-
-    color: white;
-
-    border-bottom: 3px solid #777;
-
-    padding: 5px 8px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
-}
-
-.topbar a {
-
-    color: white;
-
-    text-decoration: none;
-
-    margin-right: 15px;
-
-}
-
-.topbar a:hover {
-
-    text-decoration: underline;
-
-}
-
-
-/* =========================================================
-   MAIN PAGE
-   ========================================================= */
-
-#page {
-
-    width: 900px;
-
-    max-width: 95%;
-
-    margin: 15px auto 50px auto;
-
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header {
-
-    background: #eeeeee;
-
-    border: 1px solid #555;
-
-    padding: 8px 10px;
-
-    margin-bottom: 8px;
-
-}
-
-.header h1 {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 25px;
-
-    font-weight: normal;
-
-    margin: 0;
-
-}
-
-.header p {
-
-    margin: 3px 0 0 0;
-
-    font-size: 12px;
-
-}
-
-
-/* =========================================================
-   TWO COLUMN LAYOUT
-   ========================================================= */
-
-.layout {
-
-    display: grid;
-
-    grid-template-columns:
-        260px
-        1fr;
-
-    gap: 8px;
-
-}
-
-
-/* =========================================================
-   BOXES
-   ========================================================= */
-
-.box {
-
-    background: #eeeeee;
-
-    border: 1px solid #555;
-
-    margin-bottom: 8px;
-
-}
-
-.box-title {
-
-    background: #333;
-
-    color: white;
-
-    padding: 4px 6px;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 11px;
-
-    font-weight: bold;
-
-    text-transform: uppercase;
-
-}
-
-.box-content {
-
-    padding: 8px;
-
-}
-
-
-/* =========================================================
-   PROFILE PHOTO
-   ========================================================= */
-
-.profile-photo {
-
-    width: 100%;
-
-    display: block;
-
-    border: 1px solid #777;
-
-    margin-bottom: 7px;
-
-}
-
-
-/* =========================================================
-   PROFILE DETAILS
-   ========================================================= */
-
-.profile-details {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    font-size: 11px;
-
-    line-height: 1.5;
-
-}
-
-.profile-details b {
-
-    color: #555;
-
-}
-
-
-/* =========================================================
-   BLINKING / OLD INTERNET TEXT
-   ========================================================= */
-
-.status {
-
-    color: #cc0000;
-
-    font-weight: bold;
-
-}
-
-.small {
-
-    font-size: 10px;
-
-}
-
-
-/* =========================================================
-   ABOUT ME
-   ========================================================= */
-
-.about {
-
-    font-size: 14px;
-
-    line-height: 1.45;
-
-}
-
-.about p {
-
-    margin-top: 0;
-
-}
-
-
-/* =========================================================
-   LISTS
-   ========================================================= */
-
-ul {
-
-    margin-top: 5px;
-
-    padding-left: 20px;
-
-}
-
-li {
-
-    margin-bottom: 3px;
-
-}
-
-
-/* =========================================================
-   MARQUEE
-   ========================================================= */
-
-.marquee {
-
-    background: black;
-
-    color: white;
-
-    border: 1px solid #555;
-
-    padding: 3px;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 11px;
-
-    margin-bottom: 8px;
-
-}
-
-
-/* =========================================================
    LINKS
    ========================================================= */
 
 a {
 
     color: #0000cc;
+
+    text-decoration: underline;
 
 }
 
@@ -342,91 +70,376 @@ a:hover {
 
 
 /* =========================================================
-   GUESTBOOK
+   PAGE
    ========================================================= */
 
-.comment {
+#page {
 
-    border-top: 1px dotted #777;
+    width: 920px;
 
-    padding: 8px 0;
+    max-width: calc(100% - 30px);
 
-}
+    margin: 0 auto;
 
-.comment:first-child {
-
-    border-top: none;
+    position: relative;
 
 }
 
-.comment-name {
+
+/* =========================================================
+   TOP INFORMATION STRIP
+   ========================================================= */
+
+#top {
+
+    border-bottom: 1px solid #222;
+
+    padding: 6px 4px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 0.3px;
+
+}
+
+#top span {
+
+    margin-right: 20px;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+#header {
+
+    padding-top: 22px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #222;
+
+}
+
+#header h1 {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 34px;
+
+    font-weight: normal;
+
+    letter-spacing: -2px;
+
+}
+
+#header p {
+
+    margin: 4px 0 0 2px;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+#content {
+
+    position: relative;
+
+    min-height: 850px;
+
+}
+
+
+/* =========================================================
+   LEFT COLUMN
+   ========================================================= */
+
+#left {
+
+    width: 190px;
+
+    float: left;
+
+    padding-top: 20px;
+
+    padding-right: 15px;
+
+}
+
+
+/* =========================================================
+   RIGHT / MAIN COLUMN
+   ========================================================= */
+
+#main {
+
+    margin-left: 205px;
+
+    padding-top: 20px;
+
+    border-left: 1px solid #222;
+
+    padding-left: 20px;
+
+    min-height: 820px;
+
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+
+    background: #222;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
 
     font-weight: bold;
 
-    color: #0000cc;
+    padding: 3px 5px;
 
-}
+    margin-bottom: 8px;
 
-.comment-date {
-
-    color: #777;
-
-    font-size: 10px;
+    text-transform: uppercase;
 
 }
 
 
 /* =========================================================
-   FRIENDS
+   PROFILE IMAGE
    ========================================================= */
 
-.friends {
+#portrait {
 
-    display: grid;
+    width: 175px;
 
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 5px;
-
-}
-
-.friend {
-
-    text-align: center;
-
-    font-size: 10px;
-
-}
-
-.friend img {
-
-    width: 100%;
-
-    height: 70px;
-
-    object-fit: cover;
-
-    border: 1px solid #555;
+    border: 1px solid #222;
 
     display: block;
 
-    margin-bottom: 2px;
+    margin-bottom: 8px;
 
 }
 
 
 /* =========================================================
-   GIF / RANDOM MEDIA
+   SMALL INFORMATION
    ========================================================= */
 
-.random-gif {
+.info {
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+.info p {
+
+    margin: 0 0 10px 0;
+
+}
+
+
+/* =========================================================
+   LITTLE IMAGE / GIF
+   ========================================================= */
+
+.stamp {
 
     max-width: 100%;
 
     display: block;
 
-    margin: 5px auto;
+    margin: 12px 0;
+
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+#about {
+
+    max-width: 610px;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+}
+
+#about p {
+
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================================
+   BIG INTRO TEXT
+   ========================================================= */
+
+.intro {
+
+    font-size: 20px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================================
+   WORK INDEX
+   ========================================================= */
+
+.work-list {
+
+    border-top: 1px solid #222;
+
+    margin-top: 25px;
+
+}
+
+.work {
+
+    display: grid;
+
+    grid-template-columns: 105px 1fr 90px;
+
+    gap: 10px;
+
+    border-bottom: 1px solid #777;
+
+    padding: 7px 3px;
+
+    font-size: 12px;
+
+}
+
+.work:hover {
+
+    background: #d6d3c4;
+
+}
+
+.work-number {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+}
+
+.work-title {
+
+    font-weight: bold;
+
+}
+
+.work-year {
+
+    text-align: right;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   CURRENT PROJECTS
+   ========================================================= */
+
+.current {
+
+    margin-top: 35px;
+
+    border: 1px solid #222;
+
+    padding: 10px;
+
+    width: 80%;
+
+}
+
+.current-title {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-weight: bold;
+
+    font-size: 10px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================================
+   RANDOM IMAGE
+   ========================================================= */
+
+#random-image {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+}
+
+#random-image img {
+
+    max-width: 180px;
+
+    max-height: 150px;
+
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+#contact {
+
+    margin-top: 40px;
+
+    border-top: 1px solid #222;
+
+    padding-top: 10px;
 
 }
 
@@ -435,21 +448,49 @@ a:hover {
    FOOTER
    ========================================================= */
 
-.footer {
+#footer {
 
-    border-top: 1px solid #555;
+    clear: both;
 
-    margin-top: 15px;
+    border-top: 1px solid #222;
 
-    padding-top: 5px;
+    margin-top: 40px;
 
-    text-align: center;
+    padding: 7px 3px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    font-size: 10px;
+    font-size: 9px;
 
     color: #555;
+
+}
+
+
+/* =========================================================
+   FLOATING DECORATION
+   ========================================================= */
+
+#tiny-camera {
+
+    position: absolute;
+
+    right: 5px;
+
+    top: 18px;
+
+    width: 75px;
+
+    opacity: 0.9;
+
+}
+
+#tiny-camera img {
+
+    width: 100%;
 
 }
 
@@ -462,20 +503,50 @@ a:hover {
 
     #page {
 
-        width: 95%;
+        max-width: calc(100% - 18px);
 
     }
 
-    .layout {
+    #left {
 
-        grid-template-columns: 1fr;
+        float: none;
+
+        width: auto;
+
+        padding-right: 0;
+
+        border-bottom: 1px solid #222;
+
+        padding-bottom: 15px;
 
     }
 
-    .friends {
+    #main {
+
+        margin-left: 0;
+
+        border-left: none;
+
+        padding-left: 0;
+
+    }
+
+    #portrait {
+
+        width: 150px;
+
+    }
+
+    #tiny-camera {
+
+        display: none;
+
+    }
+
+    .work {
 
         grid-template-columns:
-            repeat(3, 1fr);
+            65px 1fr 55px;
 
     }
 
@@ -489,475 +560,452 @@ a:hover {
 <body>
 
 
+<div id="page">
+
+
 <!-- =====================================================
-     TOP BAR
+     TOP
      ===================================================== -->
 
-<div class="topbar">
+<div id="top">
 
-    <a href="index.html">HOME</a>
+    <span>AMBER DIAZ</span>
 
-    <a href="profile.html">PROFILE</a>
+    <span>NEW YORK</span>
 
-    <a href="Mo0veez.html">MOVIES</a>
+    <span>2026</span>
 
-    <a href="websites.html">WEBSITES</a>
-
-    <a href="photography.html">PHOTOS</a>
-
-    <a href="writing.html">WRITING</a>
-
-    <a href="archive.html">ARCHIVE</a>
+    <span>
+        <a href="index.html">ENTRANCE</a>
+    </span>
 
 </div>
 
 
 <!-- =====================================================
-     PAGE
+     HEADER
      ===================================================== -->
 
-<div id="page">
+<div id="header">
 
-
-<!-- HEADER -->
-
-<div class="header">
-
-    <h1>Amber Diaz</h1>
+    <h1>amber diaz</h1>
 
     <p>
-        creative director / filmmaker / writer / internet person
+        creative direction / film / writing / websites / images
     </p>
 
 </div>
 
 
-<!-- OLD INTERNET MARQUEE -->
+<!-- =====================================================
+     CONTENT
+     ===================================================== -->
 
-<div class="marquee">
+<div id="content">
 
-    <marquee scrollamount="4">
 
-        ★ welcome to my little corner of the internet ★
-        please do not steal my shit ★
-        established 2026 ★
+<!-- LITTLE CAMERA -->
 
-    </marquee>
+<div id="tiny-camera">
+
+    <img
+        src="camcorder.png"
+        alt=""
+    >
 
 </div>
 
 
 <!-- =====================================================
-     TWO COLUMNS
+     LEFT
      ===================================================== -->
 
-<div class="layout">
+<div id="left">
 
 
-<!-- =====================================================
-     LEFT COLUMN
-     ===================================================== -->
-
-<div>
-
-
-<!-- PHOTO -->
-
-<div class="box">
-
-    <div class="box-title">
-        Profile
+    <div class="section-title">
+        about
     </div>
 
-    <div class="box-content">
 
-        <img
-            src="lowpolymeee.png"
-            class="profile-photo"
-            alt="Amber"
-        >
-
-        <div class="profile-details">
-
-            <b>Name:</b> Amber Diaz<br>
-
-            <b>Location:</b> New York<br>
-
-            <b>Occupation:</b> Creative Director<br>
-
-            <b>Status:</b>
-            <span class="status">
-                ONLINE
-            </span>
-
-            <br>
-
-            <b>Joined:</b> 2026
-
-        </div>
-
-    </div>
-
-</div>
+    <img
+        id="portrait"
+        src="meeee.jpg"
+        alt="Amber Diaz"
+    >
 
 
-<!-- CONTACT -->
-
-<div class="box">
-
-    <div class="box-title">
-        Contact
-    </div>
-
-    <div class="box-content">
-
-        <a href="mailto:youremail@example.com">
-            E-mail Me
-        </a>
-
-        <br><br>
-
-        <a href="#">
-            Instagram
-        </a>
-
-        <br>
-
-        <a href="#">
-            Tumblr
-        </a>
-
-        <br>
-
-        <a href="#">
-            GitHub
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- RANDOM -->
-
-<div class="box">
-
-    <div class="box-title">
-        Random
-    </div>
-
-    <div class="box-content">
-
-        currently listening to:
-
-        <br><br>
-
-        <b>https://music.apple.com/us/playlist/28/pl.u-06oxvbgCYVzlzYq</b>
-
-        <br><br>
-
-        currently watching:
-
-        <br><br>
-
-        <b>???</b>
-
-        <br><br>
-
-        mood:
-
-        <br><br>
-
-        <b>¯\_(ツ)_/¯</b>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- =====================================================
-     RIGHT COLUMN
-     ===================================================== -->
-
-<div>
-
-
-<!-- ABOUT -->
-
-<div class="box">
-
-    <div class="box-title">
-        About Me
-    </div>
-
-    <div class="box-content about">
+    <div class="info">
 
         <p>
 
-            Hi. I'm Amber Skyy.
+            <b>NAME</b><br>
+
+            Amber Skyy
 
         </p>
 
+
         <p>
 
-            I make things for the internet, movies,
-            photographs, websites, weird little projects,
-            and whatever else I happen to become obsessed with.
+            <b>BASED</b><br>
+
+            New York
 
         </p>
 
+
         <p>
 
-            This website is intentionally not very normal.
+            <b>WORK</b><br>
+
+            Creative direction<br>
+            Film<br>
+            Photography<br>
+            Writing<br>
+            Web design
 
         </p>
 
-        <p>
-
-            If you're looking for the polished portfolio,
-            you're probably in the wrong place.
-
-        </p>
 
         <p>
 
-            Anyway, welcome.
+            <b>YEAR</b><br>
+
+            2026
 
         </p>
 
     </div>
 
-</div>
+
+    <!-- RANDOM LITTLE IMAGE -->
+
+    <img
+        class="stamp"
+        src="copyright1.gif"
+        alt=""
+    >
 
 
-<!-- CURRENTLY -->
-
-<div class="box">
-
-    <div class="box-title">
-        Currently
-    </div>
-
-    <div class="box-content">
-
-        <ul>
-
-            <li>
-                Making: <b>stuff</b>
-            </li>
-
-            <li>
-                Watching: <b>old movies</b>
-            </li>
-
-            <li>
-                Listening to: <b>music</b>
-            </li>
-
-            <li>
-                Learning: <b>JavaScript</b>
-            </li>
-
-            <li>
-                Building: <b>this website</b>
-            </li>
-
-        </ul>
-
-    </div>
-
-</div>
-
-
-<!-- MY WORK -->
-
-<div class="box">
-
-    <div class="box-title">
-        My Work
-    </div>
-
-    <div class="box-content">
+    <div class="info">
 
         <a href="Mo0veez.html">
-            Movies / Video
+            movies
         </a>
 
         <br>
 
         <a href="websites.html">
-            Websites
+            websites
         </a>
 
         <br>
 
-        <a href="photography.html">
-            Photography
+        <a href="https://www.flickr.com/photos/202761580@N08/albums">
+            photography
         </a>
 
         <br>
 
         <a href="writing.html">
-            Writing
+            writing
         </a>
 
         <br>
 
         <a href="branding.html">
-            Creative Direction
+            creative direction
         </a>
 
         <br>
 
         <a href="archive.html">
-            Archive
+            archive
         </a>
 
     </div>
 
-</div>
-
-
-<!-- FRIENDS -->
-
-<div class="box">
-
-    <div class="box-title">
-        Friends / Links
-    </div>
-
-    <div class="box-content">
-
-        <div class="friends">
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend1.gif"
-                        alt=""
-                    >
-
-                    friend 01
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend2.gif"
-                        alt=""
-                    >
-
-                    friend 02
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend3.gif"
-                        alt=""
-                    >
-
-                    friend 03
-
-                </a>
-
-            </div>
-
-
-            <div class="friend">
-
-                <a href="#">
-
-                    <img
-                        src="images/friend4.gif"
-                        alt=""
-                    >
-
-                    friend 04
-
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </div>
 
 </div>
 
 
-<!-- GUESTBOOK -->
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
 
-<div class="box">
+<div id="main">
 
-    <div class="box-title">
-        Guestbook
+
+<div id="about">
+
+
+    <div class="section-title">
+        profile
     </div>
 
-    <div class="box-content">
+
+    <div class="intro">
+
+        I make things.
+
+    </div>
 
 
-        <div class="comment">
+    <p>
 
-            <div class="comment-name">
-                random internet person
-            </div>
+        My work moves between film, photography,
+        writing, websites, visual identity and whatever
+        else seems interesting at the time.
 
-            <div class="comment-date">
-                08/13/2026
-            </div>
-
-            this website is crazy lol
-
-        </div>
+    </p>
 
 
-        <div class="comment">
+    <p>
 
-            <div class="comment-name">
-                another person
-            </div>
+        This website is less of a portfolio and more of
+        a record of things I've made, collected,
+        photographed, filmed, written or otherwise
+        fucked around with.
 
-            <div class="comment-date">
-                08/13/2026
-            </div>
-
-            i like your site
-
-        </div>
+    </p>
 
 
-        <br>
+    <p>
 
-        <a href="#">
-            Sign my guestbook
+        Some things are finished.
+
+        Some things aren't.
+
+        Some things probably never will be.
+
+    </p>
+
+
+    <p>
+
+        There isn't really a straight line between
+        everything here.
+
+    </p>
+
+
+</div>
+
+
+<!-- =====================================================
+     SELECTED WORK
+     ===================================================== -->
+
+<div class="work-list">
+
+
+<div class="section-title">
+
+    selected / things
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        001
+    </div>
+
+    <div class="work-title">
+
+        <a href="Mo0veez.html">
+            mo0veez
         </a>
 
     </div>
 
+    <div class="work-year">
+        film
+    </div>
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        002
+    </div>
+
+    <div class="work-title">
+
+        <a href="websites.html">
+            websites
+        </a>
+
+    </div>
+
+    <div class="work-year">
+        web
+    </div>
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        003
+    </div>
+
+    <div class="work-title">
+
+        <a href="https://www.flickr.com/photos/202761580@N08/albums">
+            photography
+        </a>
+
+    </div>
+
+    <div class="work-year">
+        images
+    </div>
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        004
+    </div>
+
+    <div class="work-title">
+
+        <a href="writing.html">
+            writing
+        </a>
+
+    </div>
+
+    <div class="work-year">
+        text
+    </div>
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        005
+    </div>
+
+    <div class="work-title">
+
+        <a href="branding.html">
+            creative direction
+        </a>
+
+    </div>
+
+    <div class="work-year">
+        design
+    </div>
+
+</div>
+
+
+<div class="work">
+
+    <div class="work-number">
+        006
+    </div>
+
+    <div class="work-title">
+
+        <a href="archive.html">
+            archive
+        </a>
+
+    </div>
+
+    <div class="work-year">
+        various
+    </div>
+
 </div>
 
 
 </div>
+
+
+<!-- =====================================================
+     CURRENTLY
+     ===================================================== -->
+
+<div class="current">
+
+
+    <div class="current-title">
+        CURRENTLY
+    </div>
+
+
+    working on:
+
+    <b>this website</b>
+
+    <br><br>
+
+
+    filming:
+
+    <b>whatever is around</b>
+
+    <br><br>
+
+
+    learning:
+
+    <b>javascript</b>
+
+    <br><br>
+
+
+    listening:
+
+    <b>My beautifully curated playlists @harlemsfinest110 on apple music</b>
+
+    <br><br>
+
+
+    thinking about:
+
+    <b>what to make next</b>
+
+
+</div>
+
+
+<!-- =====================================================
+     RANDOM IMAGE
+     ===================================================== -->
+
+<div id="random-image">
+
+    <img
+        src="copyright1.gif"
+        alt=""
+    >
+
+    <br>
+
+    <span class="small">
+
+        image / decoration / whatever
+
+    </span>
+
+</div>
+
+
 
 </div>
 
@@ -966,18 +1014,18 @@ a:hover {
      FOOTER
      ===================================================== -->
 
-<div class="footer">
+<div id="footer">
 
-    © 2026 Amber Diaz
+    AMBER DIAZ / NEW YORK / 2026
 
-    &nbsp; | &nbsp;
+    &nbsp;&nbsp;—
 
-    Best viewed with a computer
+    last updated: 08.13.26
 
-    &nbsp; | &nbsp;
+    &nbsp;&nbsp;—
 
     <a href="index.html">
-        back to entrance
+        return to entrance
     </a>
 
 </div>
