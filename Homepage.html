@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,46 +14,44 @@
         box-sizing: border-box;
     }
 
-    body
-       {
+    body {
         background: #6c6b3f;
         font-family: Verdana, Arial, sans-serif;
-        min-height: 100vh;
+        height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        padding: 10px 0;
     }
 
   /* --- RETRO MYSPACE METALLIC PLAYER SKIN --- */
 .sidebar-player {
-    position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 320px;
+    width: 380px;
     background: linear-gradient(to bottom, #f2f2f2 0%, #cccccc 50%, #aaaaaa 100%);
     border: 2px solid #555555;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    padding: 8px 16px; /* Added extra padding on sides to look better rounded */
-    border-radius: 30px; /* Made the overall player frame rounded */
+    padding: 6px 12px;
+    border-radius: 30px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     gap: 8px;
     z-index: 100;
+    margin-top: 15px;
 }
 
 /* Beveled Play/Pause Frame Button */
 .retro-play-container {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 40%, #b5b5b5 100%);
     border: 2px solid #ffffff;
     border-right-color: #777777;
     border-bottom-color: #777777;
-    border-radius: 50%; /* Made button circular to match the rounded shell */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,12 +69,12 @@
 /* Vertical Twin Pause Bar Component */
 .pause-icon {
     display: flex;
-    gap: 5px;
+    gap: 4px;
 }
 
 .pause-bar {
-    width: 5px;
-    height: 18px;
+    width: 4px;
+    height: 14px;
     background: #555555;
     border-radius: 1px;
 }
@@ -84,23 +83,23 @@
 .play-icon {
     width: 0;
     height: 0;
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    border-left: 14px solid #555555;
-    margin-left: 3px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid #555555;
+    margin-left: 2px;
     display: none;
 }
 
 /* Black Digital Track Display Matrix */
 .retro-display {
     flex-grow: 1;
-    height: 48px;
+    height: 40px;
     background: #111111;
     border: 2px solid #777777;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    border-radius: 20px; /* Rounded the display box corners to flow with the layout */
-    padding: 4px 14px; /* Added internal horizontal cushion space */
+    border-radius: 20px;
+    padding: 4px 12px;
     display: flex;
     justify-content: space-between;
     color: #ffffff;
@@ -121,24 +120,24 @@
 
 /* Infinite Horizontal Marquee Scroll Animation Rules */
 .track-name {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: #ffffff;
     letter-spacing: 0.5px;
     display: inline-block;
-    padding-left: 100%; /* Starts text completely out of bounds on right */
+    padding-left: 100%;
     animation: sideMarquee 10s linear infinite;
 }
 
 .artist-name {
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     color: #cccccc;
     text-transform: uppercase;
     margin-top: 1px;
     display: inline-block;
     padding-left: 100%;
     animation: sideMarquee 10s linear infinite;
-    animation-delay: 1.5s; /* Staggers artist flow slightly behind track name */
+    animation-delay: 1.5s;
 }
 
 @keyframes sideMarquee {
@@ -152,11 +151,11 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: bold;
     color: #ffffff;
     font-family: monospace;
-    z-index: 2; /* Keeps text layers hovering cleanly above the visualizer bars */
+    z-index: 2;
 }
 
 .action-tag {
@@ -175,30 +174,29 @@
     gap: 2px;
     position: absolute;
     bottom: 4px;
-    right: 58px;
-    height: 16px;
+    right: 54px;
+    height: 14px;
 }
 
 .eq-bar {
-    width: 4px;
+    width: 3px;
     height: 2px;
     background-color: #33cc33;
     transition: height 0.15s ease;
 }
 
-
-
-
     /* --- MAIN LAYOUT SYSTEM STYLES --- */
     .wrapper {
         text-align: center;
-        margin-left: 90px; /* Lower margin since the tower player is narrower than the wide one */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .grid {
         display: grid;
-        grid-template-columns: repeat(2, 180px);
-        gap: 22px;
+        grid-template-columns: repeat(2, 160px);
+        gap: 16px;
         justify-content: center;
     }
 
@@ -206,7 +204,7 @@
         display: block;
         background: white;
         border: 2px solid black;
-        padding: 14px;
+        padding: 10px;
         text-decoration: none;
         color: black;
         transition: .18s;
@@ -216,183 +214,94 @@
         transform: translateY(-4px) scale(1.04);
         background: black;
         color: white;
-        box-shadow: 8px 8px 0px rgba(0, 0, 0, .25);
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, .25);
     }
 
     .card img {
         width: 100%;
-        height: 120px;
+        height: 95px;
         object-fit: cover;
         border: 1px solid black;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
     }
 
     .card span {
         display: block;
-        font-size: .85rem;
-        letter-spacing: .25em;
+        font-size: .8rem;
+        letter-spacing: .2em;
         font-weight: bold;
     }
 
     .footer {
-        margin-top: 35px;
+        margin-top: 15px;
         font-size: .75rem;
         letter-spacing: .2em;
-        color: #666;
+        color: #000000;
+        font-weight: bold;
         cursor: pointer;
         user-select: none;
     }
 
+    /* --- RETRO TOP LOGO --- */
+    .logo-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+        z-index: 10;
+    }
+
+    .main-logo {
+        max-width: 140px;
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.15));
+    }
+
     @media(max-width: 768px) {
-        body {
-            flex-direction: column;
-            overflow-y: auto;
-            padding: 20px 0;
-        }
         .sidebar-player {
-            position: static;
-            transform: none;
-            margin-bottom: 25px;
-            flex-direction: row; /* Converts back to flat on narrow mobile screens so it fits */
             width: 320px;
-            height: 64px;
         }
-        .retro-display {
-            flex-direction: row;
-            height: 48px;
-            padding: 4px 6px;
-        }
-        .track-metadata {
-            align-items: flex-start;
-            text-align: left;
-            width: 60%;
-        }
-        .track-name, .artist-name {
-            width: 100%;
-        }
-        .retro-actions-panel {
-            flex-direction: column;
-            width: auto;
-            margin-bottom: 0;
-            align-items: flex-end;
-        }
-        .equalizer-box {
-            right: 58px;
-            left: auto;
-            bottom: 4px;
-            width: auto;
-            height: 16px;
-        }
-        .wrapper {
-            margin-left: 0;
+        .grid {
+            grid-template-columns: repeat(2, 140px);
         }
     }
-        /* --- MAIN SYSTEM LAYOUT STYLES --- */
-        .wrapper {
-            text-align: center;
-            margin-left: 140px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 180px);
-            gap: 22px;
-            justify-content: center;
-        }
-
-        .card {
-            display: block;
-            background: white;
-            border: 2px solid black;
-            padding: 14px;
-            text-decoration: none;
-            color: black;
-            transition: .18s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px) scale(1.04);
-            background: black;
-            color: white;
-            box-shadow: 8px 8px 0px rgba(0, 0, 0, .25);
-        }
-
-        .card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border: 1px solid black;
-            margin-bottom: 12px;
-        }
-
-        .card span {
-            display: block;
-            font-size: .85rem;
-            letter-spacing: .25em;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 35px;
-            font-size: .75rem;
-            letter-spacing: .2em;
-            color: #666;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        @media(max-width: 768px) {
-            body {
-                flex-direction: column;
-                overflow-y: auto;
-                padding: 20px 0;
-            }
-            .sidebar-player {
-                position: static;
-                transform: none;
-                margin-bottom: 25px;
-                width: 320px;
-            }
-            .wrapper {
-                margin-left: 0;
-            }
-        }
-/* --- RETRO TOP LOGO --- */
-.logo-container {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: -10px; 
-    z-index: 10;
-}
-
-.main-logo {
-    max-width: 280px; 
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    
-    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.15)); 
-}
-
-body {
-    flex-direction: column; 
-    overflow-y: auto; 
-    padding: 20px 0;
-}
-
-.wrapper {
-    margin-top: 15px;
-}
 </style>
 </head>
 
 <body>
+
 <!-- Main Logo Container -->
 <div class="logo-container">
     <img src="22.png" alt="Skyytopia Logo" class="main-logo">
 </div>
 
+<div class="wrapper">
+    <div class="grid">
+        <!-- Box 1: Movies -->
+        <a class="card" href="Mo0veez.html">
+            <img src="giff.gif">
+            <span>Mo0VEEZ</span>
+        </a>
+
+        <!-- Box 2: Photos -->
+        <a class="card" href="https://flickr.com">
+            <img src="SMILE, YOU'RE ON (2).png">
+            <span>PICS</span>
+        </a>
+
+        <!-- Box 3: GTAV -->
+        <a class="card" href="gtav.html">
+            <img src="images/muzik.gif">
+            <span>GTAV</span>
+        </a>
+
+        <!-- Box 4: Me -->
+        <a class="card" href="Profile.html">
+            <img src="images/profile.gif">
+            <span>ME</span>
+        </a>
+    </div>
 
     <!-- Retro Player Structural Shell Container -->
     <div class="sidebar-player">
@@ -427,32 +336,6 @@ body {
         </div>
     </div>
 
-    <div class="wrapper">
-        <div class="grid">
-            <!-- Box 1: Movies -->
-            <a class="card" href="Mo0veez.html">
-                <img src="giff.gif">
-                <span>Mo0VEEZ</span>
-            </a>
-
-            <!-- Box 2: Photos -->
-            <a class="card" href="https://flickr.com">
-                <img src="SMILE, YOU'RE ON (2).png">
-                <span>PICS</span>
-            </a>
-
-            <!-- Box 3: GTAV -->
-            <a class="card" href="gtav.html">
-                <img src="images/muzik.gif">
-                <span>GTAV</span>
-            </a>
-
-            <!-- Box 4: Me -->
-            <a class="card" href="Profile.html">
-                <img src="images/profile.gif">
-                <span>ME</span>
-            </a>
-        </div>
     <!-- Hidden Audio Engine Core -->
     <audio id="audioPlayer"></audio>
 
@@ -478,7 +361,7 @@ body {
         { title: "Soft Spot", artist: "JMSN", url: "https://od.lk/s/OTBfNDMzODczOTlf/JMSN%20-%20Soft%20Spot%20%28Audio%29.mp3" },
         { title: "Glamorous", artist: "Fergie", url: "https://od.lk/s/OTBfNDMzODczOTVfcDFxSVg/Glamorous.mp3" },
         { title: "Do You Mind", artist: "Crazy Cousinz & Kyla Reid", url: "https://od.lk/s/OTBfNDMzODczOTNfNGZFV20/Do%20You%20Mind%20%28Crazy%20Cousinz%20Remix%29.mp3" },
-        { title: "Yummy (Righteous Remix)", artist: "Ayesha Erotica", url: "https://od.lk/s/OTBfNDMzODczOTZfYTN3TFY/ayesha%20x%20righteous.mp3" },
+        { title: "Yummy (Righteous Remix)", artist: "Ayesha Erotica", url: "https://od.lk/s/OTBfNDMzODczOTgetfYTN3TFY/ayesha%20x%20righteous.mp3" },
         { title: "9 AM in Calabasas", artist: "Ayesha Erotica", url: "https://od.lk/s/OTBfNDMzODczOTdfNnV0b0g/Ayesha%20erotica%20-%209%20am%20in%20calabasas%20%28remix%29%20%5Boriginal%20version%5D.mp3" },
         { title: "Someone To Call My Lover", artist: "Janet Jackson", url: "https://od.lk/s/OTBfNTM0MTkyODVfZ2pEVWU/Someone%20To%20Call%20My%20Lover%20%28Single%20Edit%29.mp3" },
         { title: "Clothes Off!!", artist: "Gym Class Heroes", url: "https://od.lk/s/OTBfNTUzNzE2ODlfS29mNGE/Clothes%20Off%21%21.mp3" },
@@ -497,7 +380,6 @@ body {
         artistNameDisplay.textContent = playlist[currentTrackIndex].artist;
     }
 
-    // Initialize display text window
     updatePlayerUI();
 
     function toggleAudio() {
@@ -551,20 +433,18 @@ body {
         isInitialized = true;
     }
 
-    // Generates active audio frequency calculations on rendering loop
     function startEqualizerSim() {
         if(eqInterval) clearInterval(eqInterval);
         eqInterval = setInterval(() => {
             for (let i = 1; i <= 4; i++) {
                 const bar = document.getElementById('eq' + i);
-                const randomHeight = Math.floor(Math.random() * 18) + 2;
+                const randomHeight = Math.floor(Math.random() * 12) + 2;
                 bar.style.height = randomHeight + 'px';
                 
-                // Switches matrix display color vectors cleanly dynamically
-                if (randomHeight > 14) {
-                    bar.style.backgroundColor = '#ffcc00'; // Peak warning color switch
+                if (randomHeight > 10) {
+                    bar.style.backgroundColor = '#ffcc00';
                 } else {
-                    bar.style.backgroundColor = '#33cc33'; // Standard green spectrum vector
+                    bar.style.backgroundColor = '#33cc33';
                 }
             }
         }, 120);
@@ -580,7 +460,10 @@ body {
 
     audioPlayer.addEventListener('ended', nextSong);
 
-    // Match player controls display accurately upon direct load sequence properties
     pauseVisual.style.display = 'none';
     playVisual.style.display = 'block';
 </script>
+</body>
+</html>
+
+```
