@@ -30,7 +30,7 @@
     top: 50%;
     transform: translateY(-50%);
     width: 76px; /* Skinny tower width */
-    height: 340px; /* Increased from 280px to 340px for more breathing room */
+    height: 340px; /* Stretched tower height */
     background: linear-gradient(to right, #f2f2f2 0%, #cccccc 50%, #aaaaaa 100%);
     border: 2px solid #555555;
     border-right-color: #ffffff;
@@ -98,46 +98,52 @@
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
     border-radius: 4px;
-    padding: 10px 4px;
+    padding: 10px 0; /* Cleared horizontal padding so marquee clips at absolute edge */
     display: flex;
-    flex-direction: column; /* Stacks text settings above visualizer */
+    flex-direction: column; 
     justify-content: space-between;
     align-items: center;
     color: #ffffff;
     font-family: Arial, sans-serif;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Hides text while it scrolls off screen */
 }
 
+/* Marquee wrapper tracks for horizontal scrolling text streams */
 .track-metadata {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    text-align: center;
-    margin-top: 4px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
+/* Infinite Marquee Scroll Animation Rules */
 .track-name {
     font-size: 0.65rem;
     font-weight: bold;
-    width: 54px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: #ffffff;
     letter-spacing: 0.5px;
+    display: inline-block;
+    padding-left: 100%; /* Starts track off screen right */
+    animation: towerMarquee 8s linear infinite;
 }
 
 .artist-name {
     font-size: 0.55rem;
     color: #cccccc;
     text-transform: uppercase;
-    width: 54px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     margin-top: 4px;
+    display: inline-block;
+    padding-left: 100%;
+    animation: towerMarquee 8s linear infinite;
+    animation-delay: 1.5s; /* Delays artist name scroll slightly behind track name */
+}
+
+@keyframes towerMarquee {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
 }
 
 /* Actions stacked horizontally at the middle-bottom */
@@ -145,12 +151,12 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 4px;
+    padding: 0 6px;
     font-size: 0.55rem;
     font-weight: bold;
     color: #ffffff;
     font-family: monospace;
-    margin-bottom: 30px; /* Increased spacing to completely clear the dancing equalizer bars */
+    margin-bottom: 30px; 
 }
 
 .action-tag {
@@ -172,7 +178,7 @@
     bottom: 6px;
     left: 0;
     right: 0;
-    height: 26px; /* Slightly taller bars for better visibility */
+    height: 26px; 
     width: 100%;
 }
 
@@ -183,7 +189,7 @@
     transition: height 0.15s ease;
 }
 
-/* Responsive Mobile Rules: Switches back to horizontal when screen is narrow */
+/* Responsive Mobile Rules: Switches back to flat row placement when screen is narrow */
 @media(max-width: 768px) {
     .sidebar-player {
         position: static;
@@ -200,11 +206,11 @@
     }
     .track-metadata {
         align-items: flex-start;
-        text-align: left;
         width: 60%;
     }
     .track-name, .artist-name {
-        width: 100%;
+        animation: towerMarquee 12s linear infinite;
+        padding-left: 50%;
     }
     .retro-actions-panel {
         flex-direction: column;
@@ -220,6 +226,7 @@
         height: 16px;
     }
 }
+
 
 
     /* --- MAIN LAYOUT SYSTEM STYLES --- */
