@@ -12,66 +12,79 @@
 
 <style>
 
-/* =========================================
-   OLD PERSONAL WEBSITE
-   ========================================= */
+/* =========================================================
+   BASIC RESET
+   ========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
     padding: 0;
+}
+
+body {
 
     background:
-        #d8d3bd;
+        #d7d2b8;
 
-    color: #222;
+    color: #111;
 
     font-family:
+        Verdana,
         Arial,
         Helvetica,
         sans-serif;
 
-    font-size: 13px;
+    font-size: 12px;
+
 }
 
 
-/* =========================================
-   MAIN SITE
-   ========================================= */
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
 
-#site {
-    width: 760px;
+.page {
+
+    width: 900px;
+
+    max-width: calc(100% - 20px);
 
     margin: 20px auto;
 
-    background: #eeeeee;
-
-    border: 2px solid #333;
-
-    box-shadow:
-        4px 4px 0 #888;
 }
 
 
-/* =========================================
-   HEADER
-   ========================================= */
+/* =========================================================
+   TOP HEADER
+   ========================================================= */
 
-#header {
+.header {
 
     background: #111;
 
     color: white;
 
-    padding: 10px;
+    border: 3px solid white;
 
-    border-bottom: 3px solid #666;
+    outline: 2px solid #111;
+
+    padding: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
 }
 
-#header h1 {
+
+.header h1 {
 
     margin: 0;
 
@@ -80,124 +93,130 @@ body {
         "Times New Roman",
         serif;
 
-    font-size: 28px;
+    font-size: 25px;
+
+    font-weight: normal;
 
     letter-spacing: -1px;
+
 }
 
-#header small {
 
-    color: #aaa;
+.header small {
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+
+    background: white;
+
+    border-left: 1px solid #111;
+    border-right: 1px solid #111;
+    border-bottom: 2px solid #111;
+
+    padding: 7px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.nav a {
+
+    display: inline-block;
+
+    background: #eee;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    padding: 5px 9px;
+
+    margin-right: 4px;
+
+    text-decoration: none;
 
     font-size: 11px;
-}
-
-
-/* =========================================
-   NAV
-   ========================================= */
-
-#nav {
-
-    background: #cccccc;
-
-    border-bottom: 2px solid #555;
-
-    padding: 5px;
-
-    text-align: center;
-}
-
-#nav a {
-
-    color: #0000cc;
-
-    font-weight: bold;
-
-    text-decoration: underline;
-
-    margin: 0 10px;
-}
-
-#nav a:hover {
-
-    color: #ff0000;
 
 }
 
 
-/* =========================================
-   CONTENT
-   ========================================= */
+.nav a:hover {
 
-#content {
-
-    display: flex;
-
-    gap: 10px;
-
-    padding: 10px;
-}
-
-
-/* =========================================
-   LEFT COLUMN
-   ========================================= */
-
-#left {
-
-    width: 200px;
-
-    flex-shrink: 0;
-}
-
-
-/* =========================================
-   RIGHT COLUMN
-   ========================================= */
-
-#right {
-
-    flex: 1;
-
-}
-
-
-/* =========================================
-   BOXES
-   ========================================= */
-
-.box {
-
-    background: #ffffff;
-
-    border: 1px solid #777;
-
-    margin-bottom: 10px;
-}
-
-.box-title {
-
-    background: #333399;
+    background: #111;
 
     color: white;
 
+}
+
+
+/* =========================================================
+   TWO COLUMN LAYOUT
+   ========================================================= */
+
+.layout {
+
+    display: grid;
+
+    grid-template-columns:
+        250px
+        1fr;
+
+    gap: 15px;
+
+}
+
+
+/* =========================================================
+   BOXES
+   ========================================================= */
+
+.box {
+
+    background: #f8f6eb;
+
+    border: 1px solid #111;
+
+    margin-bottom: 15px;
+
+}
+
+
+.box-title {
+
+    background: #111;
+
+    color: white;
+
+    padding: 5px 8px;
+
+    font-size: 11px;
+
     font-weight: bold;
 
-    padding: 4px 6px;
+    text-transform: uppercase;
 
-    border-bottom: 1px solid #000;
 }
+
 
 .box-content {
 
-    padding: 8px;
+    padding: 10px;
+
 }
 
 
-/* =========================================
-   PROFILE IMAGE
-   ========================================= */
+/* =========================================================
+   PROFILE PHOTO
+   ========================================================= */
 
 .profile-image {
 
@@ -205,180 +224,300 @@ body {
 
     display: block;
 
-    border: 1px solid #444;
-
-    margin-bottom: 8px;
-}
-
-
-/* =========================================
-   LINKS
-   ========================================= */
-
-a {
-
-    color: #0000cc;
-
-}
-
-a:hover {
-
-    color: #ff0000;
+    border: 1px solid #111;
 
 }
 
 
-/* =========================================
+/* =========================================================
+   PROFILE INFO
+   ========================================================= */
+
+.profile-info {
+
+    margin: 0;
+
+}
+
+
+.profile-info p {
+
+    margin: 5px 0;
+
+}
+
+
+.profile-info strong {
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about {
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   CURRENTLY
+   ========================================================= */
+
+.currently {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+.currently td {
+
+    border-bottom: 1px dotted #777;
+
+    padding: 5px 3px;
+
+    vertical-align: top;
+
+}
+
+
+.currently td:first-child {
+
+    width: 80px;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
    MUSIC PLAYER
-   ========================================= */
+   ========================================================= */
 
-.music-player {
+.player {
 
     background: #222;
 
     color: white;
 
-    border: 2px outset #999;
+    border: 2px solid #111;
 
-    padding: 8px;
-
-    font-family: "Courier New", monospace;
+    padding: 10px;
 
 }
 
-.music-player-title {
 
-    color: #00ff00;
-
-    margin-bottom: 5px;
-
-}
-
-.music-player button {
-
-    background: #cccccc;
-
-    border: 2px outset #ffffff;
-
-    font-family: Arial, sans-serif;
+.player-title {
 
     font-size: 11px;
 
-    padding: 3px 8px;
+    margin-bottom: 8px;
+
+}
+
+
+.player-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.player button {
+
+    background: #eee;
+
+    color: #111;
+
+    border: 1px solid #111;
+
+    padding: 4px 9px;
 
     cursor: pointer;
 
-}
-
-.music-player button:active {
-
-    border-style: inset;
-
-}
-
-#songName {
-
-    margin-top: 6px;
-
-    color: #ffff00;
-
     font-size: 11px;
 
 }
 
 
-/* =========================================
-   MARQUEE
-   ========================================= */
+.player button:hover {
 
-.marquee {
+    background: white;
 
-    background: #ffff00;
-
-    color: #000;
-
-    border: 1px solid #000;
-
-    padding: 3px;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
 }
 
 
-/* =========================================
+.progress {
+
+    flex: 1;
+
+}
+
+
+.volume {
+
+    width: 65px;
+
+}
+
+
+.player-time {
+
+    font-size: 9px;
+
+    margin-top: 6px;
+
+    color: #ccc;
+
+}
+
+
+/* =========================================================
+   FRIENDS / LINKS
+   ========================================================= */
+
+.links a {
+
+    color: #111;
+
+    display: block;
+
+    padding: 4px 0;
+
+    text-decoration: underline;
+
+}
+
+
+.links a:hover {
+
+    color: #666;
+
+}
+
+
+/* =========================================================
    GUESTBOOK
-   ========================================= */
+   ========================================================= */
+
+.guestbook-intro {
+
+    margin-bottom: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.guestbook-form label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-top: 8px;
+
+    margin-bottom: 3px;
+
+}
+
 
 .guestbook-form input,
 .guestbook-form textarea {
 
     width: 100%;
 
-    border: 1px solid #777;
+    border: 1px solid #111;
 
-    padding: 5px;
+    background: white;
 
-    margin-bottom: 6px;
+    padding: 6px;
 
-    font-family: Arial, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
 
-    font-size: 12px;
+    font-size: 11px;
 
 }
 
+
 .guestbook-form textarea {
 
-    height: 70px;
+    height: 80px;
 
     resize: vertical;
 
 }
 
-.guestbook-form button {
 
-    background: #cccccc;
+.guestbook-submit {
 
-    border: 2px outset #ffffff;
+    margin-top: 8px;
 
-    padding: 4px 12px;
+    background: #111;
 
-    font-weight: bold;
+    color: white;
+
+    border: 1px solid #111;
+
+    padding: 6px 12px;
 
     cursor: pointer;
 
 }
 
 
-/* =========================================
-   GUESTBOOK ENTRIES
-   ========================================= */
+.guestbook-submit:hover {
+
+    background: #444;
+
+}
+
 
 .guestbook-entry {
 
-    background: #f5f5f5;
+    border-top: 1px dotted #777;
 
-    border: 1px solid #aaa;
+    padding: 10px 0;
 
-    padding: 7px;
-
-    margin-top: 7px;
 }
+
+
+.guestbook-entry:first-child {
+
+    border-top: 0;
+
+}
+
 
 .guestbook-name {
 
     font-weight: bold;
 
-    color: #000099;
 }
+
 
 .guestbook-date {
 
+    font-size: 9px;
+
     color: #777;
 
-    font-size: 10px;
+    margin-left: 5px;
+
 }
+
 
 .guestbook-message {
 
@@ -386,64 +525,97 @@ a:hover {
 
     white-space: pre-wrap;
 
+    line-height: 1.5;
+
 }
 
 
-/* =========================================
-   STATUS
-   ========================================= */
-
-#guestbookStatus {
+.delete-entry {
 
     margin-top: 6px;
 
-    font-weight: bold;
+    font-size: 9px;
+
+    background: none;
+
+    border: 0;
+
+    padding: 0;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+
 }
 
 
-/* =========================================
+.no-entries {
+
+    color: #777;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
    FOOTER
-   ========================================= */
+   ========================================================= */
 
-#footer {
-
-    background: #333;
-
-    color: white;
+.footer {
 
     text-align: center;
 
-    padding: 8px;
-
     font-size: 10px;
 
-    border-top: 2px solid #111;
+    padding: 20px;
+
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-   ========================================= */
+   ========================================================= */
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 700px) {
 
-    #site {
+    .page {
 
-        width: 96%;
+        width: auto;
+
+        max-width: calc(100% - 10px);
 
         margin: 10px auto;
 
     }
 
-    #content {
 
-        flex-direction: column;
+    .layout {
+
+        grid-template-columns: 1fr;
 
     }
 
-    #left {
 
-        width: 100%;
+    .header {
+
+        display: block;
+
+    }
+
+
+    .header small {
+
+        display: block;
+
+        margin-top: 5px;
+
+    }
+
+
+    .nav a {
+
+        margin-bottom: 4px;
 
     }
 
@@ -457,544 +629,586 @@ a:hover {
 <body>
 
 
-<div id="site">
+<div class="page">
 
 
-<!-- =====================================
+<!-- =====================================================
      HEADER
-     ===================================== -->
+     ===================================================== -->
 
-<div id="header">
+<header class="header">
 
     <h1>AMBER DIAZ</h1>
 
-    <small>
-        personal homepage // new york // established 1997
-    </small>
+    <small>personal web site // est. 1997</small>
 
-</div>
+</header>
 
 
-<!-- =====================================
-     NAV
-     ===================================== -->
+<!-- =====================================================
+     NAVIGATION
 
-<div id="nav">
+     These are ONLY links that actually exist.
+     ===================================================== -->
+
+<nav class="nav">
 
     <a href="index.html">HOME</a>
 
-    |
-
     <a href="profile.html">PROFILE</a>
 
-    |
+    <a href="archive.html">ARCHIVE</a>
 
-    <a href="Mo0veez.html">MOVIES</a>
-
-    |
-
-    <a href="websites.html">WEBSITES</a>
-
-    |
-
-    <a href="writing.html">WRITING</a>
-
-    |
-
-    <a href="contact.html">CONTACT</a>
-
-</div>
+</nav>
 
 
-<!-- =====================================
-     MARQUEE
-     ===================================== -->
-
-<div style="padding:10px 10px 0 10px;">
-
-    <div class="marquee">
-
-        <marquee scrollamount="4">
-
-            ★ welcome to amber's internet ★ please sign the guestbook ★
-
-            ★ you're on the internet now ★
-
-        </marquee>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
+<!-- =====================================================
      MAIN CONTENT
-     ===================================== -->
+     ===================================================== -->
 
-<div id="content">
+<div class="layout">
 
 
-<!-- =====================================
+<!-- =====================================================
      LEFT COLUMN
-     ===================================== -->
+     ===================================================== -->
 
-<div id="left">
-
-
-<div class="box">
-
-    <div class="box-title">
-        Sup
-    </div>
-
-    <div class="box-content">
-
-        <img
-            src="meeee.png"
-            class="profile-image"
-            alt="Amber"
-        >
-
-        <b>Amber Skyy Diaz</b>
-
-        <br><br>
-
-        Creative Director
-
-        <br>
-
-        Aspiring Filmmaker
-
-        <br>
-
-        Writer
-
-        <br>
-
-        Web tinkerer
-
-        <br><br>
-
-        Harlem World
-
-    </div>
-
-</div>
+<aside>
 
 
-<!-- MUSIC PLAYER -->
+    <!-- PROFILE IMAGE -->
 
-<div class="box">
+    <section class="box">
 
-    <div class="box-title">
-        NOW PLAYING
-    </div>
-
-    <div class="box-content">
-
-        <div class="music-player">
-
-            <div class="music-player-title">
-                [ AMBER'S JUKEBOX ]
-            </div>
-
-            <button onclick="previousSong()">
-                &lt;&lt;
-            </button>
-
-            <button onclick="toggleMusic()">
-                PLAY / PAUSE
-            </button>
-
-            <button onclick="nextSong()">
-                &gt;&gt;
-            </button>
-
-            <div id="songName">
-                nothing playing
-            </div>
-
+        <div class="box-title">
+            ME
         </div>
 
-    </div>
+        <div class="box-content">
 
-</div>
-
-
-<!-- RANDOM STUFF -->
-
-<div class="box">
-
-    <div class="box-title">
-        RANDOM
-    </div>
-
-    <div class="box-content">
-
-        <a href="random.html">
-            enter the weird zone
-        </a>
-
-        <br><br>
-
-        <a href="guestbook.html">
-            sign my guestbook
-        </a>
-
-        <br><br>
-
-        <a href="#">
-            webrings
-        </a>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- =====================================
-     RIGHT COLUMN
-     ===================================== -->
-
-<div id="right">
-
-
-<div class="box">
-
-    <div class="box-title">
-        ABOUT ME
-    </div>
-
-    <div class="box-content">
-
-        <p>
-            Hi, I'm Amber.
-        </p>
-
-        <p>
-            This is my little corner of the internet.
-            I'm a creative director, filmmaker, writer,
-            designer and professional website tinkerer.
-        </p>
-
-        <p>
-            I like making things that feel weird,
-            personal, handmade and slightly unnecessary.
-        </p>
-
-        <p>
-            This website is intentionally not a normal
-            portfolio.
-        </p>
-
-    </div>
-
-</div>
-
-
-<div class="box">
-
-    <div class="box-title">
-        CURRENTLY
-    </div>
-
-    <div class="box-content">
-
-        <b>listening:</b>
-        Nelly Furtado
-
-        <br><br>
-
-        <b>watching:</b>
-        Old movies / Weird internet videos
-
-        <br><br>
-
-        <b>making:</b>
-        Films + Websites
-
-        <br><br>
-
-        <b>learning:</b>
-        JavaScript
-
-    </div>
-
-</div>
-
-
-<!-- =====================================
-     GUESTBOOK
-     ===================================== -->
-
-<div class="box">
-
-    <div class="box-title">
-        SIGN MY GUESTBOOK!!!
-    </div>
-
-    <div class="box-content">
-
-        <p>
-            Leave a message for me below.
-        </p>
-
-        <br>
-
-        <form
-            id="guestbookForm"
-            class="guestbook-form"
-        >
-
-            <input
-                type="text"
-                id="guestName"
-                placeholder="your name"
-                maxlength="40"
-                required
+            <img
+                src="lowpolymeee.png"
+                class="profile-image"
+                alt="Amber"
             >
 
-            <textarea
-                id="guestMessage"
-                placeholder="say something..."
-                maxlength="500"
-                required
-            ></textarea>
+        </div>
 
-            <button type="submit">
-                SIGN GUESTBOOK
-            </button>
+    </section>
 
-        </form>
 
-        <div id="guestbookStatus"></div>
+    <!-- PROFILE INFO -->
 
-        <hr style="margin:12px 0;">
+    <section class="box">
 
-        <div id="guestbookEntries">
+        <div class="box-title">
+            PROFILE
+        </div>
 
-            Loading guestbook...
+        <div class="box-content">
+
+            <div class="profile-info">
+
+                <p>
+                    <strong>Name:</strong>
+                    Amber
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    New York
+                </p>
+
+                <p>
+                    <strong>Occupation:</strong>
+                    Creative
+                </p>
+
+                <p>
+                    <strong>Website:</strong>
+                    You're on it.
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
+
+
+    <!-- CURRENTLY -->
+
+    <section class="box">
+
+        <div class="box-title">
+            CURRENTLY
+        </div>
+
+        <div class="box-content">
+
+            <table class="currently">
+
+                <tr>
+                    <td>Listening</td>
+                    <td>Whatever is playing</td>
+                </tr>
+
+                <tr>
+                    <td>Watching</td>
+                    <td>Old websites</td>
+                </tr>
+
+                <tr>
+                    <td>Making</td>
+                    <td>Things</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- LINKS -->
+
+    <section class="box">
+
+        <div class="box-title">
+            LINKS
+        </div>
+
+        <div class="box-content links">
+
+            <a
+                href="https://instagram.com/ismforthepeople"
+                target="_blank"
+                rel="noopener"
+            >
+                ISM FOR THE PEOPLE
+            </a>
+
+        </div>
+
+    </section>
+
+
+</aside>
+
+
+<!-- =====================================================
+     RIGHT COLUMN
+     ===================================================== -->
+
+<main>
+
+
+    <!-- ABOUT -->
+
+    <section class="box">
+
+        <div class="box-title">
+            ABOUT ME
+        </div>
+
+        <div class="box-content about">
+
+            <p>
+                Welcome to my little corner of the internet.
+            </p>
+
+            <p>
+                This is my personal site, profile,
+                scrapbook, archive and whatever else
+                I feel like putting on here.
+            </p>
+
+            <p>
+                Expect weird images, old-web nonsense,
+                music, photography, video, writing and
+                other things that probably don't need
+                their own category.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC PLAYER -->
+
+    <section class="box">
+
+        <div class="box-title">
+            MUSIC
+        </div>
+
+        <div class="box-content">
+
+            <div class="player">
+
+                <div class="player-title">
+
+                    ♪
+                    <span id="songName">
+                        No song loaded
+                    </span>
+
+                </div>
+
+
+                <div class="player-controls">
+
+                    <button
+                        type="button"
+                        id="playButton"
+                    >
+                        PLAY
+                    </button>
+
+
+                    <input
+                        type="range"
+                        id="progress"
+                        class="progress"
+                        min="0"
+                        max="100"
+                        value="0"
+                    >
+
+
+                    <input
+                        type="range"
+                        id="volume"
+                        class="volume"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="0.7"
+                    >
+
+                </div>
+
+
+                <div class="player-time">
+
+                    <span id="currentTime">
+                        0:00
+                    </span>
+
+                    /
+
+                    <span id="duration">
+                        0:00
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GUESTBOOK -->
+
+    <section class="box" id="guestbook">
+
+        <div class="box-title">
+            GUESTBOOK
+        </div>
+
+        <div class="box-content">
+
+
+            <div class="guestbook-intro">
+
+                Sign my guestbook lol.
+                Leave a message below.
+
+            </div>
+
+
+            <form
+                class="guestbook-form"
+                id="guestbookForm"
+            >
+
+
+                <label for="guestName">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="guestName"
+                    maxlength="30"
+                    required
+                >
+
+
+                <label for="guestMessage">
+                    Message
+                </label>
+
+                <textarea
+                    id="guestMessage"
+                    maxlength="500"
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="guestbook-submit"
+                >
+                    SIGN GUESTBOOK
+                </button>
+
+
+            </form>
+
+
+            <div
+                id="guestbookEntries"
+                style="margin-top:15px;"
+            ></div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
 
 </div>
 
 
-<!-- =====================================
-     LINKS
-     ===================================== -->
-
-<div class="box">
-
-    <div class="box-title">
-        COOL LINKS
-    </div>
-
-    <div class="box-content">
-
-        <a href="#">
-            ★ My Favorite Website
-        </a>
-
-        <br>
-
-        <a href="#">
-            ★ Webring
-        </a>
-
-        <br>
-
-        <a href="#">
-            ★ Internet Friends
-        </a>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<!-- =====================================
+<!-- =====================================================
      FOOTER
-     ===================================== -->
+     ===================================================== -->
 
-<div id="footer">
+<footer class="footer">
 
-    © 2026 Amber Diaz
+    © AMBER DIAZ 2026
 
-    <br>
-
-    best viewed with absolutely anything
-
-</div>
+</footer>
 
 
 </div>
 
 
-
-<!-- =====================================
+<!-- =====================================================
      MUSIC
-     ===================================== -->
+     
+     PUT YOUR ACTUAL MP3 IN:
+     
+     audio/song.mp3
+     
+     ===================================================== -->
 
-<audio id="musicPlayer"></audio>
-
-
-
-<!-- =====================================
-     SUPABASE
-     ===================================== -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<audio
+    id="audio"
+    src="audio/song.mp3"
+    preload="metadata"
+></audio>
 
 
 <script>
 
-/* =================================================
+/* =========================================================
    MUSIC PLAYER
-   ================================================= */
+   ========================================================= */
 
-const songs = [
+const audio =
+    document.getElementById("audio");
 
-    {
-        name: "Nelly Furtado - Do It",
-        file: "NellyFurtadoDoIt.mp3"
-    },
+const playButton =
+    document.getElementById("playButton");
 
-    {
-        name: "Song Two",
-        file: "audio/song2.mp3"
-    },
+const progress =
+    document.getElementById("progress");
 
-    {
-        name: "Song Three",
-        file: "audio/song3.mp3"
-    }
+const volume =
+    document.getElementById("volume");
 
-];
+const currentTime =
+    document.getElementById("currentTime");
 
-
-let currentSong = 0;
-
-const music =
-    document.getElementById("musicPlayer");
+const duration =
+    document.getElementById("duration");
 
 const songName =
     document.getElementById("songName");
 
 
-function loadSong(index) {
+/*
+    Change this to whatever
+    your MP3 is called.
+*/
 
-    music.src = songs[index].file;
-
-    songName.textContent =
-        songs[index].name;
-
-}
-
-
-function toggleMusic() {
-
-    if (music.paused) {
-
-        music.play();
-
-    } else {
-
-        music.pause();
-
-    }
-
-}
+songName.textContent =
+    "My Song";
 
 
-function nextSong() {
+/*
+    Play / pause
+*/
 
-    currentSong++;
+playButton.addEventListener(
+    "click",
+    function () {
 
-    if (currentSong >= songs.length) {
+        if (audio.paused) {
 
-        currentSong = 0;
+            audio.play();
 
-    }
+            playButton.textContent =
+                "PAUSE";
 
-    loadSong(currentSong);
+        } else {
 
-    music.play();
+            audio.pause();
 
-}
+            playButton.textContent =
+                "PLAY";
 
-
-function previousSong() {
-
-    currentSong--;
-
-    if (currentSong < 0) {
-
-        currentSong = songs.length - 1;
+        }
 
     }
-
-    loadSong(currentSong);
-
-    music.play();
-
-}
-
-
-music.addEventListener(
-    "ended",
-    nextSong
 );
 
 
-loadSong(currentSong);
-
-
-
-/* =================================================
-   SUPABASE
-   ================================================= */
-
 /*
-
-   REPLACE THESE TWO VALUES WITH YOUR
-   SUPABASE PROJECT VALUES.
-
+    Volume
 */
 
-const SUPABASE_URL =
-    "https://lpibdemgdbverjphhluf.supabase.co";
+volume.addEventListener(
+    "input",
+    function () {
 
-const SUPABASE_ANON_KEY =
-    "sb_publishable_O2adTDfGA2EtrJLvanZBOQ_OGfQ8537";
+        audio.volume =
+            volume.value;
 
-
-const supabaseClient =
-    supabase.createClient(
-        https://lpibdemgdbverjphhluf.supabase.co,
-        sb_publishable_O2adTDfGA2EtrJLvanZBOQ_OGfQ8537
-    );
+    }
+);
 
 
+/*
+    Update progress
+*/
 
-/* =================================================
+audio.addEventListener(
+    "timeupdate",
+    function () {
+
+        if (!audio.duration) return;
+
+        progress.value =
+            (audio.currentTime /
+            audio.duration) * 100;
+
+        currentTime.textContent =
+            formatTime(audio.currentTime);
+
+    }
+);
+
+
+/*
+    Get duration
+*/
+
+audio.addEventListener(
+    "loadedmetadata",
+    function () {
+
+        duration.textContent =
+            formatTime(audio.duration);
+
+    }
+);
+
+
+/*
+    Clicking progress bar
+*/
+
+progress.addEventListener(
+    "input",
+    function () {
+
+        if (!audio.duration) return;
+
+        audio.currentTime =
+            (progress.value / 100)
+            * audio.duration;
+
+    }
+);
+
+
+/*
+    Reset button when song ends.
+*/
+
+audio.addEventListener(
+    "ended",
+    function () {
+
+        playButton.textContent =
+            "PLAY";
+
+        progress.value = 0;
+
+    }
+);
+
+
+/*
+    Time formatting
+*/
+
+function formatTime(seconds) {
+
+    if (!seconds || isNaN(seconds)) {
+
+        return "0:00";
+
+    }
+
+    const minutes =
+        Math.floor(seconds / 60);
+
+    const secs =
+        Math.floor(seconds % 60)
+        .toString()
+        .padStart(2, "0");
+
+    return minutes + ":" + secs;
+
+}
+
+
+/* =========================================================
    GUESTBOOK
-   ================================================= */
+   ========================================================= */
 
 const guestbookForm =
     document.getElementById(
         "guestbookForm"
+    );
+
+const guestName =
+    document.getElementById(
+        "guestName"
+    );
+
+const guestMessage =
+    document.getElementById(
+        "guestMessage"
     );
 
 const guestbookEntries =
@@ -1002,134 +1216,190 @@ const guestbookEntries =
         "guestbookEntries"
     );
 
-const guestbookStatus =
-    document.getElementById(
-        "guestbookStatus"
-    );
+
+/*
+    Load existing entries.
+
+    IMPORTANT:
+
+    This uses localStorage.
+
+    It means entries stay on THIS browser,
+    but are NOT shared between visitors.
+
+    We are deliberately not pretending
+    this is a public database yet.
+*/
+
+let entries =
+    JSON.parse(
+        localStorage.getItem(
+            "amberGuestbook"
+        )
+    ) || [];
 
 
+/*
+    Display entries.
+*/
 
-/* LOAD ENTRIES */
-
-async function loadGuestbook() {
-
-    const {
-        data,
-        error
-    } = await supabaseClient
-
-        .from("guestbook")
-
-        .select("*")
-
-        .order(
-            "created_at",
-            {
-                ascending: false
-            }
-        );
-
-
-    if (error) {
-
-        console.error(error);
-
-        guestbookEntries.innerHTML =
-            "Guestbook unavailable.";
-
-        return;
-
-    }
-
-
-    if (!data.length) {
-
-        guestbookEntries.innerHTML =
-            "Nobody has signed it yet. Be the first!!!";
-
-        return;
-
-    }
-
+function renderGuestbook() {
 
     guestbookEntries.innerHTML = "";
 
 
-    data.forEach(entry => {
+    if (entries.length === 0) {
 
-        const div =
+        const empty =
             document.createElement("div");
 
-        div.className =
-            "guestbook-entry";
+        empty.className =
+            "no-entries";
+
+        empty.textContent =
+            "No entries yet. Be the first.";
+
+        guestbookEntries.appendChild(
+            empty
+        );
+
+        return;
+
+    }
 
 
-        const name =
-            document.createElement("div");
+    /*
+        Newest entries first.
+    */
 
-        name.className =
-            "guestbook-name";
-
-        name.textContent =
-            entry.name;
-
-
-        const date =
-            document.createElement("div");
-
-        date.className =
-            "guestbook-date";
-
-        date.textContent =
-            new Date(
-                entry.created_at
-            ).toLocaleString();
+    [...entries]
+        .reverse()
+        .forEach(function(entry, reversedIndex) {
 
 
-        const message =
-            document.createElement("div");
-
-        message.className =
-            "guestbook-message";
-
-        message.textContent =
-            entry.message;
+            const actualIndex =
+                entries.length -
+                1 -
+                reversedIndex;
 
 
-        div.appendChild(name);
+            const wrapper =
+                document.createElement(
+                    "div"
+                );
 
-        div.appendChild(date);
+            wrapper.className =
+                "guestbook-entry";
 
-        div.appendChild(message);
+
+            const name =
+                document.createElement(
+                    "span"
+                );
+
+            name.className =
+                "guestbook-name";
+
+            name.textContent =
+                entry.name;
 
 
-        guestbookEntries.appendChild(div);
+            const date =
+                document.createElement(
+                    "span"
+                );
 
-    });
+            date.className =
+                "guestbook-date";
+
+            date.textContent =
+                entry.date;
+
+
+            const message =
+                document.createElement(
+                    "div"
+                );
+
+            message.className =
+                "guestbook-message";
+
+            message.textContent =
+                entry.message;
+
+
+            /*
+                Delete button.
+            */
+
+            const deleteButton =
+                document.createElement(
+                    "button"
+                );
+
+            deleteButton.className =
+                "delete-entry";
+
+            deleteButton.textContent =
+                "delete";
+
+
+            deleteButton.addEventListener(
+                "click",
+                function () {
+
+                    entries.splice(
+                        actualIndex,
+                        1
+                    );
+
+                    localStorage.setItem(
+                        "amberGuestbook",
+                        JSON.stringify(entries)
+                    );
+
+                    renderGuestbook();
+
+                }
+            );
+
+
+            wrapper.appendChild(name);
+
+            wrapper.appendChild(date);
+
+            wrapper.appendChild(message);
+
+            wrapper.appendChild(
+                deleteButton
+            );
+
+
+            guestbookEntries.appendChild(
+                wrapper
+            );
+
+        });
 
 }
 
 
-
-/* SUBMIT */
+/*
+    Submit guestbook entry.
+*/
 
 guestbookForm.addEventListener(
     "submit",
-    async function(event) {
+    function(event) {
 
         event.preventDefault();
 
 
         const name =
-            document.getElementById(
-                "guestName"
-            ).value.trim();
-
+            guestName.value.trim();
 
         const message =
-            document.getElementById(
-                "guestMessage"
-            ).value.trim();
+            guestMessage.value.trim();
 
 
         if (!name || !message) {
@@ -1139,52 +1409,39 @@ guestbookForm.addEventListener(
         }
 
 
-        guestbookStatus.textContent =
-            "posting...";
+        entries.push({
+
+            name: name,
+
+            message: message,
+
+            date:
+                new Date()
+                .toLocaleString()
+
+        });
 
 
-        const {
-            error
-        } = await supabaseClient
-
-            .from("guestbook")
-
-            .insert({
-
-                name: name,
-
-                message: message
-
-            });
-
-
-        if (error) {
-
-            console.error(error);
-
-            guestbookStatus.textContent =
-                "Something went wrong :(";
-
-            return;
-
-        }
-
-
-        guestbookStatus.textContent =
-            "posted!!!";
+        localStorage.setItem(
+            "amberGuestbook",
+            JSON.stringify(entries)
+        );
 
 
         guestbookForm.reset();
 
 
-        loadGuestbook();
+        renderGuestbook();
 
     }
 );
 
 
+/*
+    Draw the guestbook immediately.
+*/
 
-loadGuestbook();
+renderGuestbook();
 
 </script>
 
