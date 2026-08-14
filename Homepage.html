@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyytopia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #6A6E4F;
+            font-family: Verdana, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+
+        /* Changed to 2x2 grid for exactly 4 items */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 180px);
+            gap: 22px;
+            justify-content: center;
+        }
+
+        .card {
+            display: block;
+            background: white;
+            border: 2px solid black;
+            padding: 14px;
+            text-decoration: none;
+            color: black;
+            transition: .18s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px) scale(1.04);
+            background: black;
+            color: white;
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, .25);
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border: 1px solid black;
+            margin-bottom: 12px;
+        }
+
+        .card span {
+            display: block;
+            font-size: .85rem;
+            letter-spacing: .25em;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: .75rem;
+            letter-spacing: .2em;
+            color: #666;
+            cursor: pointer; /* Makes it clear it's clickable for the easter egg */
+            user-select: none;
+        }
+
+        @media(max-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(2, 150px);
+                gap: 18px;
+            }
+
+            .card img {
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="grid">
+            <!-- Box 1: Movies -->
+            <a class="card" href="Mo0veez.html">
+                <img src="giff.gif">
+                <span>Mo0VEEZ</span>
+            </a>
+
+            <!-- Box 2: Photos -->
+            <a class="card" href="https://www.flickr.com/photos/202761580@N08/albums/">
+                <img src="images/ph0t0z.gif">
+                <span>PIS</span>
+            </a>
+
+            <!-- Box 3: GTAV (Updated Link and Text) -->
+            <a class="card" href="gtav.html">
+                <img src="images/muzik.gif">
+                <span>GTAV</span>
+            </a>
+
+            <!-- Box 4: Me -->
+            <a class="card" href="Profile.html">
+                <img src="images/profile.gif">
+                <span>ME</span>
+            </a>
+        </div>
+
+        <!-- Hidden Audio Element -->
+        <audio id="hidden-player" loop>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Footer triggers the play/pause -->
+        <div class="footer" onclick="toggleAudio()">
+            © 2026 • DON'T COPY AIGHT!!!!
+        </div>
+    </div>
+
+    <script>
+        function toggleAudio() {
+            var player = document.getElementById('hidden-player');
+            if (player.paused) {
+                player.play().catch(function(error) {
+                    console.log("Audio playback failed or needs user interaction first:", error);
+                });
+            } else {
+                player.pause();
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+</html>
