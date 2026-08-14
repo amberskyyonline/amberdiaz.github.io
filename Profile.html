@@ -4,13 +4,18 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AMBER DIAZ // PROFILE</title>
+<title>Skyytopia</title>
 
 <link rel="icon" href="tabicon.png">
 
 <style>
+
+/* =========================================================
+   OLD INTERNET PROFILE
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -20,558 +25,457 @@ html,
 body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 
 body {
 
-    background-color: #f4e9b8;
+    background: #d8d6c4;
 
-    color: #111;
+    color: #222;
 
     font-family:
-        "Courier New",
-        Courier,
-        monospace;
+        "Times New Roman",
+        Times,
+        serif;
 
-    cursor: crosshair;
-
-}
-
-
-/* =========================
-   PAGE
-   ========================= */
-
-.page {
-
-    width: 92%;
-    max-width: 1200px;
-
-    margin: 25px auto 60px auto;
+    font-size: 13px;
 
 }
 
 
-/* =========================
-   TOP HEADER
-   ========================= */
+/* =========================================================
+   TOP BAR
+   ========================================================= */
 
-.header {
+.topbar {
 
-    background: #ff3b18;
-
-    border: 5px solid #111;
-
-    padding: 10px 15px;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    box-shadow: 8px 8px 0 #111;
-
-}
-
-.header h1 {
-
-    margin: 0;
-
-    font-family: Impact, sans-serif;
-
-    font-size: clamp(32px, 6vw, 76px);
-
-    letter-spacing: -3px;
-
-    line-height: .8;
-
-}
-
-.header span {
-
-    background: #fff;
-
-    border: 3px solid #111;
-
-    padding: 5px 8px;
-
-    font-weight: bold;
-
-}
-
-
-/* =========================
-   MARQUEE
-   ========================= */
-
-.marquee {
-
-    margin-top: 18px;
-
-    background: #1c48ff;
-
-    color: white;
-
-    border: 4px solid #111;
-
-    overflow: hidden;
-
-    white-space: nowrap;
-
-    font-weight: bold;
-
-}
-
-.marquee div {
-
-    display: inline-block;
-
-    padding: 7px;
-
-    animation: scroll 14s linear infinite;
-
-}
-
-@keyframes scroll {
-
-    from {
-        transform: translateX(100%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
-
-}
-
-
-/* =========================
-   MAIN GRID
-   ========================= */
-
-.main {
-
-    margin-top: 25px;
-
-    display: grid;
-
-    grid-template-columns:
-        250px
-        1fr
-        220px;
-
-    gap: 20px;
-
-}
-
-
-/* =========================
-   LEFT COLUMN
-   ========================= */
-
-.sidebar {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-
-}
-
-.box {
-
-    border: 4px solid #111;
-
-    background: white;
-
-    box-shadow: 6px 6px 0 #111;
-
-}
-
-.box-title {
+    width: 100%;
 
     background: #111;
 
     color: white;
 
-    padding: 6px 9px;
+    border-bottom: 3px solid #777;
+
+    padding: 5px 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+}
+
+.topbar a {
+
+    color: white;
+
+    text-decoration: none;
+
+    margin-right: 15px;
+
+}
+
+.topbar a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+#page {
+
+    width: 900px;
+
+    max-width: 95%;
+
+    margin: 15px auto 50px auto;
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    background: #eeeeee;
+
+    border: 1px solid #555;
+
+    padding: 8px 10px;
+
+    margin-bottom: 8px;
+
+}
+
+.header h1 {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    margin: 0;
+
+}
+
+.header p {
+
+    margin: 3px 0 0 0;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   TWO COLUMN LAYOUT
+   ========================================================= */
+
+.layout {
+
+    display: grid;
+
+    grid-template-columns:
+        260px
+        1fr;
+
+    gap: 8px;
+
+}
+
+
+/* =========================================================
+   BOXES
+   ========================================================= */
+
+.box {
+
+    background: #eeeeee;
+
+    border: 1px solid #555;
+
+    margin-bottom: 8px;
+
+}
+
+.box-title {
+
+    background: #333;
+
+    color: white;
+
+    padding: 4px 6px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
 
     font-weight: bold;
 
-    font-size: 14px;
+    text-transform: uppercase;
 
 }
 
 .box-content {
 
-    padding: 12px;
+    padding: 8px;
 
 }
 
 
-/* =========================
-   LINKS
-   ========================= */
+/* =========================================================
+   PROFILE PHOTO
+   ========================================================= */
 
-.links a {
-
-    display: block;
-
-    color: #111;
-
-    font-weight: bold;
-
-    padding: 5px;
-
-    margin-bottom: 5px;
-
-    background: #ffe500;
-
-    border: 2px solid #111;
-
-    text-decoration: none;
-
-}
-
-.links a:hover {
-
-    background: #21d84b;
-
-    transform: translateX(4px);
-
-}
-
-
-/* =========================
-   CENTER
-   ========================= */
-
-.profile {
-
-    background: #fff;
-
-    border: 5px solid #111;
-
-    box-shadow: 9px 9px 0 #111;
-
-    padding: 20px;
-
-    position: relative;
-
-    overflow: hidden;
-
-}
-
-
-/* Decorative text */
-
-.profile::before {
-
-    content: "HELLO!!!!!!!";
-
-    position: absolute;
-
-    right: -10px;
-
-    top: 5px;
-
-    font-family: Impact, sans-serif;
-
-    font-size: 65px;
-
-    color: #ff3b18;
-
-    transform: rotate(8deg);
-
-    opacity: .18;
-
-}
-
-
-/* =========================
-   PROFILE TITLE
-   ========================= */
-
-.profile-title {
-
-    background: #ffe500;
-
-    border: 4px solid #111;
-
-    padding: 8px 12px;
-
-    font-family: Impact, sans-serif;
-
-    font-size: 34px;
-
-    margin-bottom: 20px;
-
-}
-
-
-/* =========================
-   INTRO
-   ========================= */
-
-.intro {
-
-    display: grid;
-
-    grid-template-columns: 190px 1fr;
-
-    gap: 20px;
-
-    align-items: start;
-
-}
-
-
-/* =========================
-   PHOTO
-   ========================= */
-
-.photo {
-
-    background: #687044;
-
-    border: 4px solid #111;
-
-    padding: 5px;
-
-}
-
-.photo img {
+.profile-photo {
 
     width: 100%;
 
     display: block;
 
+    border: 1px solid #777;
+
+    margin-bottom: 7px;
+
 }
 
 
-/* =========================
-   BIO
-   ========================= */
+/* =========================================================
+   PROFILE DETAILS
+   ========================================================= */
 
-.bio {
+.profile-details {
 
-    font-size: 15px;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+.profile-details b {
+
+    color: #555;
+
+}
+
+
+/* =========================================================
+   BLINKING / OLD INTERNET TEXT
+   ========================================================= */
+
+.status {
+
+    color: #cc0000;
+
+    font-weight: bold;
+
+}
+
+.small {
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   ABOUT ME
+   ========================================================= */
+
+.about {
+
+    font-size: 14px;
 
     line-height: 1.45;
 
 }
 
-.bio h2 {
+.about p {
 
     margin-top: 0;
 
-    font-family: Impact, sans-serif;
-
-    font-size: 28px;
-
-}
-
-.bio p {
-
-    margin-top: 12px;
-
 }
 
 
-/* =========================
-   HIGHLIGHT STRIP
-   ========================= */
+/* =========================================================
+   LISTS
+   ========================================================= */
 
-.highlight {
+ul {
 
-    margin-top: 25px;
+    margin-top: 5px;
 
-    background: #21d84b;
+    padding-left: 20px;
 
-    border: 4px solid #111;
+}
 
-    padding: 12px;
+li {
+
+    margin-bottom: 3px;
+
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee {
+
+    background: black;
+
+    color: white;
+
+    border: 1px solid #555;
+
+    padding: 3px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    color: #0000cc;
+
+}
+
+a:visited {
+
+    color: #551a8b;
+
+}
+
+a:hover {
+
+    color: red;
+
+}
+
+
+/* =========================================================
+   GUESTBOOK
+   ========================================================= */
+
+.comment {
+
+    border-top: 1px dotted #777;
+
+    padding: 8px 0;
+
+}
+
+.comment:first-child {
+
+    border-top: none;
+
+}
+
+.comment-name {
 
     font-weight: bold;
 
+    color: #0000cc;
+
+}
+
+.comment-date {
+
+    color: #777;
+
+    font-size: 10px;
+
 }
 
 
-/* =========================
-   RANDOM STUFF
-   ========================= */
+/* =========================================================
+   FRIENDS
+   ========================================================= */
 
-.random {
-
-    margin-top: 25px;
+.friends {
 
     display: grid;
 
     grid-template-columns:
-        1fr
-        1fr;
+        repeat(4, 1fr);
 
-    gap: 15px;
-
-}
-
-.random-box {
-
-    min-height: 130px;
-
-    border: 4px solid #111;
-
-    padding: 12px;
+    gap: 5px;
 
 }
 
-.random-box:nth-child(1) {
-
-    background: #ff77c8;
-
-}
-
-.random-box:nth-child(2) {
-
-    background: #66d9ff;
-
-}
-
-.random-box:nth-child(3) {
-
-    background: #ffe500;
-
-}
-
-.random-box:nth-child(4) {
-
-    background: #a875ff;
-
-}
-
-
-/* =========================
-   RIGHT COLUMN
-   ========================= */
-
-.right {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
-
-}
-
-.sticker {
+.friend {
 
     text-align: center;
 
-    padding: 15px;
-
-    background: #fff;
-
-    border: 4px solid #111;
-
-    box-shadow: 5px 5px 0 #111;
+    font-size: 10px;
 
 }
 
-.sticker img {
+.friend img {
+
+    width: 100%;
+
+    height: 70px;
+
+    object-fit: cover;
+
+    border: 1px solid #555;
+
+    display: block;
+
+    margin-bottom: 2px;
+
+}
+
+
+/* =========================================================
+   GIF / RANDOM MEDIA
+   ========================================================= */
+
+.random-gif {
 
     max-width: 100%;
 
-    height: auto;
+    display: block;
+
+    margin: 5px auto;
 
 }
 
 
-/* =========================
-   CURRENTLY
-   ========================= */
-
-.currently {
-
-    background: #66d9ff;
-
-}
-
-.currently p {
-
-    margin: 6px 0;
-
-}
-
-
-/* =========================
+/* =========================================================
    FOOTER
-   ========================= */
+   ========================================================= */
 
 .footer {
 
-    margin-top: 30px;
+    border-top: 1px solid #555;
 
-    border: 4px solid #111;
+    margin-top: 15px;
 
-    background: #ff3b18;
-
-    padding: 15px;
+    padding-top: 5px;
 
     text-align: center;
 
-    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 10px;
+
+    color: #555;
 
 }
 
-.footer a {
 
-    color: #111;
-
-}
-
-
-/* =========================
+/* =========================================================
    MOBILE
-   ========================= */
+   ========================================================= */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 700px) {
 
-    .main {
+    #page {
+
+        width: 95%;
+
+    }
+
+    .layout {
 
         grid-template-columns: 1fr;
 
     }
 
-    .intro {
+    .friends {
 
-        grid-template-columns: 1fr;
-
-    }
-
-    .photo {
-
-        max-width: 230px;
-
-        margin: auto;
-
-    }
-
-    .random {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .header {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 12px;
+        grid-template-columns:
+            repeat(3, 1fr);
 
     }
 
@@ -585,167 +489,188 @@ body {
 <body>
 
 
-<div class="page">
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
 
+<div class="topbar">
 
-<!-- =========================
-     HEADER
-     ========================= -->
+    <a href="index.html">HOME</a>
 
-<div class="header">
+    <a href="profile.html">PROFILE</a>
 
-    <h1>AMBER DIAZ</h1>
+    <a href="Mo0veez.html">MOVIES</a>
 
-    <span>PROFILE.EXE</span>
+    <a href="websites.html">WEBSITES</a>
+
+    <a href="photography.html">PHOTOS</a>
+
+    <a href="writing.html">WRITING</a>
+
+    <a href="archive.html">ARCHIVE</a>
 
 </div>
 
 
-<!-- =========================
-     MARQUEE
-     ========================= -->
+<!-- =====================================================
+     PAGE
+     ===================================================== -->
+
+<div id="page">
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>Amber Diaz</h1>
+
+    <p>
+        creative director / filmmaker / writer / internet person
+    </p>
+
+</div>
+
+
+<!-- OLD INTERNET MARQUEE -->
 
 <div class="marquee">
 
-    <div>
-        ★ WELCOME TO MY LITTLE CORNER OF THE INTERNET ★
-        CREATIVE DIRECTOR / FILMMAKER / WRITER / WEB PERSON ★
+    <marquee scrollamount="4">
+
+        ★ welcome to my little corner of the internet ★
+        please do not steal my shit ★
+        established 2026 ★
+
+    </marquee>
+
+</div>
+
+
+<!-- =====================================================
+     TWO COLUMNS
+     ===================================================== -->
+
+<div class="layout">
+
+
+<!-- =====================================================
+     LEFT COLUMN
+     ===================================================== -->
+
+<div>
+
+
+<!-- PHOTO -->
+
+<div class="box">
+
+    <div class="box-title">
+        Profile
+    </div>
+
+    <div class="box-content">
+
+        <img
+            src="lowpolymeee.png"
+            class="profile-photo"
+            alt="Amber"
+        >
+
+        <div class="profile-details">
+
+            <b>Name:</b> Amber Diaz<br>
+
+            <b>Location:</b> New York<br>
+
+            <b>Occupation:</b> Creative Director<br>
+
+            <b>Status:</b>
+            <span class="status">
+                ONLINE
+            </span>
+
+            <br>
+
+            <b>Joined:</b> 2026
+
+        </div>
+
     </div>
 
 </div>
 
 
-<!-- =========================
-     MAIN
-     ========================= -->
-
-<div class="main">
-
-
-<!-- =========================
-     LEFT
-     ========================= -->
-
-<aside class="sidebar">
-
+<!-- CONTACT -->
 
 <div class="box">
 
-<div class="box-title">
-NAVIGATION
+    <div class="box-title">
+        Contact
+    </div>
+
+    <div class="box-content">
+
+        <a href="mailto:youremail@example.com">
+            E-mail Me
+        </a>
+
+        <br><br>
+
+        <a href="#">
+            Instagram
+        </a>
+
+        <br>
+
+        <a href="#">
+            Tumblr
+        </a>
+
+        <br>
+
+        <a href="#">
+            GitHub
+        </a>
+
+    </div>
+
 </div>
 
-<div class="box-content links">
 
-<a href="index.html">HOME</a>
-
-<a href="Mo0veez.html">MO0VEEZ</a>
-
-<a href="websites.html">WEBSITES</a>
-
-<a href="photography.html">PHOTOGRAPHY</a>
-
-<a href="writing.html">WRITING</a>
-
-<a href="branding.html">CREATIVE DIRECTION</a>
-
-<a href="archive.html">ARCHIVE</a>
-
-</div>
-
-</div>
-
+<!-- RANDOM -->
 
 <div class="box">
 
-<div class="box-title">
-WARNING
-</div>
+    <div class="box-title">
+        Random
+    </div>
 
-<div class="box-content">
+    <div class="box-content">
 
-This website was made by a human being.
+        currently listening to:
 
-<br><br>
+        <br><br>
 
-Please do not steal my shit.
+        <b>???</b>
 
-<br><br>
+        <br><br>
 
-Seriously.
+        currently watching:
 
-</div>
+        <br><br>
 
-</div>
+        <b>???</b>
 
+        <br><br>
 
-</aside>
+        mood:
 
+        <br><br>
 
+        <b>¯\_(ツ)_/¯</b>
 
-<!-- =========================
-     CENTER PROFILE
-     ========================= -->
-
-<main class="profile">
-
-
-<div class="profile-title">
-
-ABOUT AMBER
-
-</div>
-
-
-<div class="intro">
-
-
-<div class="photo">
-
-<img
-src="lowpolymeee.png"
-alt="Amber Diaz"
->
-
-</div>
-
-
-<div class="bio">
-
-<h2>HI, I'M AMBER.</h2>
-
-<p>
-
-I'm a creative director, filmmaker,
-writer, designer and general internet
-enthusiast based in New York.
-
-</p>
-
-<p>
-
-I like making things that feel a little
-strange, a little funny, slightly
-nostalgic and preferably not too
-polished.
-
-</p>
-
-<p>
-
-This website is basically my digital
-junk drawer.
-
-</p>
-
-<p>
-
-You will find films, writing,
-photography, websites, experiments,
-old projects, new projects and
-whatever else I decide belongs here.
-
-</p>
+    </div>
 
 </div>
 
@@ -753,168 +678,307 @@ whatever else I decide belongs here.
 </div>
 
 
-<div class="highlight">
+<!-- =====================================================
+     RIGHT COLUMN
+     ===================================================== -->
 
-CURRENT STATUS:
-making things / watching movies /
-collecting weird internet artifacts /
-trying not to delete everything
-
-</div>
+<div>
 
 
-<div class="random">
+<!-- ABOUT -->
 
+<div class="box">
 
-<div class="random-box">
+    <div class="box-title">
+        About Me
+    </div>
 
-<b>LIKES</b>
+    <div class="box-content about">
 
-<br><br>
+        <p>
 
-old websites<br>
-camcorders<br>
-bad fonts<br>
-weird movies<br>
-physical media<br>
-GIFs<br>
-New York<br>
-music
+            Hi. I'm Amber.
 
-</div>
+        </p>
 
+        <p>
 
-<div class="random-box">
+            I make things for the internet, movies,
+            photographs, websites, weird little projects,
+            and whatever else I happen to become obsessed with.
 
-<b>DISLIKES</b>
+        </p>
 
-<br><br>
+        <p>
 
-corporate websites<br>
-boring portfolios<br>
-"clean" design<br>
-AI-generated startup language<br>
-people stealing shit
+            This website is intentionally not very normal.
 
-</div>
+        </p>
 
+        <p>
 
-<div class="random-box">
+            If you're looking for the polished portfolio,
+            you're probably in the wrong place.
 
-<b>NOW PLAYING</b>
+        </p>
 
-<br><br>
+        <p>
 
-♫ something loud
+            Anyway, welcome.
 
-<br><br>
+        </p>
 
-<small>
-insert embarrassing music choice here
-</small>
+    </div>
 
 </div>
 
 
-<div class="random-box">
+<!-- CURRENTLY -->
 
-<b>FUN FACT</b>
+<div class="box">
 
-<br><br>
+    <div class="box-title">
+        Currently
+    </div>
 
-This page contains absolutely
-no reason for existing other than
-I thought it would be funny.
+    <div class="box-content">
+
+        <ul>
+
+            <li>
+                Making: <b>stuff</b>
+            </li>
+
+            <li>
+                Watching: <b>old movies</b>
+            </li>
+
+            <li>
+                Listening to: <b>music</b>
+            </li>
+
+            <li>
+                Learning: <b>JavaScript</b>
+            </li>
+
+            <li>
+                Building: <b>this website</b>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<!-- MY WORK -->
+
+<div class="box">
+
+    <div class="box-title">
+        My Work
+    </div>
+
+    <div class="box-content">
+
+        <a href="Mo0veez.html">
+            Movies / Video
+        </a>
+
+        <br>
+
+        <a href="websites.html">
+            Websites
+        </a>
+
+        <br>
+
+        <a href="photography.html">
+            Photography
+        </a>
+
+        <br>
+
+        <a href="writing.html">
+            Writing
+        </a>
+
+        <br>
+
+        <a href="branding.html">
+            Creative Direction
+        </a>
+
+        <br>
+
+        <a href="archive.html">
+            Archive
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- FRIENDS -->
+
+<div class="box">
+
+    <div class="box-title">
+        Friends / Links
+    </div>
+
+    <div class="box-content">
+
+        <div class="friends">
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend1.gif"
+                        alt=""
+                    >
+
+                    friend 01
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend2.gif"
+                        alt=""
+                    >
+
+                    friend 02
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend3.gif"
+                        alt=""
+                    >
+
+                    friend 03
+
+                </a>
+
+            </div>
+
+
+            <div class="friend">
+
+                <a href="#">
+
+                    <img
+                        src="images/friend4.gif"
+                        alt=""
+                    >
+
+                    friend 04
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- GUESTBOOK -->
+
+<div class="box">
+
+    <div class="box-title">
+        Guestbook
+    </div>
+
+    <div class="box-content">
+
+
+        <div class="comment">
+
+            <div class="comment-name">
+                random internet person
+            </div>
+
+            <div class="comment-date">
+                08/13/2026
+            </div>
+
+            this website is crazy lol
+
+        </div>
+
+
+        <div class="comment">
+
+            <div class="comment-name">
+                another person
+            </div>
+
+            <div class="comment-date">
+                08/13/2026
+            </div>
+
+            i like your site
+
+        </div>
+
+
+        <br>
+
+        <a href="#">
+            Sign my guestbook
+        </a>
+
+    </div>
 
 </div>
 
 
 </div>
 
-
-</main>
-
-
-
-<!-- =========================
-     RIGHT
-     ========================= -->
-
-<aside class="right">
-
-
-<div class="sticker">
-
-<img
-src="copyright1.gif"
-alt=""
->
-
 </div>
 
 
-<div class="box currently">
-
-<div class="box-title">
-
-CURRENTLY:
-
-</div>
-
-<div class="box-content">
-
-<p>📍 NEW YORK</p>
-
-<p>🎥 FILMING</p>
-
-<p>💻 BUILDING THIS SITE</p>
-
-<p>📼 DIGITIZING STUFF</p>
-
-<p>📝 WRITING</p>
-
-</div>
-
-</div>
-
-
-<div class="sticker">
-
-<img
-src="images/notebook.png"
-alt="Notebook"
->
-
-<p>
-
-CLICK AROUND.
-
-</p>
-
-</div>
-
-
-</aside>
-
-
-</div>
-
-
-<!-- =========================
+<!-- =====================================================
      FOOTER
-     ========================= -->
+     ===================================================== -->
 
 <div class="footer">
 
-★
+    © 2026 Amber Diaz
 
-YOU HAVE REACHED THE END OF THE PAGE
+    &nbsp; | &nbsp;
 
-★
+    Best viewed with a computer
 
-<br><br>
+    &nbsp; | &nbsp;
 
-<a href="index.html">GO BACK HOME</a>
+    <a href="index.html">
+        back to entrance
+    </a>
 
 </div>
 
