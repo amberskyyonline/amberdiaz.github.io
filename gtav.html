@@ -210,8 +210,7 @@
 
         function updateSlide() {
             const fileName = imageFiles[currentSlide];
-            slideImage.src = "pics/" + fileName;
-            // Strip out the .jpg extension for a clean caption
+            slideImage.src = "gtav/" + fileName;
             const cleanName = fileName.replace(/\.[^/.]+$/, "");
             slideCaption.textContent = cleanName;
             slideCounter.textContent = `${currentSlide + 1} / ${totalImages}`;
