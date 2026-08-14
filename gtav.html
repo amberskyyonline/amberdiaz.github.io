@@ -51,7 +51,7 @@
         .slideshow-container {
             position: relative;
             width: 380px;
-            height: 260px;
+            height: 285px;
             background: white;
             border: 2px solid black;
             padding: 10px;
@@ -64,17 +64,30 @@
 
         .slide-img {
             width: 100%;
-            height: 200px;
+            height: 185px;
             object-fit: cover;
             border: 1px solid black;
         }
 
+        .slide-caption {
+            margin-top: 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            color: black;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+
         .slide-counter {
-            margin-top: 8px;
-            font-size: 0.8rem;
+            margin-top: 4px;
+            font-size: 0.75rem;
             font-weight: bold;
             letter-spacing: 0.15em;
-            color: black;
+            color: #555;
         }
 
         /* Navigation Buttons */
@@ -126,7 +139,7 @@
         .footer {
             margin-top: 10px;
             font-size: .75rem;
-            letter-spacing: .2em;
+            letter-spacing: 0.2em;
             color: #000000;
             font-weight: bold;
             user-select: none;
@@ -147,6 +160,7 @@
         <!-- Slideshow Box -->
         <div class="slideshow-container">
             <img id="slideImage" class="slide-img" src="" alt="Slideshow Image">
+            <div class="slide-caption" id="slideCaption">caption</div>
             <div class="slide-counter" id="slideCounter">1 / 115</div>
         </div>
 
@@ -164,8 +178,7 @@
     </div>
 
     <script>
-        // Exact array populated with all 115 image file names provided
-        const images = [
+        const imageFiles = [
             "2011.jpg", "5.jpg", "Samaustindrive.jpg", "Strawberry.jpg", "ammo.jpg", "arcade.jpg", 
             "bankroll.jpg", "batmobile.jpg", "beachlady.jpg", "bed.jpg", "bennyss.jpg", "biggiebobble.jpg", 
             "biig.jpg", "blonded.jpg", "bloodmoney.jpg", "bullet2dadome.jpg", "bumfights.jpg", "bumfights2.jpg", 
@@ -188,14 +201,19 @@
             "whip.jpg", "word.jpg", "workinhard.jpg", "yeahbuddy.jpg"
         ];
 
-        const totalImages = images.length;
+        const totalImages = imageFiles.length;
         let currentSlide = 0;
 
         const slideImage = document.getElementById('slideImage');
+        const slideCaption = document.getElementById('slideCaption');
         const slideCounter = document.getElementById('slideCounter');
 
         function updateSlide() {
-            slideImage.src = images[currentSlide];
+            const fileName = imageFiles[currentSlide];
+            slideImage.src = "pics/" + fileName;
+            // Strip out the .jpg extension for a clean caption
+            const cleanName = fileName.replace(/\.[^/.]+$/, "");
+            slideCaption.textContent = cleanName;
             slideCounter.textContent = `${currentSlide + 1} / ${totalImages}`;
         }
 
