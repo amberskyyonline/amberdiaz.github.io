@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VideoW0rld</title>
+    <title>VideoWorld</title>
     <link rel="icon" href="favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
   </head> 
@@ -17,42 +17,64 @@
         </a>
     </div>
 
-    <div id="content-wrap">
-    </div> 
-
-    <!-- Centered Content Grid -->
+    <!-- Horizontal Draggable & Infinite Scroll Content Container -->
     <div id="content">
-      <div class="gallery-grid">
+      <div class="marquee-track" id="marqueeTrack">
+        <!-- Original Set of Videos -->
         <div class="gallery">
           <div class="wistia_embed wistia_async_xxeetv5l4v" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-
         <div class="gallery">
           <div class="wistia_embed wistia_async_w9v7ileovy" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-
         <div class="gallery">
           <div class="wistia_embed wistia_async_kugfyw90yl" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-
         <div class="gallery">
           <div class="wistia_embed wistia_async_3no9llex9m" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-
         <div class="gallery">
           <div class="wistia_embed wistia_async_iqzu8jqp3b" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-
         <div class="gallery">
           <div class="wistia_embed wistia_async_00qhk1cyaa" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
         </div>
-          
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_w8k6bu221i" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+
+        <!-- Duplicate Set for Seamless Infinite Scroll Loop -->
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_xxeetv5l4v" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_w9v7ileovy" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_kugfyw90yl" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_3no9llex9m" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_iqzu8jqp3b" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
+        <div class="gallery">
+          <div class="wistia_embed wistia_async_00qhk1cyaa" style="height:100%;width:100%;">&nbsp;</div>
+          <div class="desc"></div>
+        </div>
         <div class="gallery">
           <div class="wistia_embed wistia_async_w8k6bu221i" style="height:100%;width:100%;">&nbsp;</div>
           <div class="desc"></div>
@@ -73,12 +95,63 @@
       }
     });
 
-    document.querySelectorAll('.video-thumb').forEach(video => {
-      video.addEventListener('mouseenter', () => video.play());
-      video.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-      });
+    // Drag-to-scroll and Infinite Loop Mechanism
+    const track = document.getElementById('marqueeTrack');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      track.classList.add('active');
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('mouseleave', () => {
+      isDown = false;
+      track.classList.remove('active');
+    });
+
+    track.addEventListener('mouseup', () => {
+      isDown = false;
+      track.classList.remove('active');
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      track.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch support for mobile dragging
+    track.addEventListener('touchstart', (e) => {
+      isDown = true;
+      startX = e.touches[0].pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('touchend', () => {
+      isDown = false;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - track.offsetLeft;
+      const walk = (x - startX) * 2;
+      track.scrollLeft = scrollLeft - walk;
+    });
+
+    // Seamless infinite wrap logic
+    track.addEventListener('scroll', () => {
+      const halfWidth = track.scrollWidth / 2;
+      if (track.scrollLeft >= halfWidth) {
+        track.scrollLeft -= halfWidth;
+      } else if (track.scrollLeft <= 0) {
+        track.scrollLeft += halfWidth;
+      }
     });
   </script>
 
@@ -86,7 +159,7 @@
     .logo-container {
         width: 100%;
         text-align: center;
-        padding-top: 15px;
+        padding-top: 25px;
         z-index: 100;
         position: relative;
     }
@@ -99,70 +172,44 @@
         filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.15));
     }
 
-    .navbar {  
-      z-index: 99;
-      position: relative;
-      top: 10%;
-      right: 0;
-      width: 100%;
-      background-color: black;
-      color: white;
-      text-align: center;
-      vertical-align: middle;
-      height: 9%;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    } 
-
-    .gallery .wistia_embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .video-thumb {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
     #page-container {
       position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
-    #content-wrap {
-      padding-bottom: 10px;
-    }
-
-    /* Centering wrapper */
+    /* Horizontal container layout */
     #content { 
       z-index: 99;
       width: 100%;
       flex: 1;
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 15px 0;
+      overflow: hidden;
+      padding: 20px 0;
     }
 
-    /* Scaled down grid layout */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 220px);
-      justify-content: center;
-      gap: 25px;
-      max-width: 760px;
+    /* Infinite scrolling & draggable track */
+    .marquee-track {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-behavior: auto;
       width: 100%;
-      margin: 0 auto;
+      padding: 20px 50px;
+      cursor: grab;
+      user-select: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .marquee-track::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for a clean look */
+    }
+
+    .marquee-track:active {
+      cursor: grabbing;
     }
 
     .dropbtn {
@@ -232,14 +279,24 @@
        background: black;
        font-family: "Menlo";
        margin: 0;
+       overflow-x: hidden;
     }
 
+    /* Scaled down side-by-side gallery item dimensions */
     .gallery {
       position: relative;
-      width: 100%;
+      flex: 0 0 220px;
       height: 135px;
       border: none;
       margin: 0;
+    }
+
+    .gallery .wistia_embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     div.gallery:hover {
@@ -267,31 +324,13 @@
       width: 100%;
     }
 
-    @media screen and (max-width: 800px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 200px);
-      }
-    }
-
-    @media screen and (max-width: 500px) {
-      .footer {  
-        font-size: 1.5vh;
-      }
-      .dropbtn {
-        font-size: 1.5vh;
-      }
-      .dropdown-content a {
-        font-size: 1.5vh;
-      }
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-      }
+    @media screen and (max-width: 700px) {
       .gallery {
-        height: 150px;
+        flex: 0 0 180px;
+        height: 110px;
       }
       .desc {
-        font-size: 1.7vh;
+        font-size: 1.5vh;
       }
     }
   </style>
