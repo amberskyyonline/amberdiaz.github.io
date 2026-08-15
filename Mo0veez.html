@@ -86,13 +86,13 @@
     .logo-container {
         width: 100%;
         text-align: center;
-        padding-top: 25px;
+        padding-top: 15px;
         z-index: 100;
         position: relative;
     }
 
     .main-logo {
-        max-width: 140px;
+        max-width: 90px;
         width: 100%;
         height: auto;
         display: inline-block;
@@ -140,10 +140,10 @@
     }
 
     #content-wrap {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
 
-    /* Perfectly center the video gallery wrapper horizontally and vertically */
+    /* Centering wrapper */
     #content { 
       z-index: 99;
       width: 100%;
@@ -151,16 +151,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0;
+      padding: 15px 0;
     }
 
-    /* Grid configuration to lock perfect alignment and centering */
+    /* Scaled down grid layout */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 340px);
+      grid-template-columns: repeat(3, 220px);
       justify-content: center;
-      gap: 40px;
-      max-width: 1160px;
+      gap: 25px;
+      max-width: 760px;
       width: 100%;
       margin: 0 auto;
     }
@@ -237,7 +237,7 @@
     .gallery {
       position: relative;
       width: 100%;
-      height: 210px;
+      height: 135px;
       border: none;
       margin: 0;
     }
@@ -267,13 +267,13 @@
       width: 100%;
     }
 
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: 800px) {
       .gallery-grid {
-        grid-template-columns: repeat(2, 320px);
+        grid-template-columns: repeat(2, 200px);
       }
     }
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 500px) {
       .footer {  
         font-size: 1.5vh;
       }
@@ -288,7 +288,7 @@
         padding: 0 20px;
       }
       .gallery {
-        height: 200px;
+        height: 150px;
       }
       .desc {
         font-size: 1.7vh;
